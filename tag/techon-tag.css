@@ -1,0 +1,112 @@
+:root {
+  --to-tag-bg-default: #f0f0f0;
+  --to-tag-text-default: #1a1a1a;
+  --to-tag-bg-primary: #0066ff;
+  --to-tag-text-primary: #ffffff;
+  --to-tag-bg-success: #10b981;
+  --to-tag-text-success: #ffffff;
+  --to-tag-bg-warning: #f59e0b;
+  --to-tag-text-warning: #ffffff;
+  --to-tag-bg-danger: #ef4444;
+  --to-tag-text-danger: #ffffff;
+  --to-tag-bg-info: #3b82f6;
+  --to-tag-text-info: #ffffff;
+  --to-tag-border: #e5e5e5;
+  --to-tag-padding: 4px 8px;
+  --to-tag-font-size: 12px;
+  --to-tag-radius: 4px;
+  --to-tag-gap: 4px;
+}
+
+.to-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--to-tag-gap);
+  padding: var(--to-tag-padding);
+  font-size: var(--to-tag-font-size);
+  font-weight: 500;
+  line-height: 1;
+  border-radius: var(--to-tag-radius);
+  font-family: system-ui, -apple-system, sans-serif;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.to-tag[data-variant="default"] {
+  background-color: var(--to-tag-bg-default);
+  color: var(--to-tag-text-default);
+}
+
+.to-tag[data-variant="primary"] {
+  background-color: var(--to-tag-bg-primary);
+  color: var(--to-tag-text-primary);
+}
+
+.to-tag[data-variant="success"] {
+  background-color: var(--to-tag-bg-success);
+  color: var(--to-tag-text-success);
+}
+
+.to-tag[data-variant="warning"] {
+  background-color: var(--to-tag-bg-warning);
+  color: var(--to-tag-text-warning);
+}
+
+.to-tag[data-variant="danger"] {
+  background-color: var(--to-tag-bg-danger);
+  color: var(--to-tag-text-danger);
+}
+
+.to-tag[data-variant="info"] {
+  background-color: var(--to-tag-bg-info);
+  color: var(--to-tag-text-info);
+}
+
+.to-tag[data-variant="outline"] {
+  background-color: transparent;
+  color: var(--to-tag-text-default);
+  border: 1px solid var(--to-tag-border);
+}
+
+.to-tag[data-size="s"] {
+  padding: 2px 6px;
+  font-size: 10px;
+}
+
+.to-tag[data-size="m"] {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.to-tag[data-size="l"] {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.to-tag[data-radius="none"] { border-radius: 0; }
+.to-tag[data-radius="s"] { border-radius: 4px; }
+.to-tag[data-radius="m"] { border-radius: 6px; }
+.to-tag[data-radius="l"] { border-radius: 8px; }
+.to-tag[data-radius="xl"] { border-radius: 12px; }
+.to-tag[data-radius="full"] { border-radius: 999px; }
+
+.to-tag-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.to-tag-close:hover {
+  opacity: 1;
+}
+
+.to-tag-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 4px;
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - Tag</title>
+    <link rel="stylesheet" href="techon-tag.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 24px; max-width: 800px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .demo-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+        .demo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px; }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Tag Variants</h2>
+            <div class="demo-row">
+                <span class="to-tag" data-variant="default">Default</span>
+                <span class="to-tag" data-variant="primary">Primary</span>
+                <span class="to-tag" data-variant="success">Success</span>
+                <span class="to-tag" data-variant="warning">Warning</span>
+                <span class="to-tag" data-variant="danger">Danger</span>
+                <span class="to-tag" data-variant="info">Info</span>
+                <span class="to-tag" data-variant="outline">Outline</span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Tag Sizes</h2>
+            <div class="demo-row">
+                <span class="to-tag" data-variant="primary" data-size="s">Small</span>
+                <span class="to-tag" data-variant="primary" data-size="m">Medium</span>
+                <span class="to-tag" data-variant="primary" data-size="l">Large</span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Tag Radius</h2>
+            <div class="demo-row">
+                <span class="to-tag" data-variant="success" data-radius="none">None</span>
+                <span class="to-tag" data-variant="success" data-radius="s">Small</span>
+                <span class="to-tag" data-variant="success" data-radius="m">Medium</span>
+                <span class="to-tag" data-variant="success" data-radius="l">Large</span>
+                <span class="to-tag" data-variant="success" data-radius="xl">XL</span>
+                <span class="to-tag" data-variant="success" data-radius="full">Full</span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Icons</h2>
+            <div class="demo-row">
+                <span class="to-tag" data-variant="success">
+                    <span class="to-tag-icon">✓</span>
+                    Completed
+                </span>
+                <span class="to-tag" data-variant="warning">
+                    <span class="to-tag-icon">⚠</span>
+                    Pending
+                </span>
+                <span class="to-tag" data-variant="danger">
+                    <span class="to-tag-icon">✗</span>
+                    Failed
+                </span>
+                <span class="to-tag" data-variant="info">
+                    <span class="to-tag-icon">ℹ</span>
+                    Info
+                </span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Closable Tags</h2>
+            <div class="demo-row">
+                <span class="to-tag" data-variant="default" data-closable="true">Closable 1</span>
+                <span class="to-tag" data-variant="primary" data-closable="true">Closable 2</span>
+                <span class="to-tag" data-variant="success" data-closable="true">Closable 3</span>
+                <span class="to-tag" data-variant="warning" data-closable="true">Closable 4</span>
+                <span class="to-tag" data-variant="danger" data-closable="true">Closable 5</span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Status Tags</h2>
+            <div class="demo-row">
+                <span class="to-tag" data-variant="success">Active</span>
+                <span class="to-tag" data-variant="warning">In Progress</span>
+                <span class="to-tag" data-variant="danger">Blocked</span>
+                <span class="to-tag" data-variant="info">Review</span>
+                <span class="to-tag" data-variant="outline">Draft</span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Tag Groups</h2>
+            <div class="demo-row">
+                <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                    <span class="to-tag" data-variant="primary">React</span>
+                    <span class="to-tag" data-variant="success">Vue</span>
+                    <span class="to-tag" data-variant="info">Angular</span>
+                    <span class="to-tag" data-variant="warning">Svelte</span>
+                    <span class="to-tag" data-variant="outline">Solid</span>
+                </div>
+            </div>
+            <div class="demo-row" style="margin-top: 12px;">
+                <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                    <span class="to-tag" data-variant="primary">JavaScript</span>
+                    <span class="to-tag" data-variant="success">TypeScript</span>
+                    <span class="to-tag" data-variant="info">Python</span>
+                    <span class="to-tag" data-variant="warning">Java</span>
+                    <span class="to-tag" data-variant="danger">Go</span>
+                    <span class="to-tag" data-variant="outline">Rust</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>In Cards</h2>
+            <div class="to-card" data-variant="elevated" data-padding="m" style="max-width: 300px;">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                    <h3 style="margin: 0;">Project Status</h3>
+                    <span class="to-tag" data-variant="success" data-size="s">Active</span>
+                </div>
+                <p class="to-text" data-size="s" data-color="muted">Last updated 2 hours ago</p>
+                <div style="display: flex; gap: 4px; margin-top: 12px;">
+                    <span class="to-tag" data-variant="info" data-size="s">UI</span>
+                    <span class="to-tag" data-variant="info" data-size="s">UX</span>
+                    <span class="to-tag" data-variant="info" data-size="s">Dev</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="techon-tag.js"></script>
+    <script src="techon-card.js"></script>
+    <script src="techon-text.js"></script>
+</body>
+</html>

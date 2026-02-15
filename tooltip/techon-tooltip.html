@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - Tooltip</title>
+    <link rel="stylesheet" href="techon-tooltip.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 24px; max-width: 800px; margin: 0 auto; }
+        .demo-section { background: white; padding: 40px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .demo-row { display: flex; gap: 60px; flex-wrap: wrap; justify-content: center; align-items: center; min-height: 150px; }
+        
+        .demo-button {
+            padding: 10px 20px;
+            background: #000;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .demo-box {
+            width: 100px;
+            height: 100px;
+            background: #f0f0f0;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .demo-icon {
+            font-size: 24px;
+            cursor: help;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Tooltip Positions</h2>
+            <div class="demo-row">
+                <div class="to-tooltip">
+                    <button class="demo-button">Top</button>
+                    <span class="to-tooltip-content" data-position="top">Tooltip on top</span>
+                </div>
+                
+                <div class="to-tooltip">
+                    <button class="demo-button">Bottom</button>
+                    <span class="to-tooltip-content" data-position="bottom">Tooltip on bottom</span>
+                </div>
+                
+                <div class="to-tooltip">
+                    <button class="demo-button">Left</button>
+                    <span class="to-tooltip-content" data-position="left">Tooltip on left</span>
+                </div>
+                
+                <div class="to-tooltip">
+                    <button class="demo-button">Right</button>
+                    <span class="to-tooltip-content" data-position="right">Tooltip on right</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Icons</h2>
+            <div class="demo-row">
+                <div class="to-tooltip">
+                    <span class="demo-icon">ℹ️</span>
+                    <span class="to-tooltip-content" data-position="top">Information icon</span>
+                </div>
+                
+                <div class="to-tooltip">
+                    <span class="demo-icon">❓</span>
+                    <span class="to-tooltip-content" data-position="bottom">Help icon</span>
+                </div>
+                
+                <div class="to-tooltip">
+                    <span class="demo-icon">⚠️</span>
+                    <span class="to-tooltip-content" data-position="right">Warning icon</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>On Text</h2>
+            <div class="demo-row">
+                <p>
+                    Hover over 
+                    <span class="to-tooltip" style="display: inline-block;">
+                        <strong style="color: #0066ff; cursor: help;">this word</strong>
+                        <span class="to-tooltip-content" data-position="top">You found the tooltip!</span>
+                    </span>
+                    to see a tooltip.
+                </p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Delay</h2>
+            <div class="demo-row">
+                <div class="to-tooltip" data-delay="500">
+                    <button class="demo-button">Hover (500ms delay)</button>
+                    <span class="to-tooltip-content" data-position="top">Delayed tooltip</span>
+                </div>
+                
+                <div class="to-tooltip" data-delay="1000">
+                    <button class="demo-button">Hover (1s delay)</button>
+                    <span class="to-tooltip-content" data-position="top">One second delay</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Different Widths</h2>
+            <div class="demo-row">
+                <div class="to-tooltip">
+                    <button class="demo-button">Auto width</button>
+                    <span class="to-tooltip-content" data-position="top" data-width="auto">Short text</span>
+                </div>
+                
+                <div class="to-tooltip">
+                    <button class="demo-button">Fixed 200px</button>
+                    <span class="to-tooltip-content" data-position="top" data-width="200">
+                        This is a longer tooltip text that will wrap to multiple lines because it has a fixed width of 200 pixels.
+                    </span>
+                </div>
+                
+                <div class="to-tooltip">
+                    <button class="demo-button">Fixed 300px</button>
+                    <span class="to-tooltip-content" data-position="top" data-width="300">
+                        An even longer tooltip content that demonstrates wrapping with a larger fixed width container for better readability.
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>On Various Elements</h2>
+            <div class="demo-row">
+                <div class="to-tooltip">
+                    <div class="demo-box">Box</div>
+                    <span class="to-tooltip-content" data-position="top">This is a box element</span>
+                </div>
+                
+                <div class="to-tooltip">
+                    <span class="to-tag" data-variant="primary">Tag</span>
+                    <span class="to-tooltip-content" data-position="bottom">Clickable tag with info</span>
+                </div>
+                
+                <div class="to-tooltip">
+                    <span class="to-badge" data-variant="success">Badge</span>
+                    <span class="to-tooltip-content" data-position="right">Status badge tooltip</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Rich Content</h2>
+            <div class="demo-row">
+                <div class="to-tooltip">
+                    <button class="demo-button">Hover me</button>
+                    <div class="to-tooltip-content" data-position="top" data-width="250" style="white-space: normal; padding: 12px;">
+                        <strong style="display: block; margin-bottom: 8px;">Rich Tooltip</strong>
+                        <span style="display: block; margin-bottom: 8px;">You can add formatted content here.</span>
+                        <span class="to-tag" data-variant="success" data-size="s" style="margin-right: 4px;">HTML</span>
+                        <span class="to-tag" data-variant="info" data-size="s">Supported</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="techon-tooltip.js"></script>
+    <script src="techon-tag.js"></script>
+    <script src="techon-badge.js"></script>
+</body>
+</html>
