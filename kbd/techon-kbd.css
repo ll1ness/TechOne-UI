@@ -1,0 +1,99 @@
+:root {
+  --to-kbd-bg: #f5f5f5;
+  --to-kbd-text: #1a1a1a;
+  --to-kbd-border: #e5e5e5;
+  --to-kbd-shadow: 0 2px 0 #d1d1d1;
+  --to-kbd-radius: 4px;
+  --to-kbd-padding: 2px 6px;
+  --to-kbd-font-size: 12px;
+  --to-kbd-font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+}
+
+.to-kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--to-kbd-padding);
+  background-color: var(--to-kbd-bg);
+  color: var(--to-kbd-text);
+  border: 1px solid var(--to-kbd-border);
+  border-radius: var(--to-kbd-radius);
+  font-family: var(--to-kbd-font-family);
+  font-size: var(--to-kbd-font-size);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: var(--to-kbd-shadow);
+  min-width: 20px;
+  text-transform: uppercase;
+}
+
+.to-kbd[data-size="s"] {
+  padding: 2px 4px;
+  font-size: 10px;
+  min-width: 16px;
+}
+
+.to-kbd[data-size="m"] {
+  padding: 3px 6px;
+  font-size: 11px;
+  min-width: 20px;
+}
+
+.to-kbd[data-size="l"] {
+  padding: 4px 8px;
+  font-size: 12px;
+  min-width: 24px;
+}
+
+.to-kbd[data-size="xl"] {
+  padding: 5px 10px;
+  font-size: 14px;
+  min-width: 28px;
+}
+
+.to-kbd[data-variant="outline"] {
+  background-color: transparent;
+  box-shadow: none;
+  border: 1px solid var(--to-kbd-border);
+}
+
+.to-kbd[data-variant="ghost"] {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+.to-kbd[data-variant="raised"] {
+  box-shadow: 0 2px 0 #d1d1d1, 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.to-kbd[data-radius="none"] { border-radius: 0; }
+.to-kbd[data-radius="s"] { border-radius: 3px; }
+.to-kbd[data-radius="m"] { border-radius: 4px; }
+.to-kbd[data-radius="l"] { border-radius: 6px; }
+.to-kbd[data-radius="xl"] { border-radius: 8px; }
+.to-kbd[data-radius="full"] { border-radius: 12px; }
+
+.to-kbd-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.to-kbd-group .to-kbd {
+  margin: 0;
+}
+
+.to-kbd-group-separator {
+  color: #666;
+  font-size: 12px;
+  margin: 0 2px;
+}
+
+.to-kbd[data-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - IconButton</title>
+    <link rel="stylesheet" href="techon-icon-button.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 24px; max-width: 800px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .demo-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Sizes</h2>
+            <div class="demo-row">
+                <button class="to-icon-button" data-size="xs" data-icon="menu">☰</button>
+                <button class="to-icon-button" data-size="s" data-icon="menu">☰</button>
+                <button class="to-icon-button" data-size="m" data-icon="menu">☰</button>
+                <button class="to-icon-button" data-size="l" data-icon="menu">☰</button>
+                <button class="to-icon-button" data-size="xl" data-icon="menu">☰</button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Variants</h2>
+            <div class="demo-row">
+                <button class="to-icon-button" data-variant="ghost" data-icon="heart">❤️</button>
+                <button class="to-icon-button" data-variant="outline" data-icon="star">⭐</button>
+                <button class="to-icon-button" data-variant="solid" data-icon="check">✓</button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Radius</h2>
+            <div class="demo-row">
+                <button class="to-icon-button" data-radius="none" data-icon="close">✕</button>
+                <button class="to-icon-button" data-radius="s" data-icon="close">✕</button>
+                <button class="to-icon-button" data-radius="m" data-icon="close">✕</button>
+                <button class="to-icon-button" data-radius="l" data-icon="close">✕</button>
+                <button class="to-icon-button" data-radius="xl" data-icon="close">✕</button>
+                <button class="to-icon-button" data-radius="full" data-icon="close">✕</button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Common Icons</h2>
+            <div class="demo-row">
+                <button class="to-icon-button" data-icon="menu">☰</button>
+                <button class="to-icon-button" data-icon="search">🔍</button>
+                <button class="to-icon-button" data-icon="user">👤</button>
+                <button class="to-icon-button" data-icon="settings">⚙️</button>
+                <button class="to-icon-button" data-icon="home">🏠</button>
+                <button class="to-icon-button" data-icon="heart">❤️</button>
+                <button class="to-icon-button" data-icon="star">⭐</button>
+                <button class="to-icon-button" data-icon="mail">✉️</button>
+                <button class="to-icon-button" data-icon="bell">🔔</button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Arrow Icons</h2>
+            <div class="demo-row">
+                <button class="to-icon-button" data-icon="arrow-left">←</button>
+                <button class="to-icon-button" data-icon="arrow-right">→</button>
+                <button class="to-icon-button" data-icon="arrow-up">↑</button>
+                <button class="to-icon-button" data-icon="arrow-down">↓</button>
+                <button class="to-icon-button" data-icon="chevron-left">‹</button>
+                <button class="to-icon-button" data-icon="chevron-right">›</button>
+                <button class="to-icon-button" data-icon="chevron-up">⌃</button>
+                <button class="to-icon-button" data-icon="chevron-down">⌄</button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Action Icons</h2>
+            <div class="demo-row">
+                <button class="to-icon-button" data-icon="edit">✏️</button>
+                <button class="to-icon-button" data-icon="delete">🗑️</button>
+                <button class="to-icon-button" data-icon="copy">📋</button>
+                <button class="to-icon-button" data-icon="save">💾</button>
+                <button class="to-icon-button" data-icon="print">🖨️</button>
+                <button class="to-icon-button" data-icon="share">📤</button>
+                <button class="to-icon-button" data-icon="download">⬇️</button>
+                <button class="to-icon-button" data-icon="upload">⬆️</button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>States</h2>
+            <div class="demo-row">
+                <button class="to-icon-button" data-icon="heart">❤️</button>
+                <button class="to-icon-button" data-icon="star" disabled>⭐</button>
+                <button class="to-icon-button" data-icon="check" data-loading="true">✓</button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Tooltips</h2>
+            <div class="demo-row">
+                <div class="to-tooltip">
+                    <button class="to-icon-button" data-icon="user">👤</button>
+                    <span class="to-tooltip-content" data-position="top">Profile</span>
+                </div>
+                
+                <div class="to-tooltip">
+                    <button class="to-icon-button" data-icon="settings">⚙️</button>
+                    <span class="to-tooltip-content" data-position="top">Settings</span>
+                </div>
+                
+                <div class="to-tooltip">
+                    <button class="to-icon-button" data-icon="bell">🔔</button>
+                    <span class="to-tooltip-content" data-position="top">Notifications</span>
+                </div>
+                
+                <div class="to-tooltip">
+                    <button class="to-icon-button" data-icon="mail">✉️</button>
+                    <span class="to-tooltip-content" data-position="top">Messages</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>In Cards</h2>
+            <div style="display: flex; gap: 20px;">
+                <div class="to-card" data-variant="elevated" style="width: 200px; padding: 16px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="margin: 0;">Card Title</h3>
+                        <button class="to-icon-button" data-icon="close">✕</button>
+                    </div>
+                    <p style="margin: 12px 0 0 0; color: #666;">Card content here</p>
+                </div>
+                
+                <div class="to-card" data-variant="elevated" style="width: 200px; padding: 16px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="margin: 0;">Settings</h3>
+                        <button class="to-icon-button" data-icon="settings">⚙️</button>
+                    </div>
+                    <p style="margin: 12px 0 0 0; color: #666;">Configure options</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Navigation Bar</h2>
+            <div style="display: flex; align-items: center; gap: 8px; padding: 12px; background: white; border: 1px solid #eee; border-radius: 12px;">
+                <button class="to-icon-button" data-icon="menu">☰</button>
+                <span style="flex: 1; text-align: center;">Dashboard</span>
+                <button class="to-icon-button" data-icon="search">🔍</button>
+                <button class="to-icon-button" data-icon="bell">🔔</button>
+                <button class="to-icon-button" data-icon="user">👤</button>
+            </div>
+        </div>
+    </div>
+    <script src="techon-icon-button.js"></script>
+    <script src="techon-card.js"></script>
+    <script src="techon-tooltip.js"></script>
+</body>
+</html>

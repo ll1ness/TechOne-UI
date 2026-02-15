@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - ToggleButton</title>
+    <link rel="stylesheet" href="techon-toggle.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 24px; max-width: 800px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .demo-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Basic Usage</h2>
+            <div class="demo-row">
+                <button class="to-toggle-button" data-selected="true">Selected</button>
+                <button class="to-toggle-button">Default</button>
+                <button class="to-toggle-button" data-variant="outline">Link</button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Icons</h2>
+            <div class="demo-row">
+                <button class="to-toggle-button" data-variant="outline">
+                    <span class="to-icon">←</span>
+                    Back
+                </button>
+                <button class="to-toggle-button" data-variant="outline">
+                    Forward
+                    <span class="to-icon">→</span>
+                </button>
+                <button class="to-toggle-button" data-selected="true">
+                    <span class="to-icon">★</span>
+                    Favorite
+                </button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Sizes</h2>
+            <div class="demo-row">
+                <button class="to-toggle-button" data-size="s">Small</button>
+                <button class="to-toggle-button" data-size="m">Medium</button>
+                <button class="to-toggle-button" data-size="l">Large</button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Variants</h2>
+            <div class="demo-row">
+                <button class="to-toggle-button" data-variant="ghost">Ghost</button>
+                <button class="to-toggle-button" data-variant="outline">Outline</button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Radius</h2>
+            <div class="demo-row">
+                <button class="to-toggle-button" data-variant="outline" data-radius="none">None</button>
+                <button class="to-toggle-button" data-variant="outline" data-radius="left">Left</button>
+                <button class="to-toggle-button" data-variant="outline" data-radius="none">No radius</button>
+                <button class="to-toggle-button" data-variant="outline" data-radius="top-right">Top right</button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Alignment</h2>
+            <div style="max-width: 300px; display: flex; flex-direction: column; gap: 8px;">
+                <button class="to-toggle-button" data-variant="outline" data-horizontal="center" data-fill-width="true">
+                    Center
+                </button>
+                <button class="to-toggle-button" data-variant="outline" data-horizontal="end" data-fill-width="true" data-selected="true">
+                    End
+                    <span class="to-icon">→</span>
+                </button>
+                <button class="to-toggle-button" data-variant="outline" data-horizontal="between" data-fill-width="true">
+                    <span class="to-icon">✓</span>
+                    Space between
+                    <span class="to-icon">↓</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Custom Content</h2>
+            <div class="demo-row">
+                <button class="to-toggle-button" data-variant="outline">
+                    <span style="display: flex; align-items: center; gap: 8px;">
+                        Dashboard
+                        <span class="to-tag" data-variant="success" data-size="s">New</span>
+                    </span>
+                </button>
+                <button class="to-toggle-button" data-variant="outline">
+                    <span style="display: flex; align-items: center; gap: 8px;">
+                        Notifications
+                        <span class="to-badge" data-variant="danger">3</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Toggle Group</h2>
+            <div class="demo-row">
+                <div class="to-toggle-group">
+                    <button class="to-toggle-button" data-variant="outline" data-selected="true" data-group="view">Day</button>
+                    <button class="to-toggle-button" data-variant="outline" data-group="view">Week</button>
+                    <button class="to-toggle-button" data-variant="outline" data-group="view">Month</button>
+                </div>
+                
+                <div class="to-toggle-group">
+                    <button class="to-toggle-button" data-variant="outline" data-selected="true" data-group="align">Left</button>
+                    <button class="to-toggle-button" data-variant="outline" data-group="align">Center</button>
+                    <button class="to-toggle-button" data-variant="outline" data-group="align">Right</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Use Cases</h2>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+                <div>
+                    <h3 style="margin: 0 0 8px 0; font-size: 14px;">Text Formatting</h3>
+                    <div class="to-toggle-group">
+                        <button class="to-toggle-button" data-variant="outline" data-selected="true">Bold</button>
+                        <button class="to-toggle-button" data-variant="outline">Italic</button>
+                        <button class="to-toggle-button" data-variant="outline">Underline</button>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="margin: 0 0 8px 0; font-size: 14px;">Filter Options</h3>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <button class="to-toggle-button" data-selected="true">All</button>
+                        <button class="to-toggle-button">Active</button>
+                        <button class="to-toggle-button">Completed</button>
+                        <button class="to-toggle-button">Archived</button>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="margin: 0 0 8px 0; font-size: 14px;">Sort Order</h3>
+                    <div class="to-toggle-group">
+                        <button class="to-toggle-button" data-variant="outline" data-selected="true">
+                            <span class="to-icon">↑</span> Asc
+                        </button>
+                        <button class="to-toggle-button" data-variant="outline">
+                            <span class="to-icon">↓</span> Desc
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>States</h2>
+            <div class="demo-row">
+                <button class="to-toggle-button" disabled>Disabled</button>
+                <button class="to-toggle-button" data-selected="true" disabled>Disabled Selected</button>
+            </div>
+        </div>
+    </div>
+    <script src="techon-toggle.js"></script>
+    <script src="techon-tag.js"></script>
+    <script src="techon-badge.js"></script>
+</body>
+</html>

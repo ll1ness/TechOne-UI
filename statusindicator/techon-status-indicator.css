@@ -1,0 +1,188 @@
+:root {
+  --to-status-size-xs: 6px;
+  --to-status-size-s: 8px;
+  --to-status-size-m: 10px;
+  --to-status-size-l: 12px;
+  --to-status-size-xl: 14px;
+  --to-status-success: #10b981;
+  --to-status-warning: #f59e0b;
+  --to-status-danger: #ef4444;
+  --to-status-info: #3b82f6;
+  --to-status-neutral: #9ca3af;
+  --to-status-active: #0066ff;
+  --to-status-away: #f59e0b;
+  --to-status-busy: #ef4444;
+  --to-status-offline: #9ca3af;
+  --to-status-border: #ffffff;
+}
+
+.to-status-indicator {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.to-status-dot {
+  display: inline-block;
+  border-radius: 50%;
+  background-color: var(--to-status-neutral);
+  transition: all 0.2s ease;
+}
+
+.to-status-indicator[data-size="xs"] .to-status-dot {
+  width: var(--to-status-size-xs);
+  height: var(--to-status-size-xs);
+}
+
+.to-status-indicator[data-size="s"] .to-status-dot {
+  width: var(--to-status-size-s);
+  height: var(--to-status-size-s);
+}
+
+.to-status-indicator[data-size="m"] .to-status-dot {
+  width: var(--to-status-size-m);
+  height: var(--to-status-size-m);
+}
+
+.to-status-indicator[data-size="l"] .to-status-dot {
+  width: var(--to-status-size-l);
+  height: var(--to-status-size-l);
+}
+
+.to-status-indicator[data-size="xl"] .to-status-dot {
+  width: var(--to-status-size-xl);
+  height: var(--to-status-size-xl);
+}
+
+.to-status-indicator[data-color="success"] .to-status-dot {
+  background-color: var(--to-status-success);
+}
+
+.to-status-indicator[data-color="warning"] .to-status-dot {
+  background-color: var(--to-status-warning);
+}
+
+.to-status-indicator[data-color="danger"] .to-status-dot {
+  background-color: var(--to-status-danger);
+}
+
+.to-status-indicator[data-color="info"] .to-status-dot {
+  background-color: var(--to-status-info);
+}
+
+.to-status-indicator[data-color="neutral"] .to-status-dot {
+  background-color: var(--to-status-neutral);
+}
+
+.to-status-indicator[data-color="active"] .to-status-dot {
+  background-color: var(--to-status-active);
+}
+
+.to-status-indicator[data-color="away"] .to-status-dot {
+  background-color: var(--to-status-away);
+}
+
+.to-status-indicator[data-color="busy"] .to-status-dot {
+  background-color: var(--to-status-busy);
+}
+
+.to-status-indicator[data-color="offline"] .to-status-dot {
+  background-color: var(--to-status-offline);
+}
+
+.to-status-indicator[data-pulse="true"] .to-status-dot {
+  animation: to-status-pulse 2s infinite;
+}
+
+.to-status-indicator[data-bordered="true"] .to-status-dot {
+  border: 2px solid var(--to-status-border);
+}
+
+.to-status-indicator[data-bordered="true"][data-size="xs"] .to-status-dot {
+  border-width: 1px;
+}
+
+.to-status-indicator-text {
+  margin-left: 8px;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+.to-status-indicator[data-size="s"] .to-status-indicator-text {
+  font-size: 12px;
+}
+
+.to-status-indicator[data-size="l"] .to-status-indicator-text {
+  font-size: 16px;
+}
+
+.to-status-indicator[data-label-position="left"] {
+  flex-direction: row-reverse;
+}
+
+.to-status-indicator[data-label-position="left"] .to-status-indicator-text {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+.to-status-indicator[data-label-position="top"] {
+  flex-direction: column;
+}
+
+.to-status-indicator[data-label-position="top"] .to-status-indicator-text {
+  margin-left: 0;
+  margin-top: 4px;
+}
+
+.to-status-indicator[data-label-position="bottom"] {
+  flex-direction: column-reverse;
+}
+
+.to-status-indicator[data-label-position="bottom"] .to-status-indicator-text {
+  margin-left: 0;
+  margin-bottom: 4px;
+}
+
+@keyframes to-status-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.to-status-indicator[data-color="success"][data-pulse="true"] .to-status-dot {
+  animation-name: to-status-pulse-success;
+}
+
+@keyframes to-status-pulse-success {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.to-status-indicator[data-color="warning"][data-pulse="true"] .to-status-dot {
+  animation-name: to-status-pulse-warning;
+}
+
+@keyframes to-status-pulse-warning {
+  0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+.to-status-indicator[data-color="danger"][data-pulse="true"] .to-status-dot {
+  animation-name: to-status-pulse-danger;
+}
+
+@keyframes to-status-pulse-danger {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
