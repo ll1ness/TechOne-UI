@@ -1,10 +1,11 @@
-# TechOn UI 🚀
+# TechOne UI 🚀
 
 <img src="https://img.shields.io/badge/version-1.0.0-blue.svg" alt="Version">
 <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
 <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome">
 
 Библиотека современных UI компонентов на чистом HTML, CSS и JavaScript. Без зависимостей, легкая и производительная.
+Сгенерирована с применением нейросетей.
 
 ## ✨ Особенности
 
@@ -16,15 +17,8 @@
 - 🔧 **Гибкость** - каждый компонент можно использовать отдельно
 
 ## 📦 Установка
+Установка недоступна, проект в стадии разработки.
 
-### CDN (уже доступно)
-```html
-<script src="https://raw.githubusercontent.com/ll1ness/techon-ui-modules/refs/heads/com.quanhub.modules/techon-ui.min.js"></script>
-```
-### Локальная установка
-```html
-<script src="path/to/techon-ui.min.js"></script>
-```
 ### 🚀 Быстрый старт
 ```html
 
