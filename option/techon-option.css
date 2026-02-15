@@ -1,0 +1,186 @@
+:root {
+  --to-option-bg: white;
+  --to-option-hover: #f5f5f5;
+  --to-option-selected: #e5e5e5;
+  --to-option-disabled: #f0f0f0;
+  --to-option-text: #1a1a1a;
+  --to-option-text-disabled: #999;
+  --to-option-border: #e5e5e5;
+  --to-option-radius: 6px;
+  --to-option-padding: 10px 16px;
+  --to-option-check-color: #0066ff;
+}
+
+.to-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: var(--to-option-padding);
+  background: var(--to-option-bg);
+  color: var(--to-option-text);
+  cursor: pointer;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  user-select: none;
+  border-radius: var(--to-option-radius);
+}
+
+.to-option:hover {
+  background: var(--to-option-hover);
+}
+
+.to-option.selected {
+  background: var(--to-option-selected);
+  font-weight: 500;
+}
+
+.to-option.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--to-option-disabled);
+  color: var(--to-option-text-disabled);
+  pointer-events: none;
+}
+
+.to-option-checkbox,
+.to-option-radio {
+  margin-right: 12px;
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ccc;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.to-option-checkbox {
+  border-radius: 4px;
+}
+
+.to-option-radio {
+  border-radius: 50%;
+}
+
+.to-option.selected .to-option-checkbox,
+.to-option.selected .to-option-radio {
+  border-color: var(--to-option-check-color);
+  background: var(--to-option-check-color);
+}
+
+.to-option.selected .to-option-checkbox::after {
+  content: '✓';
+  color: white;
+  font-size: 12px;
+}
+
+.to-option.selected .to-option-radio::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.to-option-icon {
+  margin-right: 12px;
+  font-size: 18px;
+}
+
+.to-option-content {
+  flex: 1;
+}
+
+.to-option-label {
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.to-option-description {
+  font-size: 12px;
+  color: #666;
+}
+
+.to-option-badge {
+  margin-left: 8px;
+  font-size: 11px;
+  padding: 2px 6px;
+  background: #e5e5e5;
+  border-radius: 12px;
+  color: #666;
+}
+
+.to-option-shortcut {
+  margin-left: auto;
+  color: #999;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+.to-option-group {
+  border: 1px solid var(--to-option-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.to-option-group .to-option {
+  border-radius: 0;
+  border-bottom: 1px solid var(--to-option-border);
+}
+
+.to-option-group .to-option:last-child {
+  border-bottom: none;
+}
+
+.to-option-header {
+  padding: 8px 16px;
+  background: #f5f5f5;
+  font-weight: 600;
+  font-size: 12px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--to-option-border);
+}
+
+/* Sizes */
+.to-option[data-size="s"] {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.to-option[data-size="l"] {
+  padding: 14px 20px;
+  font-size: 16px;
+}
+
+/* Variants */
+.to-option[data-variant="compact"] {
+  padding: 8px 12px;
+}
+
+.to-option[data-variant="compact"] .to-option-description {
+  display: none;
+}
+
+.to-option[data-variant="card"] {
+  border: 1px solid var(--to-option-border);
+  margin-bottom: 8px;
+}
+
+.to-option[data-variant="card"]:hover {
+  border-color: #999;
+}
+
+/* States */
+.to-option[data-focused="true"] {
+  outline: 2px solid #0066ff;
+  outline-offset: 2px;
+}
+
+.to-option[data-highlighted="true"] {
+  background: var(--to-option-hover);
+  font-weight: 600;
+}

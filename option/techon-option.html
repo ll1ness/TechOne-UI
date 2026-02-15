@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - Option</title>
+    <link rel="stylesheet" href="techon-option.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 24px; max-width: 800px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .demo-row { display: flex; gap: 20px; flex-wrap: wrap; }
+        .demo-column { flex: 1; min-width: 200px; }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Basic Options</h2>
+            <div class="demo-row">
+                <div class="demo-column">
+                    <div class="to-option">Simple option</div>
+                    <div class="to-option selected">Selected option</div>
+                    <div class="to-option disabled">Disabled option</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Icons</h2>
+            <div class="demo-row">
+                <div class="demo-column">
+                    <div class="to-option">
+                        <span class="to-option-icon">📁</span>
+                        <span class="to-option-content">Documents</span>
+                    </div>
+                    <div class="to-option">
+                        <span class="to-option-icon">🖼️</span>
+                        <span class="to-option-content">Images</span>
+                    </div>
+                    <div class="to-option">
+                        <span class="to-option-icon">🎵</span>
+                        <span class="to-option-content">Music</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Labels & Descriptions</h2>
+            <div class="demo-row">
+                <div class="demo-column">
+                    <div class="to-option">
+                        <div class="to-option-content">
+                            <div class="to-option-label">Basic Plan</div>
+                            <div class="to-option-description">Perfect for individuals</div>
+                        </div>
+                        <span class="to-option-badge">$9/mo</span>
+                    </div>
+                    
+                    <div class="to-option selected">
+                        <div class="to-option-content">
+                            <div class="to-option-label">Pro Plan</div>
+                            <div class="to-option-description">For professionals and teams</div>
+                        </div>
+                        <span class="to-option-badge">$29/mo</span>
+                    </div>
+                    
+                    <div class="to-option">
+                        <div class="to-option-content">
+                            <div class="to-option-label">Enterprise Plan</div>
+                            <div class="to-option-description">Custom solutions for large teams</div>
+                        </div>
+                        <span class="to-option-badge">$99/mo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Shortcuts</h2>
+            <div class="demo-row">
+                <div class="demo-column">
+                    <div class="to-option">
+                        <span class="to-option-content">Save</span>
+                        <span class="to-option-shortcut">⌘S</span>
+                    </div>
+                    <div class="to-option">
+                        <span class="to-option-content">Copy</span>
+                        <span class="to-option-shortcut">⌘C</span>
+                    </div>
+                    <div class="to-option">
+                        <span class="to-option-content">Paste</span>
+                        <span class="to-option-shortcut">⌘V</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Checkbox Options</h2>
+            <div class="demo-row">
+                <div class="demo-column">
+                    <div class="to-option" data-type="checkbox">
+                        <span class="to-option-checkbox"></span>
+                        <span class="to-option-content">Option 1</span>
+                    </div>
+                    <div class="to-option" data-type="checkbox">
+                        <span class="to-option-checkbox"></span>
+                        <span class="to-option-content">Option 2</span>
+                    </div>
+                    <div class="to-option" data-type="checkbox" class="selected">
+                        <span class="to-option-checkbox"></span>
+                        <span class="to-option-content">Option 3 (selected)</span>
+                    </div>
+                    <div class="to-option" data-type="checkbox" disabled>
+                        <span class="to-option-checkbox"></span>
+                        <span class="to-option-content">Option 4 (disabled)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Radio Options</h2>
+            <div class="demo-row">
+                <div class="demo-column">
+                    <div class="to-option" data-type="radio" data-group="radio-group">
+                        <span class="to-option-radio"></span>
+                        <span class="to-option-content">Radio 1</span>
+                    </div>
+                    <div class="to-option" data-type="radio" data-group="radio-group" class="selected">
+                        <span class="to-option-radio"></span>
+                        <span class="to-option-content">Radio 2 (selected)</span>
+                    </div>
+                    <div class="to-option" data-type="radio" data-group="radio-group">
+                        <span class="to-option-radio"></span>
+                        <span class="to-option-content">Radio 3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Sizes</h2>
+            <div class="demo-row">
+                <div class="demo-column">
+                    <div class="to-option" data-size="s">Small option</div>
+                    <div class="to-option" data-size="m">Medium option (default)</div>
+                    <div class="to-option" data-size="l">Large option</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Variants</h2>
+            <div class="demo-row">
+                <div class="demo-column">
+                    <div class="to-option" data-variant="compact">Compact (no description)</div>
+                    <div class="to-option" data-variant="card">Card style option</div>
+                    <div class="to-option" data-variant="card">Another card option</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Option Groups</h2>
+            <div class="to-option-group">
+                <div class="to-option-header">File Operations</div>
+                <div class="to-option">
+                    <span class="to-option-icon">📄</span>
+                    <span class="to-option-content">New File</span>
+                    <span class="to-option-shortcut">⌘N</span>
+                </div>
+                <div class="to-option">
+                    <span class="to-option-icon">📂</span>
+                    <span class="to-option-content">Open</span>
+                    <span class="to-option-shortcut">⌘O</span>
+                </div>
+                <div class="to-option">
+                    <span class="to-option-icon">💾</span>
+                    <span class="to-option-content">Save</span>
+                    <span class="to-option-shortcut">⌘S</span>
+                </div>
+                
+                <div class="to-option-header">Edit Operations</div>
+                <div class="to-option">
+                    <span class="to-option-icon">✂️</span>
+                    <span class="to-option-content">Cut</span>
+                    <span class="to-option-shortcut">⌘X</span>
+                </div>
+                <div class="to-option">
+                    <span class="to-option-icon">📋</span>
+                    <span class="to-option-content">Copy</span>
+                    <span class="to-option-shortcut">⌘C</span>
+                </div>
+                <div class="to-option">
+                    <span class="to-option-icon">📌</span>
+                    <span class="to-option-content">Paste</span>
+                    <span class="to-option-shortcut">⌘V</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Use Cases</h2>
+            
+            <h3>Dropdown Menu</h3>
+            <div style="border: 1px solid #eee; border-radius: 8px; width: 250px;">
+                <div class="to-option" data-variant="compact">
+                    <span class="to-option-icon">👤</span>
+                    <span class="to-option-content">Profile</span>
+                </div>
+                <div class="to-option" data-variant="compact">
+                    <span class="to-option-icon">⚙️</span>
+                    <span class="to-option-content">Settings</span>
+                </div>
+                <div class="to-option" data-variant="compact">
+                    <span class="to-option-icon">📊</span>
+                    <span class="to-option-content">Analytics</span>
+                </div>
+                <div style="height: 1px; background: #eee; margin: 4px 0;"></div>
+                <div class="to-option" data-variant="compact">
+                    <span class="to-option-icon">🚪</span>
+                    <span class="to-option-content">Logout</span>
+                </div>
+            </div>
+            
+            <h3>Pricing Plans</h3>
+            <div style="display: flex; gap: 16px;">
+                <div class="to-option" data-variant="card" style="flex: 1; text-align: center;">
+                    <div class="to-option-content">
+                        <div class="to-option-label" style="font-size: 18px;">Basic</div>
+                        <div class="to-option-description">$9/month</div>
+                        <div style="margin-top: 8px; font-size: 12px;">✓ 5 projects</div>
+                        <div style="font-size: 12px;">✓ 10GB storage</div>
+                    </div>
+                </div>
+                
+                <div class="to-option selected" data-variant="card" style="flex: 1; text-align: center; border-color: #0066ff;">
+                    <div class="to-option-content">
+                        <div class="to-option-label" style="font-size: 18px;">Pro</div>
+                        <div class="to-option-description">$29/month</div>
+                        <div style="margin-top: 8px; font-size: 12px;">✓ Unlimited projects</div>
+                        <div style="font-size: 12px;">✓ 100GB storage</div>
+                    </div>
+                </div>
+                
+                <div class="to-option" data-variant="card" style="flex: 1; text-align: center;">
+                    <div class="to-option-content">
+                        <div class="to-option-label" style="font-size: 18px;">Enterprise</div>
+                        <div class="to-option-description">$99/month</div>
+                        <div style="margin-top: 8px; font-size: 12px;">✓ Custom solutions</div>
+                        <div style="font-size: 12px;">✓ 24/7 support</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Settings Menu</h3>
+            <div class="to-option-group" style="width: 300px;">
+                <div class="to-option" data-type="checkbox">
+                    <span class="to-option-checkbox"></span>
+                    <span class="to-option-content">Enable notifications</span>
+                </div>
+                <div class="to-option" data-type="checkbox" class="selected">
+                    <span class="to-option-checkbox"></span>
+                    <span class="to-option-content">Dark mode</span>
+                </div>
+                <div class="to-option" data-type="checkbox">
+                    <span class="to-option-checkbox"></span>
+                    <span class="to-option-content">Auto-save</span>
+                </div>
+            </div>
+            
+            <h3>Language Selection</h3>
+            <div class="to-option-group" style="width: 250px;">
+                <div class="to-option" data-type="radio" data-group="language">
+                    <span class="to-option-radio"></span>
+                    <span class="to-option-content">🇺🇸 English</span>
+                </div>
+                <div class="to-option" data-type="radio" data-group="language" class="selected">
+                    <span class="to-option-radio"></span>
+                    <span class="to-option-content">🇪🇸 Español</span>
+                </div>
+                <div class="to-option" data-type="radio" data-group="language">
+                    <span class="to-option-radio"></span>
+                    <span class="to-option-content">🇫🇷 Français</span>
+                </div>
+                <div class="to-option" data-type="radio" data-group="language">
+                    <span class="to-option-radio"></span>
+                    <span class="to-option-content">🇩🇪 Deutsch</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="techon-option.js"></script>
+</body>
+</html>
