@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - Carousel</title>
+    <link rel="stylesheet" href="techon-carousel.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 40px; max-width: 800px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .to-carousel-slide:nth-child(1) { background: #ffcdd2; }
+        .to-carousel-slide:nth-child(2) { background: #bbdefb; }
+        .to-carousel-slide:nth-child(3) { background: #c8e6c9; }
+        .to-carousel-slide:nth-child(4) { background: #fff9c4; }
+        .to-carousel-slide:nth-child(5) { background: #e1bee7; }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Basic Carousel</h2>
+            <div class="to-carousel" style="height: 300px;">
+                <div class="to-carousel-track">
+                    <div class="to-carousel-slide">Slide 1</div>
+                    <div class="to-carousel-slide">Slide 2</div>
+                    <div class="to-carousel-slide">Slide 3</div>
+                    <div class="to-carousel-slide">Slide 4</div>
+                    <div class="to-carousel-slide">Slide 5</div>
+                </div>
+                
+                <button class="to-carousel-control prev">←</button>
+                <button class="to-carousel-control next">→</button>
+                
+                <div class="to-carousel-dots">
+                    <button class="to-carousel-dot active"></button>
+                    <button class="to-carousel-dot"></button>
+                    <button class="to-carousel-dot"></button>
+                    <button class="to-carousel-dot"></button>
+                    <button class="to-carousel-dot"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Images</h2>
+            <div class="to-carousel" style="height: 400px;">
+                <div class="to-carousel-track">
+                    <div class="to-carousel-slide" style="background: url('https://picsum.photos/800/400?1') center/cover;">1</div>
+                    <div class="to-carousel-slide" style="background: url('https://picsum.photos/800/400?2') center/cover;">2</div>
+                    <div class="to-carousel-slide" style="background: url('https://picsum.photos/800/400?3') center/cover;">3</div>
+                </div>
+                
+                <button class="to-carousel-control prev">←</button>
+                <button class="to-carousel-control next">→</button>
+                
+                <div class="to-carousel-dots">
+                    <button class="to-carousel-dot active"></button>
+                    <button class="to-carousel-dot"></button>
+                    <button class="to-carousel-dot"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Autoplay Carousel</h2>
+            <div class="to-carousel" data-autoplay="true" data-interval="2000" style="height: 300px;">
+                <div class="to-carousel-track">
+                    <div class="to-carousel-slide">Auto 1</div>
+                    <div class="to-carousel-slide">Auto 2</div>
+                    <div class="to-carousel-slide">Auto 3</div>
+                </div>
+                
+                <button class="to-carousel-control prev">←</button>
+                <button class="to-carousel-control next">→</button>
+                
+                <div class="to-carousel-dots">
+                    <button class="to-carousel-dot active"></button>
+                    <button class="to-carousel-dot"></button>
+                    <button class="to-carousel-dot"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="techon-carousel.js"></script>
+</body>
+</html>

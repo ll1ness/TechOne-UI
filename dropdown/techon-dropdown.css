@@ -1,0 +1,103 @@
+:root {
+  --to-dropdown-bg: #ffffff;
+  --to-dropdown-text: #1a1a1a;
+  --to-dropdown-border: #e5e5e5;
+  --to-dropdown-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --to-dropdown-radius: 8px;
+  --to-dropdown-padding: 8px;
+  --to-dropdown-item-padding: 10px 16px;
+  --to-dropdown-item-hover: #f5f5f5;
+  --to-dropdown-item-active: #e5e5e5;
+  --to-dropdown-z-index: 100;
+}
+
+.to-dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.to-dropdown-trigger {
+  cursor: pointer;
+}
+
+.to-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background-color: var(--to-dropdown-bg);
+  border: 1px solid var(--to-dropdown-border);
+  border-radius: var(--to-dropdown-radius);
+  box-shadow: var(--to-dropdown-shadow);
+  padding: var(--to-dropdown-padding);
+  z-index: var(--to-dropdown-z-index);
+  margin-top: 4px;
+  display: none;
+  animation: to-dropdown-fade-in 0.2s ease;
+}
+
+.to-dropdown-menu[data-position="right"] {
+  left: auto;
+  right: 0;
+}
+
+.to-dropdown-menu[data-position="top"] {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.to-dropdown[data-open="true"] .to-dropdown-menu {
+  display: block;
+}
+
+.to-dropdown-item {
+  padding: var(--to-dropdown-item-padding);
+  cursor: pointer;
+  border-radius: calc(var(--to-dropdown-radius) - 2px);
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.to-dropdown-item:hover {
+  background-color: var(--to-dropdown-item-hover);
+}
+
+.to-dropdown-item.active {
+  background-color: var(--to-dropdown-item-active);
+  font-weight: 500;
+}
+
+.to-dropdown-item[data-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.to-dropdown-divider {
+  height: 1px;
+  background-color: var(--to-dropdown-border);
+  margin: 4px 0;
+}
+
+.to-dropdown-header {
+  padding: var(--to-dropdown-item-padding);
+  font-weight: 600;
+  font-size: 12px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@keyframes to-dropdown-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
