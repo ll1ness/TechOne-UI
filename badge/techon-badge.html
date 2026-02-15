@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - Badge</title>
+    <link rel="stylesheet" href="techon-badge.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 40px; max-width: 800px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .demo-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Variants</h2>
+            <div class="demo-row">
+                <span class="to-badge" data-variant="neutral">Neutral</span>
+                <span class="to-badge" data-variant="success">Success</span>
+                <span class="to-badge" data-variant="warning">Warning</span>
+                <span class="to-badge" data-variant="danger">Danger</span>
+                <span class="to-badge" data-variant="info">Info</span>
+                <span class="to-badge" data-variant="outline">Outline</span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Sizes</h2>
+            <div class="demo-row">
+                <span class="to-badge" data-variant="neutral" data-size="xs">Extra Small</span>
+                <span class="to-badge" data-variant="neutral" data-size="s">Small</span>
+                <span class="to-badge" data-variant="neutral" data-size="m">Medium</span>
+                <span class="to-badge" data-variant="neutral" data-size="l">Large</span>
+                <span class="to-badge" data-variant="neutral" data-size="xl">Extra Large</span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Radius</h2>
+            <div class="demo-row">
+                <span class="to-badge" data-variant="success" data-radius="xs">XS</span>
+                <span class="to-badge" data-variant="success" data-radius="s">S</span>
+                <span class="to-badge" data-variant="success" data-radius="m">M</span>
+                <span class="to-badge" data-variant="success" data-radius="l">L</span>
+                <span class="to-badge" data-variant="success" data-radius="xl">XL</span>
+                <span class="to-badge" data-variant="success" data-radius="full">Full</span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Icons</h2>
+            <div class="demo-row">
+                <span class="to-badge" data-variant="success" data-icon="✓">Completed</span>
+                <span class="to-badge" data-variant="warning" data-icon="⚠">Warning</span>
+                <span class="to-badge" data-variant="danger" data-icon="✗">Failed</span>
+                <span class="to-badge" data-variant="info" data-icon="ℹ">Info</span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Combinations</h2>
+            <div class="demo-row">
+                <span class="to-badge" data-variant="success" data-size="l" data-radius="full" data-icon="✓">Large Success</span>
+                <span class="to-badge" data-variant="danger" data-size="s" data-radius="xs" data-icon="✗">Small Danger</span>
+                <span class="to-badge" data-variant="outline" data-size="xl" data-radius="s" data-icon="★">Featured</span>
+            </div>
+        </div>
+    </div>
+    <script src="techon-badge.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+:root {
+  --to-banner-bg-default: #f5f5f5;
+  --to-banner-text-default: #1a1a1a;
+  --to-banner-bg-success: #d4f0d4;
+  --to-banner-text-success: #0f6e0f;
+  --to-banner-bg-warning: #fff3d4;
+  --to-banner-text-warning: #8a5c00;
+  --to-banner-bg-danger: #ffe5e5;
+  --to-banner-text-danger: #b30000;
+  --to-banner-padding: 16px 20px;
+  --to-banner-font-size: 14px;
+  --to-banner-radius: 8px;
+  --to-banner-gap: 12px;
+  --to-button-s-px: 8px 16px;
+  --to-button-s-font: 14px;
+  --to-button-bg: #000000;
+  --to-button-text: #ffffff;
+  --to-button-bg-secondary: #ffffff;
+  --to-button-text-secondary: #000000;
+  --to-button-border: #e5e5e5;
+}
+
+.to-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--to-banner-gap);
+  padding: var(--to-banner-padding);
+  background-color: var(--to-banner-bg-default);
+  color: var(--to-banner-text-default);
+  border-radius: var(--to-banner-radius);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: var(--to-banner-font-size);
+  line-height: 1.5;
+  width: 100%;
+}
+
+.to-banner[data-radius="s"] {
+  border-radius: 6px;
+}
+
+.to-banner[data-solid="success-medium"] {
+  background-color: var(--to-banner-bg-success);
+  color: var(--to-banner-text-success);
+}
+
+.to-banner[data-solid="warning-medium"] {
+  background-color: var(--to-banner-bg-warning);
+  color: var(--to-banner-text-warning);
+}
+
+.to-banner[data-solid="danger-medium"] {
+  background-color: var(--to-banner-bg-danger);
+  color: var(--to-banner-text-danger);
+}
+
+.to-banner[data-horizontal="between"] {
+  justify-content: space-between;
+}
+
+.to-banner-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: currentColor;
+  flex-shrink: 0;
+}
+
+.to-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.to-button {
+  padding: var(--to-button-s-px);
+  font-size: var(--to-button-s-font);
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.to-button:hover {
+  opacity: 0.8;
+}
+
+.to-button[data-variant="secondary"] {
+  background-color: var(--to-button-bg-secondary);
+  color: var(--to-button-text-secondary);
+  border: 1px solid var(--to-button-border);
+}
+
+.to-button:not([data-variant="secondary"]) {
+  background-color: var(--to-button-bg);
+  color: var(--to-button-text);
+}

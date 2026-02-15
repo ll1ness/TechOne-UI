@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - Blockquote</title>
+    <link rel="stylesheet" href="techon-blockquote.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 24px; max-width: 600px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Blockquote</h2>
+            <blockquote class="to-blockquote">
+                The only way to do great work is to love what you do.
+                <cite class="to-blockquote-citation">Steve Jobs</cite>
+            </blockquote>
+        </div>
+
+        <div class="demo-section">
+            <h2>Variants</h2>
+            <blockquote class="to-blockquote" data-variant="default">
+                Default variant with left border.
+                <cite class="to-blockquote-citation">Author</cite>
+            </blockquote>
+            
+            <blockquote class="to-blockquote" data-variant="filled" style="margin-top: 16px;">
+                Filled variant with background.
+                <cite class="to-blockquote-citation">Author</cite>
+            </blockquote>
+            
+            <blockquote class="to-blockquote" data-variant="bordered" style="margin-top: 16px;">
+                Bordered variant with full border.
+                <cite class="to-blockquote-citation">Author</cite>
+            </blockquote>
+        </div>
+
+        <div class="demo-section">
+            <h2>Sizes</h2>
+            <blockquote class="to-blockquote" data-size="s">
+                Small blockquote with smaller text and padding.
+                <cite class="to-blockquote-citation">Author</cite>
+            </blockquote>
+            
+            <blockquote class="to-blockquote" data-size="m" style="margin-top: 16px;">
+                Medium blockquote (default size).
+                <cite class="to-blockquote-citation">Author</cite>
+            </blockquote>
+            
+            <blockquote class="to-blockquote" data-size="l" style="margin-top: 16px;">
+                Large blockquote with bigger text.
+                <cite class="to-blockquote-citation">Author</cite>
+            </blockquote>
+        </div>
+    </div>
+    <script src="techon-blockquote.js"></script>
+</body>
+</html>
