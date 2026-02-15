@@ -1,0 +1,91 @@
+:root {
+  --to-progress-height: 8px;
+  --to-progress-bg: #f0f0f0;
+  --to-progress-fill: #0066ff;
+  --to-progress-radius: 4px;
+  --to-progress-transition: width 0.3s ease;
+}
+
+.to-progress {
+  width: 100%;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.to-progress-track {
+  width: 100%;
+  height: var(--to-progress-height);
+  background-color: var(--to-progress-bg);
+  border-radius: var(--to-progress-radius);
+  overflow: hidden;
+  position: relative;
+}
+
+.to-progress-fill {
+  height: 100%;
+  background-color: var(--to-progress-fill);
+  border-radius: var(--to-progress-radius);
+  transition: var(--to-progress-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.to-progress[data-color="primary"] { --to-progress-fill: #0066ff; }
+.to-progress[data-color="success"] { --to-progress-fill: #10b981; }
+.to-progress[data-color="warning"] { --to-progress-fill: #f59e0b; }
+.to-progress[data-color="danger"] { --to-progress-fill: #ef4444; }
+.to-progress[data-color="info"] { --to-progress-fill: #3b82f6; }
+
+.to-progress[data-size="xs"] { --to-progress-height: 4px; }
+.to-progress[data-size="s"] { --to-progress-height: 6px; }
+.to-progress[data-size="m"] { --to-progress-height: 8px; }
+.to-progress[data-size="l"] { --to-progress-height: 10px; }
+.to-progress[data-size="xl"] { --to-progress-height: 12px; }
+
+.to-progress[data-radius="none"] { --to-progress-radius: 0; }
+.to-progress[data-radius="s"] { --to-progress-radius: 2px; }
+.to-progress[data-radius="m"] { --to-progress-radius: 4px; }
+.to-progress[data-radius="l"] { --to-progress-radius: 6px; }
+.to-progress[data-radius="xl"] { --to-progress-radius: 8px; }
+.to-progress[data-radius="full"] { --to-progress-radius: 999px; }
+
+.to-progress[data-striped="true"] .to-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 20px 20px;
+  animation: to-progress-stripes 1s linear infinite;
+}
+
+.to-progress[data-animated="true"] .to-progress-fill::after {
+  animation: to-progress-stripes 1s linear infinite;
+}
+
+.to-progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+.to-progress-value {
+  font-weight: 500;
+}
+
+@keyframes to-progress-stripes {
+  from { background-position: 0 0; }
+  to { background-position: 40px 0; }
+}

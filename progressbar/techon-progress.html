@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - ProgressBar</title>
+    <link rel="stylesheet" href="techon-progress.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 24px; max-width: 600px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .demo-row { display: flex; flex-direction: column; gap: 16px; }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Basic Progress</h2>
+            <div class="demo-row">
+                <div class="to-progress" data-value="25">
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="50">
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="75">
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="100">
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Labels</h2>
+            <div class="demo-row">
+                <div class="to-progress" data-value="25" data-show-label="true">
+                    <div class="to-progress-label">
+                        <span>Progress</span>
+                        <span class="to-progress-value">25%</span>
+                    </div>
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="68" data-color="success" data-show-label="true">
+                    <div class="to-progress-label">
+                        <span>Uploading</span>
+                        <span class="to-progress-value">68%</span>
+                    </div>
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Colors</h2>
+            <div class="demo-row">
+                <div class="to-progress" data-value="40" data-color="primary" data-show-label="true">
+                    <div class="to-progress-label">
+                        <span>Primary</span>
+                        <span class="to-progress-value"></span>
+                    </div>
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="55" data-color="success" data-show-label="true">
+                    <div class="to-progress-label">
+                        <span>Success</span>
+                        <span class="to-progress-value"></span>
+                    </div>
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="70" data-color="warning" data-show-label="true">
+                    <div class="to-progress-label">
+                        <span>Warning</span>
+                        <span class="to-progress-value"></span>
+                    </div>
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="85" data-color="danger" data-show-label="true">
+                    <div class="to-progress-label">
+                        <span>Danger</span>
+                        <span class="to-progress-value"></span>
+                    </div>
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="30" data-color="info" data-show-label="true">
+                    <div class="to-progress-label">
+                        <span>Info</span>
+                        <span class="to-progress-value"></span>
+                    </div>
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Sizes</h2>
+            <div class="demo-row">
+                <div class="to-progress" data-value="45" data-size="xs">
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="55" data-size="s">
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="65" data-size="m">
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="75" data-size="l">
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="85" data-size="xl">
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Radius</h2>
+            <div class="demo-row">
+                <div class="to-progress" data-value="40" data-radius="none" data-size="l">
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="50" data-radius="s" data-size="l">
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="60" data-radius="m" data-size="l">
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="70" data-radius="l" data-size="l">
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="80" data-radius="xl" data-size="l">
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="90" data-radius="full" data-size="l">
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Striped & Animated</h2>
+            <div class="demo-row">
+                <div class="to-progress" data-value="60" data-striped="true" data-show-label="true">
+                    <div class="to-progress-label">
+                        <span>Striped</span>
+                        <span class="to-progress-value"></span>
+                    </div>
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="to-progress" data-value="75" data-striped="true" data-animated="true" data-show-label="true">
+                    <div class="to-progress-label">
+                        <span>Animated Stripes</span>
+                        <span class="to-progress-value"></span>
+                    </div>
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Interactive Example</h2>
+            <div class="demo-row">
+                <div class="to-progress" id="demo-progress" data-value="0" data-color="success" data-show-label="true">
+                    <div class="to-progress-label">
+                        <span>Download</span>
+                        <span class="to-progress-value">0%</span>
+                    </div>
+                    <div class="to-progress-track">
+                        <div class="to-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 8px;">
+                    <button onclick="updateProgress(25)" style="padding: 8px 16px; background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px;">+25%</button>
+                    <button onclick="updateProgress(50)" style="padding: 8px 16px; background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px;">+50%</button>
+                    <button onclick="updateProgress(75)" style="padding: 8px 16px; background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px;">+75%</button>
+                    <button onclick="updateProgress(100)" style="padding: 8px 16px; background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px;">100%</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="techon-progress.js"></script>
+    <script>
+        function updateProgress(value) {
+            const progress = document.getElementById('demo-progress');
+            if (progress && progress.progressInstance) {
+                progress.progressInstance.setValue(value);
+            }
+        }
+    </script>
+</body>
+</html>
