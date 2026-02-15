@@ -1,0 +1,52 @@
+:root {
+  --to-icon-size-xs: 12px;
+  --to-icon-size-s: 16px;
+  --to-icon-size-m: 20px;
+  --to-icon-size-l: 24px;
+  --to-icon-size-xl: 32px;
+  --to-icon-size-xxl: 40px;
+  --to-icon-color: currentColor;
+}
+
+.to-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--to-icon-color);
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1;
+}
+
+.to-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.to-icon[data-size="xs"] { width: var(--to-icon-size-xs); height: var(--to-icon-size-xs); }
+.to-icon[data-size="s"] { width: var(--to-icon-size-s); height: var(--to-icon-size-s); }
+.to-icon[data-size="m"] { width: var(--to-icon-size-m); height: var(--to-icon-size-m); }
+.to-icon[data-size="l"] { width: var(--to-icon-size-l); height: var(--to-icon-size-l); }
+.to-icon[data-size="xl"] { width: var(--to-icon-size-xl); height: var(--to-icon-size-xl); }
+.to-icon[data-size="xxl"] { width: var(--to-icon-size-xxl); height: var(--to-icon-size-xxl); }
+
+.to-icon[data-color="default"] { color: #1a1a1a; }
+.to-icon[data-color="muted"] { color: #666666; }
+.to-icon[data-color="primary"] { color: #0066ff; }
+.to-icon[data-color="success"] { color: #10b981; }
+.to-icon[data-color="warning"] { color: #f59e0b; }
+.to-icon[data-color="danger"] { color: #ef4444; }
+.to-icon[data-color="white"] { color: #ffffff; }
+
+.to-icon[data-rotate="90"] { transform: rotate(90deg); }
+.to-icon[data-rotate="180"] { transform: rotate(180deg); }
+.to-icon[data-rotate="270"] { transform: rotate(270deg); }
+
+.to-icon[data-spin="true"] {
+  animation: to-icon-spin 1s linear infinite;
+}
+
+@keyframes to-icon-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

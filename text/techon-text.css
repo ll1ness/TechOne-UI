@@ -1,0 +1,70 @@
+:root {
+  --to-text-xs: 12px;
+  --to-text-s: 14px;
+  --to-text-m: 16px;
+  --to-text-l: 18px;
+  --to-text-xl: 20px;
+  --to-text-xxl: 24px;
+  --to-text-weight-light: 300;
+  --to-text-weight-regular: 400;
+  --to-text-weight-medium: 500;
+  --to-text-weight-semibold: 600;
+  --to-text-weight-bold: 700;
+  --to-text-line-height: 1.6;
+  --to-text-color: #1a1a1a;
+  --to-text-color-muted: #666666;
+  --to-text-color-primary: #0066ff;
+  --to-text-color-success: #10b981;
+  --to-text-color-warning: #f59e0b;
+  --to-text-color-danger: #ef4444;
+}
+
+.to-text {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: var(--to-text-line-height);
+  margin: 0;
+  color: var(--to-text-color);
+}
+
+.to-text[data-size="xs"] { font-size: var(--to-text-xs); }
+.to-text[data-size="s"] { font-size: var(--to-text-s); }
+.to-text[data-size="m"] { font-size: var(--to-text-m); }
+.to-text[data-size="l"] { font-size: var(--to-text-l); }
+.to-text[data-size="xl"] { font-size: var(--to-text-xl); }
+.to-text[data-size="xxl"] { font-size: var(--to-text-xxl); }
+
+.to-text[data-weight="light"] { font-weight: var(--to-text-weight-light); }
+.to-text[data-weight="regular"] { font-weight: var(--to-text-weight-regular); }
+.to-text[data-weight="medium"] { font-weight: var(--to-text-weight-medium); }
+.to-text[data-weight="semibold"] { font-weight: var(--to-text-weight-semibold); }
+.to-text[data-weight="bold"] { font-weight: var(--to-text-weight-bold); }
+
+.to-text[data-align="left"] { text-align: left; }
+.to-text[data-align="center"] { text-align: center; }
+.to-text[data-align="right"] { text-align: right; }
+.to-text[data-align="justify"] { text-align: justify; }
+
+.to-text[data-color="default"] { color: var(--to-text-color); }
+.to-text[data-color="muted"] { color: var(--to-text-color-muted); }
+.to-text[data-color="primary"] { color: var(--to-text-color-primary); }
+.to-text[data-color="success"] { color: var(--to-text-color-success); }
+.to-text[data-color="warning"] { color: var(--to-text-color-warning); }
+.to-text[data-color="danger"] { color: var(--to-text-color-danger); }
+
+.to-text[data-transform="uppercase"] { text-transform: uppercase; }
+.to-text[data-transform="lowercase"] { text-transform: lowercase; }
+.to-text[data-transform="capitalize"] { text-transform: capitalize; }
+
+.to-text[data-decoration="underline"] { text-decoration: underline; }
+.to-text[data-decoration="line-through"] { text-decoration: line-through; }
+.to-text[data-decoration="none"] { text-decoration: none; }
+
+.to-text[data-truncate="true"] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.to-text[data-nowrap="true"] {
+  white-space: nowrap;
+}
