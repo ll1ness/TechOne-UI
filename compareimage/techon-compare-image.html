@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - CompareImage</title>
+    <link rel="stylesheet" href="techon-compare-image.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 40px; max-width: 800px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .demo-row { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Horizontal Compare</h2>
+            <div class="to-compare-image" data-orientation="horizontal" style="height: 400px;">
+                <div class="to-compare-image-container">
+                    <div class="to-compare-image-after">
+                        <img src="https://picsum.photos/800/600?1" alt="After">
+                    </div>
+                    <div class="to-compare-image-before">
+                        <img src="https://picsum.photos/800/600?2" alt="Before">
+                    </div>
+                    <div class="to-compare-image-handle"></div>
+                </div>
+                <div class="to-compare-image-labels">
+                    <span class="to-compare-image-label">Before</span>
+                    <span class="to-compare-image-label">After</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Vertical Compare</h2>
+            <div class="to-compare-image" data-orientation="vertical" style="height: 400px;">
+                <div class="to-compare-image-container">
+                    <div class="to-compare-image-after">
+                        <img src="https://picsum.photos/800/600?3" alt="After">
+                    </div>
+                    <div class="to-compare-image-before">
+                        <img src="https://picsum.photos/800/600?4" alt="Before">
+                    </div>
+                    <div class="to-compare-image-handle"></div>
+                </div>
+                <div class="to-compare-image-labels">
+                    <span class="to-compare-image-label">Before</span>
+                    <span class="to-compare-image-label">After</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Photo Editing Example</h2>
+            <div class="to-compare-image" style="height: 400px;">
+                <div class="to-compare-image-container">
+                    <div class="to-compare-image-after">
+                        <img src="https://picsum.photos/800/600?5" alt="Edited">
+                    </div>
+                    <div class="to-compare-image-before">
+                        <img src="https://picsum.photos/800/600?6" alt="Original">
+                    </div>
+                    <div class="to-compare-image-handle"></div>
+                </div>
+                <div class="to-compare-image-labels">
+                    <span class="to-compare-image-label">Original</span>
+                    <span class="to-compare-image-label">Edited</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Dark/Light Theme Compare</h2>
+            <div class="to-compare-image" style="height: 400px;">
+                <div class="to-compare-image-container">
+                    <div class="to-compare-image-after">
+                        <div style="width: 100%; height: 100%; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">Dark Theme</div>
+                    </div>
+                    <div class="to-compare-image-before">
+                        <div style="width: 100%; height: 100%; background: #ffffff; display: flex; align-items: center; justify-content: center; color: black; font-size: 24px;">Light Theme</div>
+                    </div>
+                    <div class="to-compare-image-handle"></div>
+                </div>
+                <div class="to-compare-image-labels">
+                    <span class="to-compare-image-label">Light</span>
+                    <span class="to-compare-image-label">Dark</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Controls</h2>
+            <div class="demo-row">
+                <button class="to-button" onclick="document.querySelector('.to-compare-image').compareInstance.reset()">Reset to 50%</button>
+                <button class="to-button" onclick="document.querySelector('.to-compare-image').compareInstance.setPosition(25)">25%</button>
+                <button class="to-button" onclick="document.querySelector('.to-compare-image').compareInstance.setPosition(75)">75%</button>
+            </div>
+        </div>
+    </div>
+    <script src="techon-compare-image.js"></script>
+</body>
+</html>

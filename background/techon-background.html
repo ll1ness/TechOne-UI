@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - Background</title>
+    <link rel="stylesheet" href="techon-background.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 24px; max-width: 1200px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .demo-card { height: 200px; border-radius: 12px; overflow: hidden; position: relative; }
+        .demo-card .to-background-content { display: flex; align-items: center; justify-content: center; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3); font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Background Types</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <div class="to-background" data-type="solid" data-color="primary">
+                        <div class="to-background-content">Solid</div>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="to-background" data-type="gradient" data-color="primary" data-accent="blue">
+                        <div class="to-background-content">Gradient</div>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="to-background" data-type="radial" data-color="warning" data-accent="orange">
+                        <div class="to-background-content">Radial</div>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="to-background" data-type="mesh" data-color="purple" data-accent="pink">
+                        <div class="to-background-content">Mesh</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Patterns</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <div class="to-background" data-type="solid" data-color="primary" data-pattern="dots">
+                        <div class="to-background-content">Dots</div>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="to-background" data-type="solid" data-color="success" data-pattern="lines">
+                        <div class="to-background-content">Lines</div>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="to-background" data-type="solid" data-color="warning" data-pattern="grid">
+                        <div class="to-background-content">Grid</div>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="to-background" data-type="solid" data-color="danger" data-pattern="waves">
+                        <div class="to-background-content">Waves</div>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="to-background" data-type="solid" data-color="purple" data-pattern="checkerboard">
+                        <div class="to-background-content">Checkerboard</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Colors</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <div class="to-background" data-type="gradient" data-color="primary" data-accent="blue">
+                        <div class="to-background-content">Primary → Blue</div>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="to-background" data-type="gradient" data-color="success" data-accent="primary">
+                        <div class="to-background-content">Success → Primary</div>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="to-background" data-type="gradient" data-color="warning" data-accent="orange">
+                        <div class="to-background-content">Warning → Orange</div>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="to-background" data-type="gradient" data-color="danger" data-accent="red">
+                        <div class="to-background-content">Danger → Red</div>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="to-background" data-type="gradient" data-color="purple" data-accent="pink">
+                        <div class="to-background-content">Purple → Pink</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Content</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <div class="to-background" data-type="gradient" data-color="primary">
+                        <div class="to-background-content">
+                            <div style="text-align: center;">
+                                <h3 style="margin: 0;">Card Title</h3>
+                                <p style="margin: 8px 0 0;">With content</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="to-background" data-type="mesh" data-color="purple">
+                        <div class="to-background-content">
+                            <button class="to-button" data-variant="solid">Click Me</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Effects</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <div class="to-background" data-type="gradient" data-color="primary" data-animated="true">
+                        <div class="to-background-content">Animated</div>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="to-background" data-type="gradient" data-color="success" data-blur="true">
+                        <div class="to-background-content">Blurred</div>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="to-background" data-type="gradient" data-color="warning" data-overlay="true">
+                        <div class="to-background-content">With Overlay</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Use Cases</h2>
+            
+            <h3>Hero Section</h3>
+            <div style="height: 400px; border-radius: 12px; overflow: hidden; margin-bottom: 30px;">
+                <div class="to-background" data-type="mesh" data-color="primary" data-accent="purple">
+                    <div class="to-background-content" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                        <h1 style="color: white; font-size: 48px; margin-bottom: 20px;">Welcome to TechOn</h1>
+                        <p style="color: white; font-size: 18px;">Beautiful backgrounds for your UI</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Card Backgrounds</h3>
+            <div class="demo-grid" style="margin-bottom: 30px;">
+                <div class="to-card" style="overflow: hidden;">
+                    <div class="to-background" data-type="gradient" data-color="primary" style="min-height: 120px;">
+                        <div class="to-background-content" style="padding: 20px;">
+                            <h3 style="color: white;">Card Header</h3>
+                        </div>
+                    </div>
+                    <div class="to-card-content" style="padding: 20px;">
+                        <p>Card content with gradient header</p>
+                    </div>
+                </div>
+                
+                <div class="to-card" style="overflow: hidden;">
+                    <div class="to-background" data-type="radial" data-color="success" style="min-height: 120px;">
+                        <div class="to-background-content" style="padding: 20px;">
+                            <h3 style="color: white;">Success Card</h3>
+                        </div>
+                    </div>
+                    <div class="to-card-content" style="padding: 20px;">
+                        <p>Radial gradient background</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Modal Background</h3>
+            <div style="position: relative; height: 200px; border-radius: 12px; overflow: hidden;">
+                <div class="to-background" data-type="gradient" data-color="primary" data-blur="true" data-overlay="true">
+                    <div class="to-background-content" style="display: flex; align-items: center; justify-content: center;">
+                        <div class="to-card" style="width: 300px;">
+                            <div class="to-card-header">Modal Title</div>
+                            <div class="to-card-content">Modal content goes here</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Section Divider</h3>
+            <div style="height: 150px; margin: 30px 0;">
+                <div class="to-background" data-type="gradient" data-color="primary" data-accent="purple" data-pattern="waves">
+                    <div class="to-background-content" style="display: flex; align-items: center; justify-content: center;">
+                        <h2 style="color: white;">New Section</h2>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Loading Skeleton</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <div style="height: 150px; border-radius: 8px; overflow: hidden;">
+                    <div class="to-background" data-type="solid" data-color="primary" data-pattern="dots" data-animated="true"></div>
+                </div>
+                <div style="height: 150px; border-radius: 8px; overflow: hidden;">
+                    <div class="to-background" data-type="solid" data-color="success" data-pattern="lines" data-animated="true"></div>
+                </div>
+                <div style="height: 150px; border-radius: 8px; overflow: hidden;">
+                    <div class="to-background" data-type="solid" data-color="warning" data-pattern="grid" data-animated="true"></div>
+                </div>
+            </div>
+            
+            <h3>Combined Effects</h3>
+            <div style="height: 300px; border-radius: 12px; overflow: hidden;">
+                <div class="to-background" data-type="mesh" data-color="purple" data-accent="pink" data-pattern="dots" data-animated="true" data-overlay="true">
+                    <div class="to-background-content" style="display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: white;">
+                            <h2>All Effects Combined</h2>
+                            <p>Mesh + Dots + Animated + Overlay</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Pattern Gallery</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <div class="to-background" data-type="solid" data-color="primary" data-pattern="dots">
+                        <div class="to-background-content">Dots</div>
+                    </div>
+                </div>
+                <div class="demo-card">
+                    <div class="to-background" data-type="solid" data-color="success" data-pattern="lines">
+                        <div class="to-background-content">Lines</div>
+                    </div>
+                </div>
+                <div class="demo-card">
+                    <div class="to-background" data-type="solid" data-color="warning" data-pattern="grid">
+                        <div class="to-background-content">Grid</div>
+                    </div>
+                </div>
+                <div class="demo-card">
+                    <div class="to-background" data-type="solid" data-color="danger" data-pattern="waves">
+                        <div class="to-background-content">Waves</div>
+                    </div>
+                </div>
+                <div class="demo-card">
+                    <div class="to-background" data-type="solid" data-color="purple" data-pattern="checkerboard">
+                        <div class="to-background-content">Checkerboard</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="techon-background.js"></script>
+    <script src="techon-card.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+:root {
+  --to-compare-handle-size: 40px;
+  --to-compare-handle-color: white;
+  --to-compare-handle-bg: rgba(0, 0, 0, 0.5);
+  --to-compare-line-color: white;
+  --to-compare-line-width: 2px;
+}
+
+.to-compare-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  cursor: col-resize;
+  font-family: system-ui, -apple-system, sans-serif;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.to-compare-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
+.to-compare-image-before,
+.to-compare-image-after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.to-compare-image-before {
+  z-index: 1;
+  clip-path: polygon(0 0, var(--position) 0, var(--position) 100%, 0 100%);
+}
+
+.to-compare-image-after {
+  z-index: 0;
+}
+
+.to-compare-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.to-compare-image-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--position);
+  width: var(--to-compare-line-width);
+  background: var(--to-compare-line-color);
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.to-compare-image-handle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: var(--to-compare-handle-size);
+  height: var(--to-compare-handle-size);
+  background: var(--to-compare-handle-bg);
+  border: 2px solid var(--to-compare-handle-color);
+  border-radius: 50%;
+  cursor: col-resize;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.to-compare-image-handle::before {
+  content: '↔';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--to-compare-handle-color);
+  font-size: 18px;
+  z-index: 3;
+  font-weight: bold;
+}
+
+.to-compare-image-labels {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.to-compare-image-label {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+
+.to-compare-image[data-orientation="vertical"] {
+  cursor: row-resize;
+}
+
+.to-compare-image[data-orientation="vertical"] .to-compare-image-before {
+  clip-path: polygon(0 0, 100% 0, 100% var(--position), 0 var(--position));
+}
+
+.to-compare-image[data-orientation="vertical"] .to-compare-image-handle {
+  top: var(--position);
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: var(--to-compare-line-width);
+  transform: translateY(-50%);
+}
+
+.to-compare-image[data-orientation="vertical"] .to-compare-image-handle::after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.to-compare-image[data-orientation="vertical"] .to-compare-image-handle::before {
+  content: '↕';
+}

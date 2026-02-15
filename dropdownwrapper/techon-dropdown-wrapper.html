@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - DropdownWrapper</title>
+    <link rel="stylesheet" href="techon-dropdown-wrapper.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 24px; max-width: 800px; margin: 0 auto; }
+        .demo-section { background: white; padding: 40px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .demo-row { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+        
+        .demo-button {
+            padding: 10px 20px;
+            background: #000;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .demo-button::after {
+            content: '▼';
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Basic Dropdown</h2>
+            <div class="demo-row">
+                <div class="to-dropdown-wrapper">
+                    <div class="to-dropdown-wrapper-trigger">
+                        <button class="demo-button">Menu</button>
+                    </div>
+                    <div class="to-dropdown-wrapper-menu">
+                        <div class="to-dropdown-wrapper-item" data-value="profile">Profile</div>
+                        <div class="to-dropdown-wrapper-item" data-value="settings">Settings</div>
+                        <div class="to-dropdown-wrapper-item" data-value="help">Help</div>
+                        <div class="to-dropdown-wrapper-divider"></div>
+                        <div class="to-dropdown-wrapper-item" data-value="logout">Logout</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Positions</h2>
+            <div class="demo-row">
+                <div class="to-dropdown-wrapper" data-position="bottom-left">
+                    <div class="to-dropdown-wrapper-trigger">
+                        <button class="demo-button">Bottom Left</button>
+                    </div>
+                    <div class="to-dropdown-wrapper-menu">
+                        <div class="to-dropdown-wrapper-item">Item 1</div>
+                        <div class="to-dropdown-wrapper-item">Item 2</div>
+                    </div>
+                </div>
+                
+                <div class="to-dropdown-wrapper" data-position="bottom-right">
+                    <div class="to-dropdown-wrapper-trigger">
+                        <button class="demo-button">Bottom Right</button>
+                    </div>
+                    <div class="to-dropdown-wrapper-menu">
+                        <div class="to-dropdown-wrapper-item">Item 1</div>
+                        <div class="to-dropdown-wrapper-item">Item 2</div>
+                    </div>
+                </div>
+                
+                <div class="to-dropdown-wrapper" data-position="top-left">
+                    <div class="to-dropdown-wrapper-trigger">
+                        <button class="demo-button">Top Left</button>
+                    </div>
+                    <div class="to-dropdown-wrapper-menu">
+                        <div class="to-dropdown-wrapper-item">Item 1</div>
+                        <div class="to-dropdown-wrapper-item">Item 2</div>
+                    </div>
+                </div>
+                
+                <div class="to-dropdown-wrapper" data-position="bottom-center">
+                    <div class="to-dropdown-wrapper-trigger">
+                        <button class="demo-button">Bottom Center</button>
+                    </div>
+                    <div class="to-dropdown-wrapper-menu">
+                        <div class="to-dropdown-wrapper-item">Item 1</div>
+                        <div class="to-dropdown-wrapper-item">Item 2</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Icons</h2>
+            <div class="to-dropdown-wrapper">
+                <div class="to-dropdown-wrapper-trigger">
+                    <button class="demo-button">Actions</button>
+                </div>
+                <div class="to-dropdown-wrapper-menu">
+                    <div class="to-dropdown-wrapper-item">
+                        <span class="to-dropdown-wrapper-icon">✏️</span>
+                        Edit
+                    </div>
+                    <div class="to-dropdown-wrapper-item">
+                        <span class="to-dropdown-wrapper-icon">📋</span>
+                        Copy
+                    </div>
+                    <div class="to-dropdown-wrapper-item">
+                        <span class="to-dropdown-wrapper-icon">🗑️</span>
+                        Delete
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Shortcuts</h2>
+            <div class="to-dropdown-wrapper">
+                <div class="to-dropdown-wrapper-trigger">
+                    <button class="demo-button">Edit</button>
+                </div>
+                <div class="to-dropdown-wrapper-menu">
+                    <div class="to-dropdown-wrapper-item">
+                        Cut
+                        <span class="to-dropdown-wrapper-shortcut">⌘X</span>
+                    </div>
+                    <div class="to-dropdown-wrapper-item">
+                        Copy
+                        <span class="to-dropdown-wrapper-shortcut">⌘C</span>
+                    </div>
+                    <div class="to-dropdown-wrapper-item">
+                        Paste
+                        <span class="to-dropdown-wrapper-shortcut">⌘V</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Headers</h2>
+            <div class="to-dropdown-wrapper">
+                <div class="to-dropdown-wrapper-trigger">
+                    <button class="demo-button">Settings</button>
+                </div>
+                <div class="to-dropdown-wrapper-menu">
+                    <div class="to-dropdown-wrapper-header">Account</div>
+                    <div class="to-dropdown-wrapper-item">Profile</div>
+                    <div class="to-dropdown-wrapper-item">Security</div>
+                    
+                    <div class="to-dropdown-wrapper-header">Preferences</div>
+                    <div class="to-dropdown-wrapper-item">Theme</div>
+                    <div class="to-dropdown-wrapper-item">Notifications</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Searchable</h2>
+            <div class="to-dropdown-wrapper" data-searchable="true">
+                <div class="to-dropdown-wrapper-trigger">
+                    <button class="demo-button">Search</button>
+                </div>
+                <div class="to-dropdown-wrapper-menu">
+                    <div class="to-dropdown-wrapper-item">Apple</div>
+                    <div class="to-dropdown-wrapper-item">Banana</div>
+                    <div class="to-dropdown-wrapper-item">Cherry</div>
+                    <div class="to-dropdown-wrapper-item">Date</div>
+                    <div class="to-dropdown-wrapper-item">Elderberry</div>
+                    <div class="to-dropdown-wrapper-item">Fig</div>
+                    <div class="to-dropdown-wrapper-item">Grape</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Disabled Items</h2>
+            <div class="to-dropdown-wrapper">
+                <div class="to-dropdown-wrapper-trigger">
+                    <button class="demo-button">Options</button>
+                </div>
+                <div class="to-dropdown-wrapper-menu">
+                    <div class="to-dropdown-wrapper-item">Available</div>
+                    <div class="to-dropdown-wrapper-item disabled">Unavailable</div>
+                    <div class="to-dropdown-wrapper-item">Available too</div>
+                    <div class="to-dropdown-wrapper-item disabled">Coming soon</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Sizes</h2>
+            <div class="demo-row">
+                <div class="to-dropdown-wrapper" data-width="s">
+                    <div class="to-dropdown-wrapper-trigger">
+                        <button class="demo-button">Small</button>
+                    </div>
+                    <div class="to-dropdown-wrapper-menu">
+                        <div class="to-dropdown-wrapper-item">Short</div>
+                        <div class="to-dropdown-wrapper-item">Items</div>
+                    </div>
+                </div>
+                
+                <div class="to-dropdown-wrapper" data-width="l">
+                    <div class="to-dropdown-wrapper-trigger">
+                        <button class="demo-button">Large</button>
+                    </div>
+                    <div class="to-dropdown-wrapper-menu">
+                        <div class="to-dropdown-wrapper-item">Very long item name that might wrap</div>
+                        <div class="to-dropdown-wrapper-item">Another long content item</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Animated</h2>
+            <div class="to-dropdown-wrapper" data-animated="true">
+                <div class="to-dropdown-wrapper-trigger">
+                    <button class="demo-button">Animated</button>
+                </div>
+                <div class="to-dropdown-wrapper-menu">
+                    <div class="to-dropdown-wrapper-item">Smooth animation</div>
+                    <div class="to-dropdown-wrapper-item">When opening</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Dark Theme</h2>
+            <div class="to-dropdown-wrapper" data-theme="dark">
+                <div class="to-dropdown-wrapper-trigger">
+                    <button class="demo-button" style="background: #333;">Dark Menu</button>
+                </div>
+                <div class="to-dropdown-wrapper-menu">
+                    <div class="to-dropdown-wrapper-item">Dark item 1</div>
+                    <div class="to-dropdown-wrapper-item">Dark item 2</div>
+                    <div class="to-dropdown-wrapper-divider"></div>
+                    <div class="to-dropdown-wrapper-item">Dark item 3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Radius</h2>
+            <div class="demo-row">
+                <div class="to-dropdown-wrapper" data-radius="none">
+                    <div class="to-dropdown-wrapper-trigger">
+                        <button class="demo-button">None</button>
+                    </div>
+                    <div class="to-dropdown-wrapper-menu">
+                        <div class="to-dropdown-wrapper-item">Sharp corners</div>
+                    </div>
+                </div>
+                
+                <div class="to-dropdown-wrapper" data-radius="full">
+                    <div class="to-dropdown-wrapper-trigger">
+                        <button class="demo-button">Full</button>
+                    </div>
+                    <div class="to-dropdown-wrapper-menu">
+                        <div class="to-dropdown-wrapper-item">Rounded corners</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Event Handling</h2>
+            <div class="to-dropdown-wrapper" id="event-dropdown">
+                <div class="to-dropdown-wrapper-trigger">
+                    <button class="demo-button">Select</button>
+                </div>
+                <div class="to-dropdown-wrapper-menu">
+                    <div class="to-dropdown-wrapper-item" data-value="option1">Option 1</div>
+                    <div class="to-dropdown-wrapper-item" data-value="option2">Option 2</div>
+                    <div class="to-dropdown-wrapper-item" data-value="option3">Option 3</div>
+                </div>
+            </div>
+            <div id="event-output" style="margin-top: 10px; padding: 10px; background: #f0f0f0; border-radius: 8px;">
+                Selected: none
+            </div>
+        </div>
+    </div>
+
+    <script src="techon-dropdown-wrapper.js"></script>
+    <script>
+        // Event handling example
+        const eventDropdown = document.getElementById('event-dropdown');
+        const eventOutput = document.getElementById('event-output');
+        
+        if (eventDropdown && eventDropdown.dropdownWrapperInstance) {
+            eventDropdown.addEventListener('dropdown-select', (e) => {
+                eventOutput.textContent = `Selected: ${e.detail.value}`;
+            });
+        }
+    </script>
+</body>
+</html>

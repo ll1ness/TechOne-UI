@@ -1,0 +1,113 @@
+:root {
+  --to-context-menu-bg: white;
+  --to-context-menu-text: #1a1a1a;
+  --to-context-menu-border: #e5e5e5;
+  --to-context-menu-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  --to-context-menu-radius: 8px;
+  --to-context-menu-padding: 4px;
+  --to-context-menu-item-padding: 8px 12px;
+  --to-context-menu-item-hover: #f5f5f5;
+  --to-context-menu-item-active: #e5e5e5;
+  --to-context-menu-item-disabled: #999;
+  --to-context-menu-z-index: 1000;
+  --to-context-menu-min-width: 180px;
+}
+
+.to-context-menu {
+  position: fixed;
+  background: var(--to-context-menu-bg);
+  border: 1px solid var(--to-context-menu-border);
+  border-radius: var(--to-context-menu-radius);
+  box-shadow: var(--to-context-menu-shadow);
+  padding: var(--to-context-menu-padding);
+  min-width: var(--to-context-menu-min-width);
+  z-index: var(--to-context-menu-z-index);
+  font-family: system-ui, -apple-system, sans-serif;
+  display: none;
+}
+
+.to-context-menu.visible {
+  display: block;
+}
+
+.to-context-menu-item {
+  padding: var(--to-context-menu-item-padding);
+  color: var(--to-context-menu-text);
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: calc(var(--to-context-menu-radius) - 2px);
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.to-context-menu-item:hover {
+  background: var(--to-context-menu-item-hover);
+}
+
+.to-context-menu-item.active {
+  background: var(--to-context-menu-item-active);
+}
+
+.to-context-menu-item.disabled {
+  color: var(--to-context-menu-item-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.to-context-menu-divider {
+  height: 1px;
+  background: var(--to-context-menu-border);
+  margin: 4px 0;
+}
+
+.to-context-menu-shortcut {
+  margin-left: auto;
+  color: #999;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+.to-context-menu-icon {
+  width: 16px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.to-context-menu-submenu {
+  position: relative;
+}
+
+.to-context-menu-submenu > .to-context-menu-item::after {
+  content: '›';
+  margin-left: auto;
+  font-size: 16px;
+}
+
+.to-context-menu-submenu-content {
+  position: absolute;
+  left: 100%;
+  top: -4px;
+  background: var(--to-context-menu-bg);
+  border: 1px solid var(--to-context-menu-border);
+  border-radius: var(--to-context-menu-radius);
+  box-shadow: var(--to-context-menu-shadow);
+  padding: var(--to-context-menu-padding);
+  min-width: var(--to-context-menu-min-width);
+  display: none;
+}
+
+.to-context-menu-submenu:hover > .to-context-menu-submenu-content {
+  display: block;
+}
+
+.to-context-menu[data-theme="dark"] {
+  --to-context-menu-bg: #1a1a1a;
+  --to-context-menu-text: white;
+  --to-context-menu-border: #333;
+  --to-context-menu-item-hover: #333;
+  --to-context-menu-item-active: #444;
+  --to-context-menu-item-disabled: #666;
+}

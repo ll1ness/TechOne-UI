@@ -1,0 +1,144 @@
+:root {
+  --to-bg-color: #f5f5f5;
+  --to-bg-gradient-start: #0066ff;
+  --to-bg-gradient-end: #00cc99;
+  --to-bg-pattern-color: rgba(0,0,0,0.05);
+  --to-bg-pattern-size: 40px;
+  --to-bg-blur: 0px;
+  --to-bg-opacity: 1;
+}
+
+.to-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  overflow: hidden;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.to-background-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+.to-background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.to-background[data-type="solid"] {
+  background-color: var(--to-bg-color);
+}
+
+.to-background[data-type="gradient"] {
+  background: linear-gradient(135deg, var(--to-bg-gradient-start), var(--to-bg-gradient-end));
+}
+
+.to-background[data-type="radial"] {
+  background: radial-gradient(circle at center, var(--to-bg-gradient-start), var(--to-bg-gradient-end));
+}
+
+.to-background[data-type="mesh"] {
+  background-color: var(--to-bg-gradient-start);
+  background-image: 
+    radial-gradient(at 40% 20%, var(--to-bg-gradient-end) 0px, transparent 50%),
+    radial-gradient(at 80% 80%, #ff6b6b 0px, transparent 50%),
+    radial-gradient(at 0% 50%, #4ecdc4 0px, transparent 50%);
+}
+
+.to-background[data-pattern="dots"] {
+  background-image: radial-gradient(var(--to-bg-pattern-color) 2px, transparent 2px);
+  background-size: var(--to-bg-pattern-size) var(--to-bg-pattern-size);
+}
+
+.to-background[data-pattern="lines"] {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--to-bg-pattern-color) 0px,
+    var(--to-bg-pattern-color) 2px,
+    transparent 2px,
+    transparent 10px
+  );
+}
+
+.to-background[data-pattern="grid"] {
+  background-image: 
+    linear-gradient(var(--to-bg-pattern-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--to-bg-pattern-color) 1px, transparent 1px);
+  background-size: var(--to-bg-pattern-size) var(--to-bg-pattern-size);
+}
+
+.to-background[data-pattern="waves"] {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 10px,
+    var(--to-bg-pattern-color) 10px,
+    var(--to-bg-pattern-color) 20px
+  );
+}
+
+.to-background[data-pattern="checkerboard"] {
+  background-image:
+    linear-gradient(45deg, var(--to-bg-pattern-color) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--to-bg-pattern-color) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--to-bg-pattern-color) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--to-bg-pattern-color) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.to-background[data-animated="true"] {
+  animation: to-bg-shift 10s ease infinite;
+}
+
+@keyframes to-bg-shift {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+}
+
+.to-background[data-blur="true"] .to-background-layer {
+  filter: blur(10px);
+}
+
+.to-background[data-overlay="true"]::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.to-background[data-color="primary"] { --to-bg-gradient-start: #0066ff; }
+.to-background[data-color="success"] { --to-bg-gradient-start: #10b981; }
+.to-background[data-color="warning"] { --to-bg-gradient-start: #f59e0b; }
+.to-background[data-color="danger"] { --to-bg-gradient-start: #ef4444; }
+.to-background[data-color="purple"] { --to-bg-gradient-start: #8b5cf6; }
+.to-background[data-color="pink"] { --to-bg-gradient-start: #ec4899; }
+
+.to-background[data-accent="primary"] { --to-bg-gradient-end: #00cc99; }
+.to-background[data-accent="blue"] { --to-bg-gradient-end: #3b82f6; }
+.to-background[data-accent="orange"] { --to-bg-gradient-end: #f97316; }
+.to-background[data-accent="red"] { --to-bg-gradient-end: #ef4444; }
+
+.to-background-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 1;
+}

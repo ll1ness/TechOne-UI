@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - CursorCard</title>
+    <link rel="stylesheet" href="techon-cursor-card.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 24px; max-width: 1000px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        
+        .product-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 16px;
+            transition: all 0.2s ease;
+        }
+        
+        .product-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 150px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Basic CursorCard</h2>
+            <p>Hover over the elements to see cards following your cursor</p>
+            
+            <div class="demo-grid">
+                <div class="to-cursor-card">
+                    <div class="to-cursor-card-trigger product-card">
+                        <div class="product-image">📱</div>
+                        <h3>Smartphone</h3>
+                        <p style="color: #666;">$699</p>
+                    </div>
+                    
+                    <div class="to-cursor-card-content">
+                        <img class="to-cursor-card-image" src="https://picsum.photos/300/150?1" alt="Product">
+                        <h3 class="to-cursor-card-title">Smartphone Pro</h3>
+                        <p class="to-cursor-card-description">Latest model with advanced features and long battery life.</p>
+                        <div class="to-cursor-card-price">$699</div>
+                        <div class="to-cursor-card-rating">⭐⭐⭐⭐☆ (124 reviews)</div>
+                    </div>
+                </div>
+                
+                <div class="to-cursor-card">
+                    <div class="to-cursor-card-trigger product-card">
+                        <div class="product-image">💻</div>
+                        <h3>Laptop</h3>
+                        <p style="color: #666;">$1299</p>
+                    </div>
+                    
+                    <div class="to-cursor-card-content">
+                        <img class="to-cursor-card-image" src="https://picsum.photos/300/150?2" alt="Product">
+                        <h3 class="to-cursor-card-title">Ultrabook Pro</h3>
+                        <p class="to-cursor-card-description">Powerful laptop for professionals with stunning display.</p>
+                        <div class="to-cursor-card-price">$1299</div>
+                        <div class="to-cursor-card-meta">
+                            <span>16GB RAM</span>
+                            <span>512GB SSD</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="to-cursor-card">
+                    <div class="to-cursor-card-trigger product-card">
+                        <div class="product-image">🎧</div>
+                        <h3>Headphones</h3>
+                        <p style="color: #666;">$199</p>
+                    </div>
+                    
+                    <div class="to-cursor-card-content">
+                        <img class="to-cursor-card-image" src="https://picsum.photos/300/150?3" alt="Product">
+                        <h3 class="to-cursor-card-title">Wireless Headphones</h3>
+                        <p class="to-cursor-card-description">Noise cancelling with 30h battery life.</p>
+                        <div class="to-cursor-card-price">$199</div>
+                        <div class="to-cursor-card-rating">⭐⭐⭐⭐⭐ (89 reviews)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Cursor Positions</h2>
+            <div class="demo-grid">
+                <div class="to-cursor-card" data-position="top">
+                    <div class="to-cursor-card-trigger product-card">Top</div>
+                    <div class="to-cursor-card-content">Appears above cursor</div>
+                </div>
+                
+                <div class="to-cursor-card" data-position="bottom">
+                    <div class="to-cursor-card-trigger product-card">Bottom</div>
+                    <div class="to-cursor-card-content">Appears below cursor</div>
+                </div>
+                
+                <div class="to-cursor-card" data-position="left">
+                    <div class="to-cursor-card-trigger product-card">Left</div>
+                    <div class="to-cursor-card-content">Appears left of cursor</div>
+                </div>
+                
+                <div class="to-cursor-card" data-position="right">
+                    <div class="to-cursor-card-trigger product-card">Right</div>
+                    <div class="to-cursor-card-content">Appears right of cursor</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>User Profiles</h2>
+            <div class="demo-grid">
+                <div class="to-cursor-card">
+                    <div class="to-cursor-card-trigger" style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #f5f5f5; border-radius: 8px;">
+                        <img src="https://picsum.photos/50/50?4" style="width: 50px; height: 50px; border-radius: 50%;">
+                        <div>
+                            <div style="font-weight: bold;">John Doe</div>
+                            <div style="font-size: 12px; color: #666;">@johndoe</div>
+                        </div>
+                    </div>
+                    
+                    <div class="to-cursor-card-content" style="width: 250px;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <img src="https://picsum.photos/60/60?5" style="width: 60px; height: 60px; border-radius: 50%;">
+                            <div>
+                                <h3 style="margin: 0;">John Doe</h3>
+                                <p style="margin: 0; color: #666;">@johndoe</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0;">Senior Developer at TechCorp</p>
+                        <div style="display: flex; gap: 12px; color: #666; font-size: 12px;">
+                            <span>📊 1.2K followers</span>
+                            <span>📝 45 posts</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="to-cursor-card">
+                    <div class="to-cursor-card-trigger" style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #f5f5f5; border-radius: 8px;">
+                        <img src="https://picsum.photos/50/50?6" style="width: 50px; height: 50px; border-radius: 50%;">
+                        <div>
+                            <div style="font-weight: bold;">Jane Smith</div>
+                            <div style="font-size: 12px; color: #666;">@janesmith</div>
+                        </div>
+                    </div>
+                    
+                    <div class="to-cursor-card-content" style="width: 250px;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <img src="https://picsum.photos/60/60?7" style="width: 60px; height: 60px; border-radius: 50%;">
+                            <div>
+                                <h3 style="margin: 0;">Jane Smith</h3>
+                                <p style="margin: 0; color: #666;">@janesmith</p>
+                            </div>
+                        </div>
+                        <p style="margin: 0 0 8px 0;">Product Designer at DesignStudio</p>
+                        <div style="display: flex; gap: 12px; color: #666; font-size: 12px;">
+                            <span>🎨 856 followers</span>
+                            <span>✨ 23 projects</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Rich Content</h2>
+            <div class="demo-grid">
+                <div class="to-cursor-card">
+                    <div class="to-cursor-card-trigger product-card">🎬 Movie</div>
+                    <div class="to-cursor-card-content" style="width: 280px;">
+                        <img class="to-cursor-card-image" src="https://picsum.photos/300/150?8">
+                        <h3 class="to-cursor-card-title">Inception</h3>
+                        <p class="to-cursor-card-description">A thief who steals corporate secrets through dream-sharing technology.</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span class="to-badge" data-variant="success">PG-13</span>
+                            <span>⭐ 8.8/10</span>
+                            <span>⏱️ 148 min</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="to-cursor-card">
+                    <div class="to-cursor-card-trigger product-card">🎵 Song</div>
+                    <div class="to-cursor-card-content" style="width: 280px;">
+                        <img class="to-cursor-card-image" src="https://picsum.photos/300/150?9">
+                        <h3 class="to-cursor-card-title">Bohemian Rhapsody</h3>
+                        <p class="to-cursor-card-description">Queen • 1975 • Rock</p>
+                        <div class="to-progress" data-value="45" data-size="s" style="margin-top: 8px;">
+                            <div class="to-progress-label">Popularity</div>
+                            <div class="to-progress-track">
+                                <div class="to-progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Dark Theme</h2>
+            <div class="to-cursor-card" data-theme="dark">
+                <div class="to-cursor-card-trigger product-card" style="background: #333; color: white;">Hover for dark card</div>
+                <div class="to-cursor-card-content">
+                    <h3 class="to-cursor-card-title">Dark Theme Card</h3>
+                    <p class="to-cursor-card-description">This card follows your cursor with dark theme styling.</p>
+                    <div class="to-cursor-card-meta">
+                        <span>✨ Dark mode</span>
+                        <span>🌙 Follows cursor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>On Text</h2>
+            <p>
+                Hover over 
+                <span class="to-cursor-card" style="display: inline-block;">
+                    <span class="to-cursor-card-trigger" style="color: #0066ff; text-decoration: underline; cursor: help;">these words</span>
+                    <span class="to-cursor-card-content">
+                        <strong>Definition:</strong> This is an example of a cursor card that appears when hovering over specific text.
+                    </span>
+                </span>
+                to see a cursor card with definition.
+            </p>
+        </div>
+
+        <div class="demo-section">
+            <h2>Different Radius</h2>
+            <div class="demo-grid">
+                <div class="to-cursor-card" data-radius="none">
+                    <div class="to-cursor-card-trigger product-card">No radius</div>
+                    <div class="to-cursor-card-content">Sharp corners</div>
+                </div>
+                
+                <div class="to-cursor-card" data-radius="full">
+                    <div class="to-cursor-card-trigger product-card">Full radius</div>
+                    <div class="to-cursor-card-content">Rounded corners</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="techon-cursor-card.js"></script>
+    <script src="techon-badge.js"></script>
+    <script src="techon-progress.js"></script>
+</body>
+</html>
