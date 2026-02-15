@@ -1,0 +1,105 @@
+:root {
+  --to-mask-color: #0066ff;
+  --to-mask-opacity: 0.8;
+  --to-mask-blur: 0px;
+  --to-mask-radius: 0px;
+}
+
+.to-mask {
+  position: relative;
+  display: inline-block;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.to-mask-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.to-mask-content {
+  position: relative;
+  z-index: 1;
+}
+
+.to-mask[data-type="color"] .to-mask-overlay {
+  background-color: var(--to-mask-color);
+  opacity: var(--to-mask-opacity);
+}
+
+.to-mask[data-type="gradient"] .to-mask-overlay {
+  background: linear-gradient(135deg, 
+    rgba(0,102,255,0.8) 0%, 
+    rgba(102,0,255,0.8) 100%);
+}
+
+.to-mask[data-type="radial"] .to-mask-overlay {
+  background: radial-gradient(circle at center, 
+    transparent 0%, 
+    var(--to-mask-color) 100%);
+  opacity: var(--to-mask-opacity);
+}
+
+.to-mask[data-type="pattern"] .to-mask-overlay {
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.1) 0px,
+      rgba(255,255,255,0.1) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+}
+
+.to-mask[data-blur="true"] .to-mask-content {
+  filter: blur(4px);
+}
+
+.to-mask[data-blur="true"]:hover .to-mask-content {
+  filter: blur(0);
+}
+
+.to-mask[data-reveal="hover"] .to-mask-overlay {
+  transition: opacity 0.3s ease;
+}
+
+.to-mask[data-reveal="hover"]:hover .to-mask-overlay {
+  opacity: 0;
+}
+
+.to-mask[data-reveal="click"] .to-mask-overlay {
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.to-mask[data-reveal="click"][data-revealed="true"] .to-mask-overlay {
+  opacity: 0;
+}
+
+.to-mask[data-radius="none"] { border-radius: 0; }
+.to-mask[data-radius="s"] { border-radius: 4px; overflow: hidden; }
+.to-mask[data-radius="m"] { border-radius: 8px; overflow: hidden; }
+.to-mask[data-radius="l"] { border-radius: 12px; overflow: hidden; }
+.to-mask[data-radius="xl"] { border-radius: 16px; overflow: hidden; }
+.to-mask[data-radius="full"] { border-radius: 999px; overflow: hidden; }
+
+.to-mask[data-color="primary"] { --to-mask-color: #0066ff; }
+.to-mask[data-color="success"] { --to-mask-color: #10b981; }
+.to-mask[data-color="warning"] { --to-mask-color: #f59e0b; }
+.to-mask[data-color="danger"] { --to-mask-color: #ef4444; }
+.to-mask[data-color="dark"] { --to-mask-color: #1a1a1a; }
+
+.to-mask-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  z-index: 3;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}

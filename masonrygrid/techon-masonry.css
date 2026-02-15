@@ -1,0 +1,115 @@
+:root {
+  --to-masonry-gap: 16px;
+  --to-masonry-column-width: 250px;
+  --to-masonry-column-count: 3;
+}
+
+.to-masonry {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--to-masonry-gap);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.to-masonry[data-layout="columns"] {
+  flex-direction: column;
+  height: 100%;
+}
+
+.to-masonry-column {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--to-masonry-gap);
+  min-width: var(--to-masonry-column-width);
+}
+
+.to-masonry[data-columns="2"] .to-masonry-column {
+  width: calc(50% - var(--to-masonry-gap) / 2);
+}
+
+.to-masonry[data-columns="3"] .to-masonry-column {
+  width: calc(33.333% - var(--to-masonry-gap) * 2/3);
+}
+
+.to-masonry[data-columns="4"] .to-masonry-column {
+  width: calc(25% - var(--to-masonry-gap) * 3/4);
+}
+
+.to-masonry[data-columns="5"] .to-masonry-column {
+  width: calc(20% - var(--to-masonry-gap) * 4/5);
+}
+
+.to-masonry-item {
+  break-inside: avoid;
+  margin-bottom: var(--to-masonry-gap);
+  transition: all 0.3s ease;
+}
+
+.to-masonry-item:hover {
+  transform: translateY(-2px);
+}
+
+.to-masonry[data-gap="xs"] { --to-masonry-gap: 4px; }
+.to-masonry[data-gap="s"] { --to-masonry-gap: 8px; }
+.to-masonry[data-gap="m"] { --to-masonry-gap: 16px; }
+.to-masonry[data-gap="l"] { --to-masonry-gap: 24px; }
+.to-masonry[data-gap="xl"] { --to-masonry-gap: 32px; }
+
+.to-masonry[data-animated="true"] .to-masonry-item {
+  animation: to-masonry-fade-in 0.5s ease;
+}
+
+.to-masonry[data-centered="true"] {
+  justify-content: center;
+}
+
+.to-masonry[data-stagger="true"] .to-masonry-item:nth-child(even) {
+  margin-top: calc(var(--to-masonry-gap) * 2);
+}
+
+@keyframes to-masonry-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.to-masonry-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid #eee;
+}
+
+.to-masonry-card-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.to-masonry-card-content {
+  padding: 16px;
+}
+
+.to-masonry-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.to-masonry-card-description {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}

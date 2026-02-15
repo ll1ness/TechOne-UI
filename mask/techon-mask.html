@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - Mask</title>
+    <link rel="stylesheet" href="techon-mask.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 24px; max-width: 1000px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .demo-row { display: flex; gap: 30px; flex-wrap: wrap; align-items: center; }
+        .demo-image { width: 200px; height: 150px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Mask Types</h2>
+            <div class="demo-row">
+                <div class="to-mask" data-type="color" data-color="primary" style="width: 200px; height: 150px;">
+                    <div class="to-mask-content demo-image">🏞️ Image</div>
+                </div>
+                
+                <div class="to-mask" data-type="gradient" style="width: 200px; height: 150px;">
+                    <div class="to-mask-content demo-image">🌅 Scene</div>
+                </div>
+                
+                <div class="to-mask" data-type="radial" style="width: 200px; height: 150px;">
+                    <div class="to-mask-content demo-image">🌌 Space</div>
+                </div>
+                
+                <div class="to-mask" data-type="pattern" style="width: 200px; height: 150px;">
+                    <div class="to-mask-content demo-image">🔷 Pattern</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Colors</h2>
+            <div class="demo-row">
+                <div class="to-mask" data-color="primary" style="width: 150px; height: 100px;">
+                    <div class="to-mask-content demo-image">Primary</div>
+                </div>
+                
+                <div class="to-mask" data-color="success" style="width: 150px; height: 100px;">
+                    <div class="to-mask-content demo-image">Success</div>
+                </div>
+                
+                <div class="to-mask" data-color="warning" style="width: 150px; height: 100px;">
+                    <div class="to-mask-content demo-image">Warning</div>
+                </div>
+                
+                <div class="to-mask" data-color="danger" style="width: 150px; height: 100px;">
+                    <div class="to-mask-content demo-image">Danger</div>
+                </div>
+                
+                <div class="to-mask" data-color="dark" style="width: 150px; height: 100px;">
+                    <div class="to-mask-content demo-image">Dark</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Opacity</h2>
+            <div class="demo-row">
+                <div class="to-mask" data-color="primary" style="--to-mask-opacity: 0.3; width: 150px; height: 100px;">
+                    <div class="to-mask-content demo-image">30%</div>
+                </div>
+                
+                <div class="to-mask" data-color="primary" style="--to-mask-opacity: 0.6; width: 150px; height: 100px;">
+                    <div class="to-mask-content demo-image">60%</div>
+                </div>
+                
+                <div class="to-mask" data-color="primary" style="--to-mask-opacity: 0.9; width: 150px; height: 100px;">
+                    <div class="to-mask-content demo-image">90%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Radius</h2>
+            <div class="demo-row">
+                <div class="to-mask" data-radius="none" style="width: 100px; height: 100px;">
+                    <div class="to-mask-content demo-image">None</div>
+                </div>
+                
+                <div class="to-mask" data-radius="s" style="width: 100px; height: 100px;">
+                    <div class="to-mask-content demo-image">S</div>
+                </div>
+                
+                <div class="to-mask" data-radius="m" style="width: 100px; height: 100px;">
+                    <div class="to-mask-content demo-image">M</div>
+                </div>
+                
+                <div class="to-mask" data-radius="l" style="width: 100px; height: 100px;">
+                    <div class="to-mask-content demo-image">L</div>
+                </div>
+                
+                <div class="to-mask" data-radius="xl" style="width: 100px; height: 100px;">
+                    <div class="to-mask-content demo-image">XL</div>
+                </div>
+                
+                <div class="to-mask" data-radius="full" style="width: 100px; height: 100px;">
+                    <div class="to-mask-content demo-image">Full</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Blur</h2>
+            <div class="demo-row">
+                <div class="to-mask" data-blur="true" style="width: 200px; height: 150px;">
+                    <div class="to-mask-content demo-image">Blurred content</div>
+                </div>
+                
+                <div class="to-mask" data-blur="true" data-color="success" style="width: 200px; height: 150px;">
+                    <div class="to-mask-content demo-image">Blur + color</div>
+                </div>
+            </div>
+            <p style="font-size: 12px; color: #666; margin-top: 8px;">Hover to remove blur</p>
+        </div>
+
+        <div class="demo-section">
+            <h2>Reveal on Hover</h2>
+            <div class="demo-row">
+                <div class="to-mask" data-reveal="hover" data-color="primary" style="width: 200px; height: 150px;">
+                    <div class="to-mask-content demo-image">Hover to reveal</div>
+                </div>
+                
+                <div class="to-mask" data-reveal="hover" data-type="gradient" style="width: 200px; height: 150px;">
+                    <div class="to-mask-content demo-image">Gradient reveal</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Reveal on Click</h2>
+            <div class="demo-row">
+                <div class="to-mask" data-reveal="click" data-color="danger" style="width: 200px; height: 150px;">
+                    <div class="to-mask-content demo-image">Click to reveal</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Text Overlay</h2>
+            <div class="demo-row">
+                <div class="to-mask" data-color="dark" style="width: 200px; height: 150px; position: relative;">
+                    <div class="to-mask-content demo-image">📷 Photo</div>
+                    <span class="to-mask-text">NEW</span>
+                </div>
+                
+                <div class="to-mask" data-type="gradient" style="width: 200px; height: 150px; position: relative;">
+                    <div class="to-mask-content demo-image">🏞️ Landscape</div>
+                    <span class="to-mask-text">PREMIUM</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Use Cases</h2>
+            
+            <h3>Image Gallery</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <div class="to-mask" data-reveal="hover" data-color="dark" style="aspect-ratio: 1;">
+                    <div class="to-mask-content demo-image" style="height: 100%;">🖼️ 1</div>
+                </div>
+                <div class="to-mask" data-reveal="hover" data-color="primary" style="aspect-ratio: 1;">
+                    <div class="to-mask-content demo-image" style="height: 100%;">🖼️ 2</div>
+                </div>
+                <div class="to-mask" data-reveal="hover" data-type="gradient" style="aspect-ratio: 1;">
+                    <div class="to-mask-content demo-image" style="height: 100%;">🖼️ 3</div>
+                </div>
+            </div>
+            
+            <h3>Profile Picture</h3>
+            <div class="to-mask" data-radius="full" data-color="primary" style="width: 120px; height: 120px;">
+                <div class="to-mask-content demo-image" style="width: 100%; height: 100%;">👤</div>
+                <span class="to-mask-text" style="font-size: 12px;">PRO</span>
+            </div>
+            
+            <h3>Card Overlay</h3>
+            <div class="to-mask" data-color="dark" data-opacity="0.5" style="width: 300px;">
+                <div class="to-mask-content">
+                    <div class="to-card" style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                        Card Content
+                    </div>
+                </div>
+                <span class="to-mask-text">LOCKED</span>
+            </div>
+            
+            <h3>Video Thumbnail</h3>
+            <div class="to-mask" data-color="dark" data-blur="true" style="width: 300px; height: 169px; position: relative;">
+                <div class="to-mask-content demo-image" style="width: 100%; height: 100%;">🎬 Video</div>
+                <span class="to-mask-text">▶ PLAY</span>
+            </div>
+            
+            <h3>Age Restriction</h3>
+            <div class="to-mask" data-reveal="click" data-color="danger" style="width: 300px; height: 169px;">
+                <div class="to-mask-content demo-image" style="width: 100%; height: 100%;">🔞 18+ Content</div>
+                <span class="to-mask-text">Click to verify age</span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Combinations</h2>
+            <div class="demo-row">
+                <div class="to-mask" 
+                     data-type="radial" 
+                     data-color="warning" 
+                     data-blur="true" 
+                     data-reveal="hover" 
+                     data-radius="xl"
+                     style="width: 200px; height: 200px;">
+                    <div class="to-mask-content demo-image" style="width: 100%; height: 100%;">✨</div>
+                </div>
+                
+                <div class="to-mask" 
+                     data-type="gradient" 
+                     data-reveal="click" 
+                     data-radius="full"
+                     style="width: 150px; height: 150px;">
+                    <div class="to-mask-content demo-image" style="width: 100%; height: 100%;">⭐</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="techon-mask.js"></script>
+</body>
+</html>

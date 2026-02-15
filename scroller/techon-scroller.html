@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - Scroller</title>
+    <link rel="stylesheet" href="techon-scroller.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 24px; max-width: 800px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .demo-card { width: 200px; height: 150px; background: #f0f0f0; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; margin-right: 16px; font-size: 18px; }
+        .demo-card:last-child { margin-right: 0; }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Vertical Scroller</h2>
+            <div class="to-scroller" style="height: 300px; border: 1px solid #eee; border-radius: 8px; padding: 16px;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Horizontal Scroller</h2>
+            <div class="to-scroller" data-orientation="horizontal" style="padding: 16px 0;">
+                <div class="demo-card">Card 1</div>
+                <div class="demo-card">Card 2</div>
+                <div class="demo-card">Card 3</div>
+                <div class="demo-card">Card 4</div>
+                <div class="demo-card">Card 5</div>
+                <div class="demo-card">Card 6</div>
+                <div class="demo-card">Card 7</div>
+                <div class="demo-card">Card 8</div>
+                <div class="demo-card">Card 9</div>
+                <div class="demo-card">Card 10</div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Scrollbar Sizes</h2>
+            <h3>Small</h3>
+            <div class="to-scroller" data-size="s" style="height: 150px; border: 1px solid #eee; border-radius: 8px; padding: 8px;">
+                <p>Small scrollbar - Content 1</p>
+                <p>Small scrollbar - Content 2</p>
+                <p>Small scrollbar - Content 3</p>
+                <p>Small scrollbar - Content 4</p>
+                <p>Small scrollbar - Content 5</p>
+            </div>
+            
+            <h3>Large</h3>
+            <div class="to-scroller" data-size="l" style="height: 150px; border: 1px solid #eee; border-radius: 8px; padding: 8px;">
+                <p>Large scrollbar - Content 1</p>
+                <p>Large scrollbar - Content 2</p>
+                <p>Large scrollbar - Content 3</p>
+                <p>Large scrollbar - Content 4</p>
+                <p>Large scrollbar - Content 5</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Hide Modes</h2>
+            <h3>Always Hidden</h3>
+            <div class="to-scroller" data-hide="true" style="height: 150px; border: 1px solid #eee; border-radius: 8px; padding: 8px;">
+                <p>Scrollbar is always hidden</p>
+                <p>But you can still scroll</p>
+                <p>With mouse wheel or touch</p>
+                <p>More content here</p>
+                <p>Even more content</p>
+            </div>
+            
+            <h3>Show on Hover</h3>
+            <div class="to-scroller" data-hide="hover" style="height: 150px; border: 1px solid #eee; border-radius: 8px; padding: 8px;">
+                <p>Hover to see scrollbar</p>
+                <p>Scrollbar hidden by default</p>
+                <p>Appears when you hover</p>
+                <p>More content here</p>
+                <p>Even more content</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Shadows</h2>
+            <div class="to-scroller" data-orientation="horizontal" data-show-shadows="true" style="padding: 16px 0;">
+                <div class="demo-card">Card 1</div>
+                <div class="demo-card">Card 2</div>
+                <div class="demo-card">Card 3</div>
+                <div class="demo-card">Card 4</div>
+                <div class="demo-card">Card 5</div>
+                <div class="demo-card">Card 6</div>
+                <div class="demo-card">Card 7</div>
+                <div class="demo-card">Card 8</div>
+                <div class="demo-card">Card 9</div>
+                <div class="demo-card">Card 10</div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Navigation Buttons</h2>
+            <div style="position: relative;">
+                <div class="to-scroller" data-orientation="horizontal" data-show-buttons="true" style="padding: 16px 40px;">
+                    <div class="demo-card">Card 1</div>
+                    <div class="demo-card">Card 2</div>
+                    <div class="demo-card">Card 3</div>
+                    <div class="demo-card">Card 4</div>
+                    <div class="demo-card">Card 5</div>
+                    <div class="demo-card">Card 6</div>
+                    <div class="demo-card">Card 7</div>
+                    <div class="demo-card">Card 8</div>
+                    <div class="demo-card">Card 9</div>
+                    <div class="demo-card">Card 10</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Custom Scrollbar Colors</h2>
+            <style>
+                .custom-scroller::-webkit-scrollbar-thumb {
+                    background: #0066ff;
+                }
+                .custom-scroller::-webkit-scrollbar-track {
+                    background: #e6f0ff;
+                }
+            </style>
+            <div class="to-scroller custom-scroller" style="height: 200px; border: 1px solid #eee; border-radius: 8px; padding: 16px;">
+                <p>Custom blue scrollbar</p>
+                <p>With matching track color</p>
+                <p>Scroll to see the effect</p>
+                <p>More content here</p>
+                <p>Even more content</p>
+                <p>And some more</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Use Cases</h2>
+            
+            <h3>Chat Messages</h3>
+            <div class="to-scroller" style="height: 300px; border: 1px solid #eee; border-radius: 8px; padding: 16px;">
+                <div style="margin-bottom: 16px;">
+                    <strong>User 1:</strong> Hello everyone!
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <strong>User 2:</strong> Hi there!
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <strong>User 3:</strong> How's it going?
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <strong>User 1:</strong> Great, thanks!
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <strong>User 2:</strong> Anyone working on the new project?
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <strong>User 3:</strong> Yes, I just started
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <strong>User 1:</strong> Let me know if you need help
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <strong>User 4:</strong> I can help too
+                </div>
+            </div>
+            
+            <h3>Horizontal Category Menu</h3>
+            <div class="to-scroller" data-orientation="horizontal" data-hide="hover" style="padding: 8px 0;">
+                <div style="display: flex; gap: 12px;">
+                    <span class="to-tag" data-variant="outline" style="padding: 8px 16px;">All Products</span>
+                    <span class="to-tag" data-variant="outline">Electronics</span>
+                    <span class="to-tag" data-variant="outline">Clothing</span>
+                    <span class="to-tag" data-variant="outline">Books</span>
+                    <span class="to-tag" data-variant="outline">Home & Garden</span>
+                    <span class="to-tag" data-variant="outline">Sports</span>
+                    <span class="to-tag" data-variant="outline">Toys</span>
+                    <span class="to-tag" data-variant="outline">Automotive</span>
+                    <span class="to-tag" data-variant="outline">Health</span>
+                    <span class="to-tag" data-variant="outline">Beauty</span>
+                </div>
+            </div>
+            
+            <h3>Code Editor</h3>
+            <div class="to-scroller" style="height: 200px; background: #1e1e1e; color: #d4d4d4; padding: 16px; font-family: monospace; border-radius: 8px;">
+                <pre style="margin: 0;">function hello() {
+    console.log("Hello, World!");
+    
+    const items = [1, 2, 3, 4, 5];
+    items.forEach(item => {
+        console.log(item);
+    });
+    
+    return items.map(i => i * 2);
+}
+
+// This is a long code block
+// That requires scrolling
+// To see all the content
+// And demonstrates the scroller
+// In a realistic use case</pre>
+            </div>
+            
+            <h3>Image Gallery</h3>
+            <div class="to-scroller" data-orientation="horizontal" style="padding: 16px 0;">
+                <div style="display: flex; gap: 12px;">
+                    <div style="width: 150px; height: 150px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center;">Image 1</div>
+                    <div style="width: 150px; height: 150px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center;">Image 2</div>
+                    <div style="width: 150px; height: 150px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center;">Image 3</div>
+                    <div style="width: 150px; height: 150px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center;">Image 4</div>
+                    <div style="width: 150px; height: 150px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center;">Image 5</div>
+                    <div style="width: 150px; height: 150px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center;">Image 6</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Programmatic Control</h2>
+            <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+                <button class="to-button" onclick="document.querySelector('.controlled-scroller').scrollerInstance.scrollToTop()">Scroll to Top</button>
+                <button class="to-button" onclick="document.querySelector('.controlled-scroller').scrollerInstance.scrollToBottom()">Scroll to Bottom</button>
+            </div>
+            <div class="to-scroller controlled-scroller" style="height: 200px; border: 1px solid #eee; border-radius: 8px; padding: 16px;">
+                <p>Content line 1</p>
+                <p>Content line 2</p>
+                <p>Content line 3</p>
+                <p>Content line 4</p>
+                <p>Content line 5</p>
+                <p>Content line 6</p>
+                <p>Content line 7</p>
+                <p>Content line 8</p>
+                <p>Content line 9</p>
+                <p>Content line 10</p>
+            </div>
+        </div>
+    </div>
+    <script src="techon-scroller.js"></script>
+    <script src="techon-tag.js"></script>
+    <script src="techon-button.js"></script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - MasonryGrid</title>
+    <link rel="stylesheet" href="techon-masonry.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 24px; max-width: 1200px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .to-masonry-item { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .to-masonry-item img { width: 100%; height: auto; display: block; }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Basic Masonry Grid</h2>
+            <div class="to-masonry" data-columns="3" data-gap="m">
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 200px;">📷 1</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Card 1</h3>
+                        <p class="to-masonry-card-description">Tall content with description</p>
+                    </div>
+                </div>
+                
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 150px;">📷 2</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Card 2</h3>
+                        <p class="to-masonry-card-description">Medium height card</p>
+                    </div>
+                </div>
+                
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 250px;">📷 3</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Card 3</h3>
+                        <p class="to-masonry-card-description">Extra tall card with lots of content and maybe some additional text</p>
+                    </div>
+                </div>
+                
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 180px;">📷 4</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Card 4</h3>
+                        <p class="to-masonry-card-description">Another card</p>
+                    </div>
+                </div>
+                
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 120px;">📷 5</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Card 5</h3>
+                        <p class="to-masonry-card-description">Short card</p>
+                    </div>
+                </div>
+                
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 220px;">📷 6</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Card 6</h3>
+                        <p class="to-masonry-card-description">Tall card</p>
+                    </div>
+                </div>
+                
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 160px;">📷 7</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Card 7</h3>
+                        <p class="to-masonry-card-description">Medium card</p>
+                    </div>
+                </div>
+                
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 190px;">📷 8</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Card 8</h3>
+                        <p class="to-masonry-card-description">Another card with text</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Different Column Counts</h2>
+            <h3>2 Columns</h3>
+            <div class="to-masonry" data-columns="2" data-gap="m">
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 150px;">1</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 200px;">2</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 180px;">3</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 220px;">4</div></div>
+            </div>
+            
+            <h3>4 Columns</h3>
+            <div class="to-masonry" data-columns="4" data-gap="m">
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 120px;">1</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 180px;">2</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 140px;">3</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 200px;">4</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 160px;">5</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 190px;">6</div></div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Gap Sizes</h2>
+            <h3>Small Gap</h3>
+            <div class="to-masonry" data-columns="3" data-gap="s">
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 150px;">1</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 200px;">2</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 180px;">3</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 160px;">4</div></div>
+            </div>
+            
+            <h3>Large Gap</h3>
+            <div class="to-masonry" data-columns="3" data-gap="l">
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 150px;">1</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 200px;">2</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 180px;">3</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 160px;">4</div></div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Animated</h2>
+            <div class="to-masonry" data-columns="3" data-gap="m" data-animated="true">
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 150px;">1</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 200px;">2</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 180px;">3</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 220px;">4</div></div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Staggered Layout</h2>
+            <div class="to-masonry" data-columns="3" data-gap="m" data-stagger="true">
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 150px;">1</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 200px;">2</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 180px;">3</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 160px;">4</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 220px;">5</div></div>
+                <div class="to-masonry-card"><div class="to-masonry-card-image" style="height: 190px;">6</div></div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Use Cases</h2>
+            
+            <h3>Pinterest-style Gallery</h3>
+            <div class="to-masonry" data-columns="4" data-gap="m">
+                <div class="to-masonry-card"><img src="https://picsum.photos/300/400?1" alt=""></div>
+                <div class="to-masonry-card"><img src="https://picsum.photos/300/300?2" alt=""></div>
+                <div class="to-masonry-card"><img src="https://picsum.photos/300/500?3" alt=""></div>
+                <div class="to-masonry-card"><img src="https://picsum.photos/300/350?4" alt=""></div>
+                <div class="to-masonry-card"><img src="https://picsum.photos/300/450?5" alt=""></div>
+                <div class="to-masonry-card"><img src="https://picsum.photos/300/380?6" alt=""></div>
+                <div class="to-masonry-card"><img src="https://picsum.photos/300/420?7" alt=""></div>
+                <div class="to-masonry-card"><img src="https://picsum.photos/300/390?8" alt=""></div>
+            </div>
+            
+            <h3>Blog Posts</h3>
+            <div class="to-masonry" data-columns="3" data-gap="l">
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 200px;">📝</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Getting Started with Masonry</h3>
+                        <p class="to-masonry-card-description">Learn how to create beautiful grid layouts...</p>
+                    </div>
+                </div>
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 150px;">📊</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Advanced Grid Techniques</h3>
+                        <p class="to-masonry-card-description">Master complex layouts with CSS Grid...</p>
+                    </div>
+                </div>
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 180px;">🎨</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Design Patterns</h3>
+                        <p class="to-masonry-card-description">Explore common UI patterns and when to use them...</p>
+                    </div>
+                </div>
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 220px;">🚀</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Performance Tips</h3>
+                        <p class="to-masonry-card-description">Optimize your website for better performance...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Product Grid</h3>
+            <div class="to-masonry" data-columns="4" data-gap="m">
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 200px;">👕</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">T-Shirt</h3>
+                        <p class="to-masonry-card-description">$29.99</p>
+                    </div>
+                </div>
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 250px;">👖</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Jeans</h3>
+                        <p class="to-masonry-card-description">$59.99</p>
+                    </div>
+                </div>
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 180px;">🧥</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Jacket</h3>
+                        <p class="to-masonry-card-description">$89.99</p>
+                    </div>
+                </div>
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 150px;">🧦</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Socks</h3>
+                        <p class="to-masonry-card-description">$9.99</p>
+                    </div>
+                </div>
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 190px;">👟</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Shoes</h3>
+                        <p class="to-masonry-card-description">$79.99</p>
+                    </div>
+                </div>
+                <div class="to-masonry-card">
+                    <div class="to-masonry-card-image" style="height: 170px;">🧢</div>
+                    <div class="to-masonry-card-content">
+                        <h3 class="to-masonry-card-title">Cap</h3>
+                        <p class="to-masonry-card-description">$19.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="techon-masonry.js"></script>
+</body>
+</html>
