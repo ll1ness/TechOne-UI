@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - Line</title>
+    <link rel="stylesheet" href="techon-line.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 24px; max-width: 800px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .demo-row { display: flex; gap: 30px; flex-wrap: wrap; align-items: center; }
+        .demo-box { padding: 20px; background: #f5f5f5; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Basic Horizontal Lines</h2>
+            <div class="demo-box">
+                <span class="to-line" data-orientation="horizontal"></span>
+                <p style="margin: 16px 0;">Content above and below the line</p>
+                <span class="to-line" data-orientation="horizontal"></span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Line Lengths</h2>
+            <div class="demo-box">
+                <span class="to-line" data-orientation="horizontal" data-length="25"></span>
+                <p>25% width</p>
+                <span class="to-line" data-orientation="horizontal" data-length="50"></span>
+                <p>50% width</p>
+                <span class="to-line" data-orientation="horizontal" data-length="75"></span>
+                <p>75% width</p>
+                <span class="to-line" data-orientation="horizontal" data-length="100"></span>
+                <p>100% width (default)</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Thickness</h2>
+            <div class="demo-box">
+                <span class="to-line" data-orientation="horizontal" data-thickness="thin"></span>
+                <p>Thin (1px)</p>
+                <span class="to-line" data-orientation="horizontal" data-thickness="medium"></span>
+                <p>Medium (2px)</p>
+                <span class="to-line" data-orientation="horizontal" data-thickness="thick"></span>
+                <p>Thick (3px)</p>
+                <span class="to-line" data-orientation="horizontal" data-thickness="xthick"></span>
+                <p>Extra thick (4px)</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Line Styles</h2>
+            <div class="demo-box">
+                <span class="to-line" data-orientation="horizontal" data-style="solid"></span>
+                <p>Solid</p>
+                <span class="to-line" data-orientation="horizontal" data-style="dashed"></span>
+                <p>Dashed</p>
+                <span class="to-line" data-orientation="horizontal" data-style="dotted"></span>
+                <p>Dotted</p>
+                <span class="to-line" data-orientation="horizontal" data-style="double"></span>
+                <p>Double</p>
+                <span class="to-line" data-orientation="horizontal" data-style="groove"></span>
+                <p>Groove</p>
+                <span class="to-line" data-orientation="horizontal" data-style="ridge"></span>
+                <p>Ridge</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Colors</h2>
+            <div class="demo-box">
+                <span class="to-line" data-orientation="horizontal" data-color="default"></span>
+                <p>Default</p>
+                <span class="to-line" data-orientation="horizontal" data-color="primary"></span>
+                <p>Primary</p>
+                <span class="to-line" data-orientation="horizontal" data-color="success"></span>
+                <p>Success</p>
+                <span class="to-line" data-orientation="horizontal" data-color="warning"></span>
+                <p>Warning</p>
+                <span class="to-line" data-orientation="horizontal" data-color="danger"></span>
+                <p>Danger</p>
+                <span class="to-line" data-orientation="horizontal" data-color="muted"></span>
+                <p>Muted</p>
+                <span class="to-line" data-orientation="horizontal" data-color="dark"></span>
+                <p>Dark</p>
+                <span class="to-line" data-orientation="horizontal" data-color="light"></span>
+                <p>Light</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Vertical Lines</h2>
+            <div class="demo-row">
+                <span>Left</span>
+                <span class="to-line" data-orientation="vertical" data-length="30"></span>
+                <span>Middle</span>
+                <span class="to-line" data-orientation="vertical" data-length="30"></span>
+                <span>Right</span>
+            </div>
+            <div class="demo-row" style="margin-top: 20px;">
+                <span class="to-line" data-orientation="vertical" data-length="50" data-color="primary"></span>
+                <span class="to-line" data-orientation="vertical" data-length="50" data-color="success"></span>
+                <span class="to-line" data-orientation="vertical" data-length="50" data-color="warning"></span>
+                <span class="to-line" data-orientation="vertical" data-length="50" data-color="danger"></span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Radius</h2>
+            <div class="demo-box">
+                <span class="to-line" data-orientation="horizontal" data-thickness="thick" data-radius="none"></span>
+                <p>None</p>
+                <span class="to-line" data-orientation="horizontal" data-thickness="thick" data-radius="s"></span>
+                <p>Small</p>
+                <span class="to-line" data-orientation="horizontal" data-thickness="thick" data-radius="m"></span>
+                <p>Medium</p>
+                <span class="to-line" data-orientation="horizontal" data-thickness="thick" data-radius="l"></span>
+                <p>Large</p>
+                <span class="to-line" data-orientation="horizontal" data-thickness="thick" data-radius="xl"></span>
+                <p>XL</p>
+                <span class="to-line" data-orientation="horizontal" data-thickness="thick" data-radius="full"></span>
+                <p>Full</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Margin</h2>
+            <div class="demo-box">
+                <span class="to-line" data-orientation="horizontal" data-margin="none"></span>
+                <p>No margin</p>
+                <span class="to-line" data-orientation="horizontal" data-margin="xs"></span>
+                <p>Extra small margin</p>
+                <span class="to-line" data-orientation="horizontal" data-margin="s"></span>
+                <p>Small margin</p>
+                <span class="to-line" data-orientation="horizontal" data-margin="m"></span>
+                <p>Medium margin (default)</p>
+                <span class="to-line" data-orientation="horizontal" data-margin="l"></span>
+                <p>Large margin</p>
+                <span class="to-line" data-orientation="horizontal" data-margin="xl"></span>
+                <p>XL margin</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Gradient Lines</h2>
+            <div class="demo-box">
+                <span class="to-line" data-orientation="horizontal" data-gradient="true" data-color="primary"></span>
+                <p>Primary gradient</p>
+                <span class="to-line" data-orientation="horizontal" data-gradient="true" data-color="success"></span>
+                <p>Success gradient</p>
+                <span class="to-line" data-orientation="vertical" data-length="50" data-gradient="true" data-color="warning"></span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Animated Lines</h2>
+            <div class="demo-box">
+                <span class="to-line" data-orientation="horizontal" data-animated="true"></span>
+                <p>Pulsing line</p>
+                <span class="to-line" data-orientation="horizontal" data-animated="true" data-color="primary" data-thickness="medium"></span>
+                <p>Primary pulsing</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Use Cases</h2>
+            
+            <h3>Section Divider</h3>
+            <div style="margin-bottom: 20px;">
+                <h4>Section 1</h4>
+                <p>Content of first section</p>
+                <span class="to-line" data-orientation="horizontal" data-style="dashed" data-color="muted"></span>
+                
+                <h4>Section 2</h4>
+                <p>Content of second section</p>
+                <span class="to-line" data-orientation="horizontal" data-style="dashed" data-color="muted"></span>
+                
+                <h4>Section 3</h4>
+                <p>Content of third section</p>
+            </div>
+            
+            <h3>Menu Separator</h3>
+            <div style="display: flex; align-items: center;">
+                <a href="#" style="padding: 0 10px;">Home</a>
+                <span class="to-line" data-orientation="vertical" data-length="20"></span>
+                <a href="#" style="padding: 0 10px;">Products</a>
+                <span class="to-line" data-orientation="vertical" data-length="20"></span>
+                <a href="#" style="padding: 0 10px;">About</a>
+                <span class="to-line" data-orientation="vertical" data-length="20"></span>
+                <a href="#" style="padding: 0 10px;">Contact</a>
+            </div>
+            
+            <h3>Stats with Dividers</h3>
+            <div style="display: flex; justify-content: space-around; text-align: center;">
+                <div>
+                    <div style="font-size: 24px; font-weight: bold;">1,234</div>
+                    <div>Users</div>
+                </div>
+                <span class="to-line" data-orientation="vertical" data-length="50"></span>
+                <div>
+                    <div style="font-size: 24px; font-weight: bold;">567</div>
+                    <div>Projects</div>
+                </div>
+                <span class="to-line" data-orientation="vertical" data-length="50"></span>
+                <div>
+                    <div style="font-size: 24px; font-weight: bold;">89</div>
+                    <div>Countries</div>
+                </div>
+            </div>
+            
+            <h3>Title Underline</h3>
+            <div>
+                <h2 style="margin-bottom: 8px;">Section Title</h2>
+                <span class="to-line" data-orientation="horizontal" data-length="25" data-thickness="medium" data-color="primary"></span>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Combinations</h2>
+            <div class="demo-box">
+                <span class="to-line" data-orientation="horizontal" data-thickness="thick" data-color="primary" data-style="dashed" data-radius="full"></span>
+                <p>Thick primary dashed with full radius</p>
+                
+                <span class="to-line" data-orientation="horizontal" data-gradient="true" data-animated="true" data-color="success" data-thickness="medium"></span>
+                <p>Animated gradient success line</p>
+                
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <span class="to-line" data-orientation="vertical" data-length="40" data-color="warning" data-style="dotted" data-radius="full"></span>
+                    <span>Vertical dotted warning line</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="techon-line.js"></script>
+</body>
+</html>

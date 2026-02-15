@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - Logo</title>
+    <link rel="stylesheet" href="techon-logo.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; padding: 40px; background: #f9f9f9; }
+        .demo-container { display: flex; flex-direction: column; gap: 24px; max-width: 800px; margin: 0 auto; }
+        .demo-section { background: white; padding: 24px; border-radius: 12px; border: 1px solid #eee; }
+        .demo-section h2 { margin: 0 0 20px 0; font-size: 16px; color: #666; text-transform: uppercase; }
+        .demo-row { display: flex; gap: 40px; flex-wrap: wrap; align-items: center; }
+        .dark-bg { background: #1a1a1a; padding: 20px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-section">
+            <h2>Basic Logos</h2>
+            <div class="demo-row">
+                <a href="#" class="to-logo" data-text="TechOn UI" data-src="🚀"></a>
+                <a href="#" class="to-logo" data-text="TechOn" data-src="⚡"></a>
+                <a href="#" class="to-logo" data-text="UI Kit" data-src="🎨"></a>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Sizes</h2>
+            <div class="demo-row">
+                <a href="#" class="to-logo" data-size="xs" data-text="XS" data-src="🔹"></a>
+                <a href="#" class="to-logo" data-size="s" data-text="Small" data-src="🔸"></a>
+                <a href="#" class="to-logo" data-size="m" data-text="Medium" data-src="🔶"></a>
+                <a href="#" class="to-logo" data-size="l" data-text="Large" data-src="🔷"></a>
+                <a href="#" class="to-logo" data-size="xl" data-text="XL" data-src="💠"></a>
+                <a href="#" class="to-logo" data-size="xxl" data-text="XXL" data-src="⭐"></a>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Layouts</h2>
+            <div class="demo-row">
+                <a href="#" class="to-logo" data-layout="horizontal" data-text="Horizontal" data-src="←"></a>
+                <a href="#" class="to-logo" data-layout="vertical" data-text="Vertical" data-src="↓"></a>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Colors</h2>
+            <div class="demo-row">
+                <a href="#" class="to-logo" data-color="dark" data-text="Dark" data-src="🌙"></a>
+                <a href="#" class="to-logo" data-color="primary" data-text="Primary" data-src="🎯"></a>
+                <div class="dark-bg">
+                    <a href="#" class="to-logo" data-color="light" data-text="Light" data-src="☀️"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>With Borders & Background</h2>
+            <div class="demo-row">
+                <a href="#" class="to-logo" data-bordered="true" data-text="Bordered" data-src="📦"></a>
+                <a href="#" class="to-logo" data-background="true" data-text="Background" data-src="🎨"></a>
+                <a href="#" class="to-logo" data-rounded="true" data-text="Rounded" data-src="⚪"></a>
+                <a href="#" class="to-logo" data-bordered="true" data-rounded="true" data-text="Combined" data-src="✨"></a>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Image Logos</h2>
+            <div class="demo-row">
+                <a href="#" class="to-logo" data-src="🔵" data-text="Logoipsum"></a>
+                <a href="#" class="to-logo" data-src="🟢" data-text="Brand name"></a>
+                <a href="#" class="to-logo" data-src="🟠" data-text="Company"></a>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Icon Only</h2>
+            <div class="demo-row">
+                <a href="#" class="to-logo" data-src="⚡"></a>
+                <a href="#" class="to-logo" data-src="🚀"></a>
+                <a href="#" class="to-logo" data-src="💡"></a>
+                <a href="#" class="to-logo" data-src="🎯"></a>
+                <a href="#" class="to-logo" data-src="⚙️"></a>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Text Only</h2>
+            <div class="demo-row">
+                <a href="#" class="to-logo" data-text="TechOn"></a>
+                <a href="#" class="to-logo" data-text="UI Kit" data-color="primary"></a>
+                <a href="#" class="to-logo" data-text="Components" data-size="l"></a>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Use Cases</h2>
+            
+            <h3>Header Logo</h3>
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px; border: 1px solid #eee; border-radius: 8px;">
+                <a href="#" class="to-logo" data-src="🚀" data-text="TechOn UI" data-size="l"></a>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#">Home</a>
+                    <a href="#">Products</a>
+                    <a href="#">About</a>
+                </div>
+            </div>
+            
+            <h3>Footer Logo</h3>
+            <div style="padding: 24px; background: #f5f5f5; border-radius: 8px;">
+                <a href="#" class="to-logo" data-layout="vertical" data-src="🏢" data-text="TechOn UI" data-size="m"></a>
+                <p style="margin-top: 12px;">© 2024 TechOn UI. All rights reserved.</p>
+            </div>
+            
+            <h3>Login Page</h3>
+            <div style="text-align: center; padding: 40px; border: 1px solid #eee; border-radius: 12px;">
+                <a href="#" class="to-logo" data-layout="vertical" data-src="🔐" data-text="Welcome Back" data-size="xl"></a>
+                <p style="margin: 20px 0; color: #666;">Sign in to your account</p>
+                <button class="to-button" style="width: 200px;">Sign In</button>
+            </div>
+            
+            <h3>Dashboard Header</h3>
+            <div style="display: flex; align-items: center; gap: 40px; padding: 16px; background: white; border: 1px solid #eee; border-radius: 8px;">
+                <a href="#" class="to-logo" data-src="📊" data-text="Dashboard" data-size="m"></a>
+                <div style="flex: 1; display: flex; gap: 20px;">
+                    <span>Analytics</span>
+                    <span>Reports</span>
+                    <span>Settings</span>
+                </div>
+                <div class="to-avatar" data-size="m" data-value="U">U</div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Partner Logos</h2>
+            <div class="demo-row" style="justify-content: space-around;">
+                <a href="#" class="to-logo" data-src="🏢" data-text="Company A" data-size="s"></a>
+                <a href="#" class="to-logo" data-src="🏭" data-text="Company B" data-size="s"></a>
+                <a href="#" class="to-logo" data-src="🏪" data-text="Company C" data-size="s"></a>
+                <a href="#" class="to-logo" data-src="🏦" data-text="Company D" data-size="s"></a>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Social Media Icons</h2>
+            <div class="demo-row">
+                <a href="#" class="to-logo" data-src="𝕏" data-background="true" data-rounded="true"></a>
+                <a href="#" class="to-logo" data-src="📘" data-background="true" data-rounded="true"></a>
+                <a href="#" class="to-logo" data-src="📸" data-background="true" data-rounded="true"></a>
+                <a href="#" class="to-logo" data-src="💼" data-background="true" data-rounded="true"></a>
+                <a href="#" class="to-logo" data-src="🐦" data-background="true" data-rounded="true"></a>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Mobile App Icon</h2>
+            <a href="#" class="to-logo" data-layout="vertical" data-src="📱" data-text="App Name" data-background="true" data-rounded="true" data-size="xl" style="padding: 20px;"></a>
+        </div>
+    </div>
+    <script src="techon-logo.js"></script>
+    <script src="techon-avatar.js"></script>
+    <script src="techon-button.js"></script>
+</body>
+</html>
