@@ -17,7 +17,7 @@
 
 ## 📦 Установка
 
-### CDN (скоро будет доступно)
+### CDN (уже доступно)
 ```html
 <script src="https://raw.githubusercontent.com/ll1ness/techon-ui-modules/refs/heads/com.quanhub.modules/techon-ui.min.js"></script>
 ```
