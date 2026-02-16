@@ -18,7 +18,12 @@
 
 ## 📦 Установка
 ```html
+    <!DOCTYPE html>
+<html>
+<head>
     <link rel="stylesheet" href="https://raw.githubusercontent.com/ll1ness/TechOne-UI/refs/heads/com.techone.build/techon-ui.min.js">
+</head>
+<!-- остальной код -->
 ```
 
 ### 🚀 Быстрый старт
@@ -87,93 +92,6 @@ TechOnUI.setBasePath('/assets/techon/');
 TechOnUI.enableDebug();
 ```
 
-### 📚 Компоненты
-```Layout
-Компонент	Описание	CSS Селектор
-Flex	Гибкий контейнер с настройками выравнивания	.to-flex
-Grid	Сетка с поддержкой колонок и рядов	.to-grid
-Card	Карточка с заголовком и контентом	.to-card
-Masonry Grid	Масонри сетка для разнородного контента	.to-masonry
-Scroller	Кастомный скроллбар	.to-scroller
-Background	Фон с градиентами и паттернами	.to-background
-Navigation
-Компонент	Описание	CSS Селектор
-Breadcrumbs	Хлебные крошки	.to-breadcrumbs
-Dropdown	Выпадающее меню	.to-dropdown
-Dropdown Wrapper	Улучшенный дропдаун с поиском	.to-dropdown-wrapper
-Context Menu	Контекстное меню	.to-context-menu
-Nav Icon	Иконка навигации с бейджем	.to-nav-icon
-Scroll To Top	Кнопка прокрутки наверх	.to-scroll-top
-Smart Link	Умная ссылка с prefetch	.to-smart-link
-Buttons & Indicators
-Компонент	Описание	CSS Селектор
-Button	Кнопка с вариантами	.to-button
-Icon Button	Кнопка-иконка	.to-icon-button
-Toggle Button	Кнопка-переключатель	.to-toggle-button
-Badge	Бейдж для статусов	.to-badge
-Status Indicator	Индикатор статуса	.to-status-indicator
-Pulse	Пульсирующий индикатор	.to-pulse
-Spinner	Спиннер загрузки	.to-spinner
-Progress Bar	Прогресс бар	.to-progress
-Data Display
-Компонент	Описание	CSS Селектор
-Avatar	Аватар пользователя	.to-avatar
-Avatar Group	Группа аватаров	.to-avatar-group
-Table	Таблица с сортировкой	.to-table-wrapper
-List	Список с иконками	.to-list
-Timeline	Таймлайн событий	.to-timeline
-Tag	Тег с возможностью закрытия	.to-tag
-Logo	Логотип с текстом	.to-logo
-Logo Cloud	Облако логотипов	.to-logo-cloud
-Feedback
-Компонент	Описание	CSS Селектор
-Toast	Всплывающее уведомление	.to-toast-container
-Dialog	Модальное окно	.to-dialog-wrapper
-Banner	Баннер с сообщением	.to-banner
-Feedback	Компоненты обратной связи	.to-feedback-toast, .to-feedback-alert
-Skeleton	Скелетон загрузки	.to-skeleton
-Overlays
-Компонент	Описание	CSS Селектор
-Tooltip	Подсказка	.to-tooltip
-Hover Card	Карточка при наведении	.to-hover-card
-Cursor Card	Карточка за курсором	.to-cursor-card
-Mask	Маска с затемнением	.to-mask
-Media
-Компонент	Описание	CSS Селектор
-Media	Медиа элемент с контролами	.to-media
-Carousel	Карусель изображений	.to-carousel
-Compare Image	Сравнение изображений	.to-compare-image
-Particle	Анимированные частицы	.to-particle
-Animation	Анимации по триггеру	.to-animation
-Forms & Input
-Компонент	Описание	CSS Селектор
-Segmented Control	Сегментированный контрол	.to-segmented
-Option	Опция выбора	.to-option
-Emoji Picker	Выбор эмодзи	.to-emoji-picker
-Typography
-Компонент	Описание	CSS Селектор
-Heading	Заголовок	.to-heading
-Text	Текст	.to-text
-Blockquote	Цитата	.to-blockquote
-Inline Code	Инлайн код	.to-inline-code
-Kbd	Клавиша	.to-kbd
-Line	Линия-разделитель	.to-line
-Interactive
-Компонент	Описание	CSS Селектор
-Hover	Эффекты при наведении	.to-hover
-Fade	Появление/исчезновение	.to-fade
-Arrow	Анимированная стрелка	.to-arrow
-Auto Scroll	Автоскролл контента	.to-auto-scroll
-Utilities
-Компонент	Описание	CSS Селектор
-Element Type	Динамический тип элемента	.to-element-type
-Theme Switcher	Переключатель темы	.to-theme-switcher
-OG Card	Open Graph карточка	.to-og-card
-Accordion
-Компонент	Описание	CSS Селектор
-Accordion	Аккордеон	.to-accordion
-Accordion Group	Группа аккордеонов	.to-accordion-group
-```
 ### 🎨 Темизация
 ##### Светлая тема (по умолчанию)
 ```html
@@ -302,6 +220,7 @@ techon-ui/
 ├── toast/
 ├── togglebutton/
 ├── tooltip/
+├── techon-ui.min.css
 └── techon-ui.min.js
 ```
 #### 🌟 Примеры
@@ -410,9 +329,11 @@ MIT © TechOn UI. Полный текст лицензии доступен в �
 
 📞 Контакты
 
-    GitHub: github.com/ll1ness
+    GitHub: github.com/techon-ui
 
-    Email: majezxctoy6799@outlook.com
+    Twitter: @techon_ui
+
+    Email: team@techon.dev
 
 ###### Сделано с ❤️ для сообщества разработчиков.
 
