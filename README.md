@@ -17,7 +17,9 @@
 - 🔧 **Гибкость** - каждый компонент можно использовать отдельно
 
 ## 📦 Установка
-Установка недоступна, проект в стадии разработки.
+```html
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/ll1ness/TechOne-UI/refs/heads/com.techone.build/techon-ui.min.js">
+```
 
 ### 🚀 Быстрый старт
 ```html
@@ -25,7 +27,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="techon-ui.min.css">
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/ll1ness/TechOne-UI/refs/heads/com.techone.build/techon-ui.min.js">
 </head>
 <body>
     <!-- Кнопка -->
@@ -49,7 +51,7 @@
     <!-- Бейдж -->
     <span class="to-badge" data-variant="success">Успех</span>
     
-    <script src="techon-ui.min.js"></script>
+    <script src="https://raw.githubusercontent.com/ll1ness/TechOne-UI/refs/heads/com.techone.build/techon-ui.min.js"></script>
 </body>
 </html>
 ```
@@ -300,7 +302,6 @@ techon-ui/
 ├── toast/
 ├── togglebutton/
 ├── tooltip/
-├── techon-ui.min.css
 └── techon-ui.min.js
 ```
 #### 🌟 Примеры
@@ -409,11 +410,9 @@ MIT © TechOn UI. Полный текст лицензии доступен в �
 
 📞 Контакты
 
-    GitHub: github.com/techon-ui
+    GitHub: github.com/ll1ness
 
-    Twitter: @techon_ui
-
-    Email: team@techon.dev
+    Email: majezxctoy6799@outlook.com
 
 ###### Сделано с ❤️ для сообщества разработчиков.
 

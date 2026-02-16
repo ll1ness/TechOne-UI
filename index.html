@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI • Матрица • Все модули</title>
+    
+    <!-- Единственный файл - всё включено -->
+    <script src="techon-ui.min.js"></script>
+    
+    <style>
+        /* Базовые стили для сайта */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Шапка */
+        .header {
+            margin-bottom: 40px;
+            padding: 30px;
+            border: 1px solid var(--to-border);
+            background: var(--to-bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(0, 255, 0, 0.03) 10px,
+                rgba(0, 255, 0, 0.03) 20px
+            );
+            animation: matrix-header 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes matrix-header {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(20px, 20px) rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .badge {
+            background: var(--to-text);
+            color: var(--to-bg);
+            padding: 5px 15px;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        /* Навигация по категориям */
+        .nav {
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            margin-bottom: 30px;
+            background: var(--to-bg-secondary);
+            border: 1px solid var(--to-border);
+            padding: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--to-border);
+            color: var(--to-text);
+            text-decoration: none;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            background: var(--to-text);
+            color: var(--to-bg);
+            transform: translateY(-2px);
+        }
+
+        /* Секции */
+        .section {
+            margin-bottom: 50px;
+            padding: 30px;
+            border: 1px solid var(--to-border);
+            background: var(--to-bg-secondary);
+            position: relative;
+        }
+
+        .section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(0,255,0,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--to-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .section-title span {
+            font-size: 14px;
+            color: var(--to-text-muted);
+        }
+
+        /* Сетка для демо */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .demo-card {
+            border: 1px solid var(--to-border);
+            padding: 20px;
+            background: var(--to-bg-tertiary);
+            transition: all 0.3s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--to-text);
+            box-shadow: 0 10px 30px var(--to-shadow);
+        }
+
+        .demo-card h3 {
+            margin-bottom: 20px;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .demo-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 15px;
+            min-height: 80px;
+        }
+
+        .code {
+            font-size: 11px;
+            color: var(--to-text-muted);
+            border-top: 1px solid var(--to-border);
+            padding-top: 15px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Ряды для демо */
+        .demo-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .demo-row-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        /* Специальные стили для демо */
+        .avatar-group-demo {
+            display: flex;
+            gap: 5px;
+        }
+
+        .breadcrumbs-demo {
+            padding: 15px;
+            background: var(--to-bg-tertiary);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        /* Футер */
+        .footer {
+            margin-top: 50px;
+            padding: 30px;
+            border: 1px solid var(--to-border);
+            background: var(--to-bg-secondary);
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .footer-matrix {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--to-text), 
+                transparent
+            );
+            animation: matrix-footer 3s linear infinite;
+        }
+
+        @keyframes matrix-footer {
+            0% { opacity: 0.3; width: 0%; left: 0; }
+            50% { opacity: 1; width: 100%; left: 0; }
+            100% { opacity: 0.3; width: 0%; left: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Шапка -->
+        <div class="header">
+            <h1>
+                ⚡ TechOn UI 
+                <span class="badge">v1.01.2</span>
+            </h1>
+            <p>Матричная версия • Все 60+ модулей • Монохром с цветными акцентами</p>
+        </div>
+
+        <!-- Навигация -->
+        <div class="nav">
+            <div class="nav-links">
+                <a class="nav-link" href="#buttons">Кнопки</a>
+                <a class="nav-link" href="#badges">Бейджи</a>
+                <a class="nav-link" href="#spinners">Спиннеры</a>
+                <a class="nav-link" href="#avatars">Аватары</a>
+                <a class="nav-link" href="#tags">Теги</a>
+                <a class="nav-link" href="#cards">Карточки</a>
+                <a class="nav-link" href="#accordion">Аккордеон</a>
+                <a class="nav-link" href="#dropdown">Дропдаун</a>
+                <a class="nav-link" href="#tooltip">Тултип</a>
+                <a class="nav-link" href="#progress">Прогресс</a>
+                <a class="nav-link" href="#banners">Баннеры</a>
+                <a class="nav-link" href="#tables">Таблицы</a>
+                <a class="nav-link" href="#timeline">Таймлайн</a>
+                <a class="nav-link" href="#status">Статусы</a>
+                <a class="nav-link" href="#skeleton">Скелетон</a>
+                <a class="nav-link" href="#breadcrumbs">Крошки</a>
+                <a class="nav-link" href="#flexgrid">Flex/Grid</a>
+                <a class="nav-link" href="#icons">Иконки</a>
+                <a class="nav-link" href="#pulse">Пульс</a>
+                <a class="nav-link" href="#scrolltop">Наверх</a>
+                <a class="nav-link" href="#dialogs">Диалоги</a>
+                <a class="nav-link" href="#toggles">Переключатели</a>
+            </div>
+        </div>
+
+        <!-- ===== 1. КНОПКИ ===== -->
+        <section id="buttons" class="section">
+            <h2 class="section-title">🔘 Кнопки <span>Buttons</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Варианты</h3>
+                    <div class="demo-content">
+                        <button class="to-button" data-variant="primary">Primary</button>
+                        <button class="to-button" data-variant="secondary">Secondary</button>
+                        <button class="to-button" data-variant="tertiary">Tertiary</button>
+                        <button class="to-button" data-variant="danger">Danger</button>
+                    </div>
+                    <div class="code">&lt;button class="to-button" data-variant="primary"&gt;Primary&lt;/button&gt;</div>
+                </div>
+                
+                <div class="demo-card">
+                    <h3>Размеры</h3>
+                    <div class="demo-content">
+                        <button class="to-button" data-size="s">Small</button>
+                        <button class="to-button" data-size="m">Medium</button>
+                        <button class="to-button" data-size="l">Large</button>
+                    </div>
+                    <div class="code">&lt;button class="to-button" data-size="s"&gt;Small&lt;/button&gt;</div>
+                </div>
+                
+                <div class="demo-card">
+                    <h3>Состояния</h3>
+                    <div class="demo-content">
+                        <button class="to-button" disabled>Disabled</button>
+                        <button class="to-button" data-fill-width="true" style="width:200px;">Full Width</button>
+                    </div>
+                    <div class="code">&lt;button class="to-button" disabled&gt;Disabled&lt;/button&gt;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 2. БЕЙДЖИ ===== -->
+        <section id="badges" class="section">
+            <h2 class="section-title">🏷️ Бейджи <span>Badges</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Монохромные</h3>
+                    <div class="demo-content">
+                        <span class="to-badge" data-variant="neutral">Neutral</span>
+                    </div>
+                    <div class="code">&lt;span class="to-badge" data-variant="neutral"&gt;Neutral&lt;/span&gt;</div>
+                </div>
+                
+                <div class="demo-card">
+                    <h3>Цветные (акценты)</h3>
+                    <div class="demo-content">
+                        <span class="to-badge" data-variant="success">Success</span>
+                        <span class="to-badge" data-variant="warning">Warning</span>
+                        <span class="to-badge" data-variant="danger">Danger</span>
+                        <span class="to-badge" data-variant="info">Info</span>
+                    </div>
+                    <div class="code">&lt;span class="to-badge" data-variant="success"&gt;Success&lt;/span&gt;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 3. СПИННЕРЫ ===== -->
+        <section id="spinners" class="section">
+            <h2 class="section-title">⏳ Спиннеры <span>Spinners</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Размеры</h3>
+                    <div class="demo-content">
+                        <span class="to-spinner" data-size="s"></span>
+                        <span class="to-spinner" data-size="m"></span>
+                        <span class="to-spinner" data-size="l"></span>
+                    </div>
+                    <div class="code">&lt;span class="to-spinner" data-size="m"&gt;&lt;/span&gt;</div>
+                </div>
+                
+                <div class="demo-card">
+                    <h3>Цветные</h3>
+                    <div class="demo-content">
+                        <span class="to-spinner" data-color="success"></span>
+                        <span class="to-spinner" data-color="warning"></span>
+                        <span class="to-spinner" data-color="danger"></span>
+                    </div>
+                    <div class="code">&lt;span class="to-spinner" data-color="success"&gt;&lt;/span&gt;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 4. АВАТАРЫ ===== -->
+        <section id="avatars" class="section">
+            <h2 class="section-title">👤 Аватары <span>Avatars</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Размеры</h3>
+                    <div class="demo-content">
+                        <div class="to-avatar" data-size="xs" data-value="JD">JD</div>
+                        <div class="to-avatar" data-size="s" data-value="AB">AB</div>
+                        <div class="to-avatar" data-size="m" data-value="CD">CD</div>
+                        <div class="to-avatar" data-size="l" data-value="EF">EF</div>
+                        <div class="to-avatar" data-size="xl" data-value="GH">GH</div>
+                    </div>
+                    <div class="code">&lt;div class="to-avatar" data-size="m" data-value="JD"&gt;JD&lt;/div&gt;</div>
+                </div>
+                
+                <div class="demo-card">
+                    <h3>Группа</h3>
+                    <div class="demo-content">
+                        <div class="avatar-group-demo">
+                            <div class="to-avatar" data-size="m" data-value="A">A</div>
+                            <div class="to-avatar" data-size="m" data-value="B">B</div>
+                            <div class="to-avatar" data-size="m" data-value="C">C</div>
+                            <div class="to-avatar" data-size="m" data-value="D">D</div>
+                        </div>
+                    </div>
+                    <div class="code">Группа аватаров</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 5. ТЕГИ ===== -->
+        <section id="tags" class="section">
+            <h2 class="section-title">🏷️ Теги <span>Tags</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Монохромные</h3>
+                    <div class="demo-content">
+                        <span class="to-tag">Default</span>
+                        <span class="to-tag" data-variant="primary">Primary</span>
+                    </div>
+                    <div class="code">&lt;span class="to-tag"&gt;Default&lt;/span&gt;</div>
+                </div>
+                
+                <div class="demo-card">
+                    <h3>Цветные</h3>
+                    <div class="demo-content">
+                        <span class="to-tag" data-variant="success">Success</span>
+                        <span class="to-tag" data-variant="warning">Warning</span>
+                        <span class="to-tag" data-variant="danger">Danger</span>
+                    </div>
+                    <div class="code">&lt;span class="to-tag" data-variant="success"&gt;Success&lt;/span&gt;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 6. КАРТОЧКИ ===== -->
+        <section id="cards" class="section">
+            <h2 class="section-title">📦 Карточки <span>Cards</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Обычная</h3>
+                    <div class="demo-content" style="flex-direction:column;">
+                        <div class="to-card" style="width:100%;">
+                            <h4 style="margin-bottom:10px;">Заголовок</h4>
+                            <p style="margin-bottom:15px; color:var(--to-text-muted);">Содержимое карточки</p>
+                            <button class="to-button" data-size="s">Действие</button>
+                        </div>
+                    </div>
+                    <div class="code">&lt;div class="to-card"&gt;...&lt;/div&gt;</div>
+                </div>
+                
+                <div class="demo-card">
+                    <h3>С тенью</h3>
+                    <div class="demo-content" style="flex-direction:column;">
+                        <div class="to-card" data-variant="elevated" style="width:100%;">
+                            <h4 style="margin-bottom:10px;">Elevated</h4>
+                            <p style="margin-bottom:15px; color:var(--to-text-muted);">Карточка с тенью</p>
+                            <button class="to-button" data-size="s" data-variant="primary">Кнопка</button>
+                        </div>
+                    </div>
+                    <div class="code">&lt;div class="to-card" data-variant="elevated"&gt;...&lt;/div&gt;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 7. АККОРДЕОН ===== -->
+        <section id="accordion" class="section">
+            <h2 class="section-title">📑 Аккордеон <span>Accordion</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Обычный</h3>
+                    <div class="demo-content" style="flex-direction:column;">
+                        <div class="to-accordion" data-open="true">
+                            <div class="to-accordion-header">
+                                <button class="to-accordion-trigger">
+                                    <span>Нажмите чтобы раскрыть</span>
+                                    <span class="to-accordion-icon">▼</span>
+                                </button>
+                            </div>
+                            <div class="to-accordion-content">
+                                <div class="to-accordion-content-inner">
+                                    Скрытое содержимое аккордеона с матричной анимацией.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code">&lt;div class="to-accordion"&gt;...&lt;/div&gt;</div>
+                </div>
+                
+                <div class="demo-card">
+                    <h3>Группа</h3>
+                    <div class="demo-content" style="flex-direction:column;">
+                        <div class="to-accordion">
+                            <div class="to-accordion-header">
+                                <button class="to-accordion-trigger">
+                                    <span>Первый элемент</span>
+                                    <span class="to-accordion-icon">▼</span>
+                                </button>
+                            </div>
+                            <div class="to-accordion-content">
+                                <div class="to-accordion-content-inner">Содержимое 1</div>
+                            </div>
+                        </div>
+                        <div class="to-accordion">
+                            <div class="to-accordion-header">
+                                <button class="to-accordion-trigger">
+                                    <span>Второй элемент</span>
+                                    <span class="to-accordion-icon">▼</span>
+                                </button>
+                            </div>
+                            <div class="to-accordion-content">
+                                <div class="to-accordion-content-inner">Содержимое 2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code">Группа аккордеонов</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 8. ДРОПДАУН ===== -->
+        <section id="dropdown" class="section">
+            <h2 class="section-title">⬇️ Дропдаун <span>Dropdown</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Выпадающее меню</h3>
+                    <div class="demo-content">
+                        <div class="to-dropdown">
+                            <div class="to-dropdown-trigger">
+                                <button class="to-button">Открыть меню ▼</button>
+                            </div>
+                            <div class="to-dropdown-menu">
+                                <div class="to-dropdown-item">Профиль</div>
+                                <div class="to-dropdown-item">Настройки</div>
+                                <div class="to-dropdown-item">Помощь</div>
+                                <div class="to-dropdown-item">Выйти</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code">&lt;div class="to-dropdown"&gt;...&lt;/div&gt;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 9. ТУЛТИП ===== -->
+        <section id="tooltip" class="section">
+            <h2 class="section-title">💬 Тултип <span>Tooltip</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Подсказка</h3>
+                    <div class="demo-content">
+                        <div class="to-tooltip">
+                            <button class="to-button">Наведи на меня</button>
+                            <span class="to-tooltip-content" data-position="top">Это тултип</span>
+                        </div>
+                    </div>
+                    <div class="code">&lt;div class="to-tooltip"&gt;...&lt;/div&gt;</div>
+                </div>
+                
+                <div class="demo-card">
+                    <h3>Разные позиции</h3>
+                    <div class="demo-content">
+                        <div class="to-tooltip">
+                            <button class="to-button">Top</button>
+                            <span class="to-tooltip-content" data-position="top">Сверху</span>
+                        </div>
+                        <div class="to-tooltip">
+                            <button class="to-button">Bottom</button>
+                            <span class="to-tooltip-content" data-position="bottom">Снизу</span>
+                        </div>
+                    </div>
+                    <div class="code">data-position="top/bottom"</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 10. ПРОГРЕСС ===== -->
+        <section id="progress" class="section">
+            <h2 class="section-title">📊 Прогресс <span>Progress</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Индикаторы</h3>
+                    <div class="demo-content" style="flex-direction:column;">
+                        <div class="to-progress" data-value="25" style="width:100%;">
+                            <div class="to-progress-label">
+                                <span>Прогресс 25%</span>
+                                <span class="to-progress-value"></span>
+                            </div>
+                            <div class="to-progress-track">
+                                <div class="to-progress-fill"></div>
+                            </div>
+                        </div>
+                        <div class="to-progress" data-value="50" style="width:100%;">
+                            <div class="to-progress-label">
+                                <span>Прогресс 50%</span>
+                                <span class="to-progress-value"></span>
+                            </div>
+                            <div class="to-progress-track">
+                                <div class="to-progress-fill"></div>
+                            </div>
+                        </div>
+                        <div class="to-progress" data-value="75" style="width:100%;">
+                            <div class="to-progress-label">
+                                <span>Прогресс 75%</span>
+                                <span class="to-progress-value"></span>
+                            </div>
+                            <div class="to-progress-track">
+                                <div class="to-progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code">&lt;div class="to-progress" data-value="50"&gt;...&lt;/div&gt;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 11. БАННЕРЫ ===== -->
+        <section id="banners" class="section">
+            <h2 class="section-title">📢 Баннеры <span>Banners</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Монохромный</h3>
+                    <div class="demo-content">
+                        <div class="to-banner">Обычный баннер</div>
+                    </div>
+                    <div class="code">&lt;div class="to-banner"&gt;...&lt;/div&gt;</div>
+                </div>
+                
+                <div class="demo-card">
+                    <h3>Цветные</h3>
+                    <div class="demo-content" style="flex-direction:column;">
+                        <div class="to-banner" data-variant="success">Успешный баннер</div>
+                        <div class="to-banner" data-variant="warning">Предупреждение</div>
+                        <div class="to-banner" data-variant="danger">Ошибка</div>
+                    </div>
+                    <div class="code">data-variant="success/warning/danger"</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 12. ТАБЛИЦЫ ===== -->
+        <section id="tables" class="section">
+            <h2 class="section-title">📊 Таблицы <span>Tables</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Простая таблица</h3>
+                    <div class="demo-content" style="flex-direction:column;">
+                        <div class="table-container">
+                            <table class="to-table">
+                                <thead>
+                                    <tr>
+                                        <th data-sortable="true">Имя</th>
+                                        <th data-sortable="true">Возраст</th>
+                                        <th>Город</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Иван</td><td>25</td><td>Москва</td></tr>
+                                    <tr><td>Мария</td><td>30</td><td>СПб</td></tr>
+                                    <tr><td>Петр</td><td>28</td><td>Казань</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="code">&lt;table class="to-table"&gt;...&lt;/table&gt;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 13. ТАЙМЛАЙН ===== -->
+        <section id="timeline" class="section">
+            <h2 class="section-title">⏱️ Таймлайн <span>Timeline</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>События</h3>
+                    <div class="demo-content" style="flex-direction:column;">
+                        <div class="to-timeline">
+                            <div class="to-timeline-item" data-state="completed">
+                                <div>Событие 1 - завершено</div>
+                            </div>
+                            <div class="to-timeline-item" data-state="active">
+                                <div>Событие 2 - активно</div>
+                            </div>
+                            <div class="to-timeline-item" data-state="error">
+                                <div>Событие 3 - ошибка</div>
+                            </div>
+                            <div class="to-timeline-item">
+                                <div>Событие 4 - ожидание</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code">&lt;div class="to-timeline"&gt;...&lt;/div&gt;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 14. СТАТУС ИНДИКАТОРЫ ===== -->
+        <section id="status" class="section">
+            <h2 class="section-title">⚡ Статусы <span>Status Indicators</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Индикаторы</h3>
+                    <div class="demo-content">
+                        <span class="to-status-indicator" data-color="success">Online</span>
+                        <span class="to-status-indicator" data-color="warning">Away</span>
+                        <span class="to-status-indicator" data-color="danger">Busy</span>
+                    </div>
+                    <div class="code">&lt;span class="to-status-indicator" data-color="success"&gt;Online&lt;/span&gt;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 15. СКЕЛЕТОН ===== -->
+        <section id="skeleton" class="section">
+            <h2 class="section-title">🦴 Скелетон <span>Skeleton</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Загрузка</h3>
+                    <div class="demo-content" style="flex-direction:column;">
+                        <div class="to-skeleton" style="height:20px; width:100%;"></div>
+                        <div class="to-skeleton" style="height:20px; width:75%;"></div>
+                        <div class="to-skeleton" style="height:20px; width:50%;"></div>
+                    </div>
+                    <div class="code">&lt;div class="to-skeleton"&gt;&lt;/div&gt;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 16. ХЛЕБНЫЕ КРОШКИ ===== -->
+        <section id="breadcrumbs" class="section">
+            <h2 class="section-title">🔗 Хлебные крошки <span>Breadcrumbs</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Навигация</h3>
+                    <div class="demo-content">
+                        <div class="to-breadcrumbs">
+                            <a href="#" class="to-breadcrumbs-item">Главная</a>
+                            <a href="#" class="to-breadcrumbs-item">Категория</a>
+                            <span class="to-breadcrumbs-item" data-active="true">Текущая</span>
+                        </div>
+                    </div>
+                    <div class="code">&lt;div class="to-breadcrumbs"&gt;...&lt;/div&gt;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 17. FLEX/GRID ===== -->
+        <section id="flexgrid" class="section">
+            <h2 class="section-title">🔲 Flex & Grid</h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Flex</h3>
+                    <div class="demo-content" style="flex-direction:column;">
+                        <div class="to-flex" data-gap="m">
+                            <div style="background:var(--to-bg-tertiary); padding:10px;">1</div>
+                            <div style="background:var(--to-bg-tertiary); padding:10px;">2</div>
+                            <div style="background:var(--to-bg-tertiary); padding:10px;">3</div>
+                        </div>
+                    </div>
+                    <div class="code">&lt;div class="to-flex" data-gap="m"&gt;...&lt;/div&gt;</div>
+                </div>
+                
+                <div class="demo-card">
+                    <h3>Grid</h3>
+                    <div class="demo-content" style="flex-direction:column;">
+                        <div class="to-grid" data-columns="3" data-gap="m">
+                            <div style="background:var(--to-bg-tertiary); padding:20px; text-align:center;">1</div>
+                            <div style="background:var(--to-bg-tertiary); padding:20px; text-align:center;">2</div>
+                            <div style="background:var(--to-bg-tertiary); padding:20px; text-align:center;">3</div>
+                        </div>
+                    </div>
+                    <div class="code">&lt;div class="to-grid" data-columns="3"&gt;...&lt;/div&gt;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 18. ИКОНКИ ===== -->
+        <section id="icons" class="section">
+            <h2 class="section-title">✨ Иконки <span>Icons</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Примеры</h3>
+                    <div class="demo-content">
+                        <span class="to-icon">❤️</span>
+                        <span class="to-icon">⭐</span>
+                        <span class="to-icon">🔥</span>
+                        <span class="to-icon">✅</span>
+                        <span class="to-icon">🎯</span>
+                    </div>
+                    <div class="code">&lt;span class="to-icon"&gt;❤️&lt;/span&gt;</div>
+                </div>
+                
+                <div class="demo-card">
+                    <h3>Кнопки-иконки</h3>
+                    <div class="demo-content">
+                        <button class="to-icon-button">❤️</button>
+                        <button class="to-icon-button">⭐</button>
+                        <button class="to-icon-button">⚙️</button>
+                    </div>
+                    <div class="code">&lt;button class="to-icon-button"&gt;❤️&lt;/button&gt;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 19. ПУЛЬСАЦИЯ ===== -->
+        <section id="pulse" class="section">
+            <h2 class="section-title">💓 Пульсация <span>Pulse</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Индикаторы</h3>
+                    <div class="demo-content">
+                        <div class="to-pulse" data-color="primary" style="width:20px; height:20px;"></div>
+                        <div class="to-pulse" data-color="success" style="width:20px; height:20px;"></div>
+                        <div class="to-pulse" data-color="warning" style="width:20px; height:20px;"></div>
+                        <div class="to-pulse" data-color="danger" style="width:20px; height:20px;"></div>
+                    </div>
+                    <div class="code">&lt;div class="to-pulse" data-color="primary"&gt;&lt;/div&gt;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 20. КНОПКА НАВЕРХ ===== -->
+        <section id="scrolltop" class="section">
+            <h2 class="section-title">⬆️ Наверх <span>Scroll Top</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Демо</h3>
+                    <div class="demo-content">
+                        <button class="to-scroll-top" style="position:relative; margin:0; opacity:1; visibility:visible;">↑</button>
+                    </div>
+                    <div class="code">&lt;button class="to-scroll-top"&gt;↑&lt;/button&gt;</div>
+                    <div style="margin-top:10px; font-size:11px; color:var(--to-text-muted);">Появится после прокрутки</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 21. ДИАЛОГИ ===== -->
+        <section id="dialogs" class="section">
+            <h2 class="section-title">💬 Диалоги <span>Dialogs</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Модальное окно</h3>
+                    <div class="demo-content">
+                        <button class="to-button" onclick="document.querySelector('.to-dialog-wrapper').style.display='block'">Открыть диалог</button>
+                    </div>
+                    <div class="code">Диалоговое окно (демо)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 22. ПЕРЕКЛЮЧАТЕЛИ ===== -->
+        <section id="toggles" class="section">
+            <h2 class="section-title">🔄 Переключатели <span>Toggles</span></h2>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3>Toggle Buttons</h3>
+                    <div class="demo-content">
+                        <button class="to-toggle-button" data-selected="true">Вкл</button>
+                        <button class="to-toggle-button">Выкл</button>
+                    </div>
+                    <div class="code">&lt;button class="to-toggle-button" data-selected="true"&gt;Вкл&lt;/button&gt;</div>
+                </div>
+                
+                <div class="demo-card">
+                    <h3>Segmented Control</h3>
+                    <div class="demo-content">
+                        <div style="display:flex; gap:2px;">
+                            <button class="to-toggle-button" data-selected="true">День</button>
+                            <button class="to-toggle-button">Неделя</button>
+                            <button class="to-toggle-button">Месяц</button>
+                        </div>
+                    </div>
+                    <div class="code">Группа переключателей</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Диалог (скрытый) -->
+        <div class="to-dialog-wrapper" style="display:none;">
+            <div class="to-dialog-overlay">
+                <div class="to-dialog">
+                    <h3 style="margin-bottom:15px;">Диалог</h3>
+                    <p style="margin-bottom:20px; color:var(--to-text-muted);">Это модальное окно с матричным стилем.</p>
+                    <button class="to-button" onclick="this.closest('.to-dialog-wrapper').style.display='none'">Закрыть</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Футер -->
+        <div class="footer">
+            <p>TechOn UI • Матричная версия • 60+ модулей • Монохром с цветными акцентами</p>
+            <div class="footer-matrix"></div>
+        </div>
+    </div>
+
+    <script>
+        // Дополнительная инициализация для демо
+        document.addEventListener('DOMContentLoaded', function() {
+            // Плавный скролл к секциям
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(link.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
