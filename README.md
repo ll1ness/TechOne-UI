@@ -1,4 +1,4 @@
-# TechOne UI 🚀
+# TechOne UI ⚡️
 
 <img src="https://img.shields.io/badge/version-1.01.2-blue.svg" alt="Version">
 <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
