@@ -1,8 +1,8 @@
 # TechOne UI ⚡️
+ 
+<img src="https://img.shields.io/badge/version-1.01.2-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"> <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome">
 
-<img src="https://img.shields.io/badge/version-1.01.2-blue.svg" alt="Version">
-<img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
-<img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome">
+
 
 Библиотека современных UI компонентов на чистом HTML, CSS и JavaScript. Без зависимостей, легкая и производительная.
 Сгенерирована с применением нейросетей.
