@@ -18,7 +18,7 @@
 
 ## 📦 Установка
 ```html
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="https://raw.githubusercontent.com/ll1ness/TechOne-UI/refs/heads/com.techone.build/techon-ui.min.js">
@@ -28,7 +28,6 @@
 
 ### 🚀 Быстрый старт
 ```html
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,7 +69,6 @@
 
 #### Ручная загрузка
 ```javascript
-
 // Загрузить конкретный компонент
 TechOnUI.load('button').then(() => {
     console.log('Кнопки загружены');
@@ -84,7 +82,6 @@ TechOnUI.scan();
 ```
 #### Настройка путей
 ```javascript
-
 // Если файлы компонентов лежат в другой папке
 TechOnUI.setBasePath('/assets/techon/');
 
@@ -95,21 +92,18 @@ TechOnUI.enableDebug();
 ### 🎨 Темизация
 ##### Светлая тема (по умолчанию)
 ```html
-
 <body data-theme="light">
     <!-- компоненты будут в светлой теме -->
 </body>
 ```
 ##### Тёмная тема
 ```html
-
 <body data-theme="dark">
     <!-- компоненты будут в тёмной теме -->
 </body>
 ```
 ##### Переключение темы
 ```javascript
-
 // Программно
 document.body.setAttribute('data-theme', 'dark');
 
@@ -127,7 +121,7 @@ TechOnUI.load('button');
 to.load('button');
 
 // Версия
-console.log(TechOnUI.version); // "1.0.0"
+console.log(TechOnUI.version); // "1.01.2"
 ```
 #### Методы API
 
@@ -141,7 +135,6 @@ console.log(TechOnUI.version); // "1.0.0"
 
 ##### События
 ```javascript
-
 // Слушать загрузку компонента
 document.addEventListener('DOMContentLoaded', () => {
     console.log('TechOn UI готов');
@@ -153,80 +146,9 @@ document.querySelector('.to-dropdown').addEventListener('dropdown-select', (e) =
 });
 ```
 
-#### 📦 Структура проекта
-```text
-
-techon-ui/
-├── accordeon/
-├── accordion-group/
-├── animation/
-├── arrow/
-├── auto-scroll/
-├── avatar/
-├── avatar-group/
-├── background/
-├── badge/
-├── banner/
-├── blockquote/
-├── breadcrumps/
-├── button/
-├── card/
-├── carousel/
-├── compareimage/
-├── contextmenu/
-├── cursorcard/
-├── dialog/
-├── dropdown/
-├── dropdownwrapper/
-├── elementtype/
-├── emojipicker/
-├── fade/
-├── feedback/
-├── flex/
-├── grid/
-├── heading/
-├── hover/
-├── hovercard/
-├── icon/
-├── iconbutton/
-├── inlinecode/
-├── kbd/
-├── line/
-├── list/
-├── logo/
-├── logocloud/
-├── mask/
-├── masonrygrid/
-├── media/
-├── navicon/
-├── ogcard/
-├── option/
-├── particle/
-├── progressbar/
-├── pulse/
-├── README.md
-├── scroller/
-├── scrolltotop/
-├── segmentedcontrol/
-├── skeleton/
-├── smartlink/
-├── spinner/
-├── statusindicator/
-├── table/
-├── tag/
-├── text/
-├── themeswitcher/
-├── timeline/
-├── toast/
-├── togglebutton/
-├── tooltip/
-├── techon-ui.min.css
-└── techon-ui.min.js
-```
 #### 🌟 Примеры
 ##### Форма входа с темной темой
 ```html
-
 <div data-theme="dark" style="padding: 40px;">
     <div class="to-card" style="max-width: 400px; margin: 0 auto;">
         <div class="to-card-header">
@@ -242,7 +164,6 @@ techon-ui/
 ```
 ##### Дашборд с карточками
 ```html
-
 <div class="to-grid" data-columns="3" data-gap="m">
     <div class="to-card" data-variant="elevated">
         <div class="to-card-header">
@@ -277,7 +198,6 @@ techon-ui/
 ```
 #### 🛠 Разработка
 ```bash
-
 # Клонировать репозиторий
 git clone https://github.com/techon-ui/techon-ui.git
 
@@ -295,23 +215,17 @@ npm run dev
 Мы приветствуем любой вклад в проект!
 
     Форкните репозиторий
-
     Создайте ветку для фичи (git checkout -b feature/amazing-feature)
-
     Закоммитьте изменения (git commit -m 'Add amazing feature')
-
     Запушьте в ветку (git push origin feature/amazing-feature)
-
     Откройте Pull Request
 
 👥 Contributors
 
-Благодарим всех, кто contributed в проект:
+Благодарим всех, кто сделал вклад в проект:
 
     DeepSeek - deepseek.com - Архитектура компонентов, оптимизация кода
-
     ll1ness - github.com/ll1ness - Дизайн система, темизация
-
     Lorant One - lorant.one - Документация, примеры использования
 
 📄 Лицензия
@@ -320,21 +234,14 @@ MIT © TechOn UI. Полный текст лицензии доступен в �
 🌟 Поддержка
 
     Поставьте звезду на GitHub ⭐
-
     Расскажите о проекте друзьям
-
     Используйте в своих проектах
-
     Создавайте issue с багами и идеями
 
 📞 Контакты
 
-    GitHub: github.com/techon-ui
+    GitHub: github.com/ll1ness
+    Email: majezxctoy6799@outlook.com
 
-    Twitter: @techon_ui
-
-    Email: team@techon.dev
-
-###### Сделано с ❤️ для сообщества разработчиков.
-
+###### Сделано с ❤️
 - ll1ness
