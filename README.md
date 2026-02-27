@@ -1,247 +1,299 @@
-# TechOne UI ⚡️
- 
-<img src="https://img.shields.io/badge/version-1.01.2-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"> <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome">
+# TechOne UI
 
+[![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
+> **Матричная библиотека UI‑компонентов** на чистом HTML, CSS и JavaScript. Тёмная тема по умолчанию, AI‑фон, готовые к использованию компоненты для быстрой разработки современных веб‑интерфейсов.
 
-Библиотека современных UI компонентов на чистом HTML, CSS и JavaScript. Без зависимостей, легкая и производительная.
-Сгенерирована с применением нейросетей.
+## 📋 Оглавление
+
+- [✨ Особенности](#-особенности)
+- [📦 Установка](#-установка)
+- [🚀 Быстрый старт](#-быстрый-старт)
+- [🧩 Доступные компоненты](#-доступные-компоненты)
+- [📁 Структура проекта](#-структура-проекта)
+- [🎨 Кастомизация](#-кастомизация)
+- [📱 Адаптивность](#-адаптивность)
+- [📖 Документация](#-документация)
+- [🤝 Вклад в проект](#-вклад-в-проект)
+- [📄 Лицензия](#-лицензия)
 
 ## ✨ Особенности
 
-- 🎯 **100% чистый код** - HTML, CSS, JavaScript без фреймворков
-- 📦 **60+ компонентов** - все необходимые элементы интерфейса
-- 🎨 **Темная тема** - встроенная поддержка тем
-- 📱 **Адаптивность** - работает на всех устройствах
-- ⚡ **Производительность** - минимальный размер, никаких зависимостей
-- 🔧 **Гибкость** - каждый компонент можно использовать отдельно
+- **Чистый стек** — только HTML, CSS и JavaScript без зависимостей
+- **Тёмная тема по умолчанию** — современный дизайн с контрастными цветами
+- **AI‑фон** — уникальные анимированные градиентные фоны
+- **Полная адаптивность** — mobile‑first подход, работает на всех устройствах
+- **Доступность (a11y)** — ARIA‑атрибуты, семантическая разметка, keyboard navigation
+- **Модульная архитектура** — каждый компонент независим и самодостаточен
+- **Производительность** — минимальный размер, оптимизированный CSS/JS
+- **Готовые примеры** — демо‑страницы для каждого компонента
 
 ## 📦 Установка
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/ll1ness/TechOne-UI/refs/heads/com.techone.build/techon-ui.min.js">
-</head>
-<!-- остальной код -->
+
+### Клонирование репозитория
+
+```bash
+git clone https://github.com/ll1ness/techone-ui.git
+cd techone-ui
 ```
 
-### 🚀 Быстрый старт
+### Запуск локального сервера
+
+```bash
+# Использование Python 3
+python3 -m http.server 8080
+
+# Или использование Node.js (npx)
+npx serve .
+
+# Или любой другой локальный сервер
+```
+
+Откройте `http://localhost:8080` в браузере.
+
+## 🚀 Быстрый старт
+
+### Базовый шаблон
+
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="ru" data-theme="dark">
 <head>
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/ll1ness/TechOne-UI/refs/heads/com.techone.build/techon-ui.min.js">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Мой проект</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Кнопка -->
-    <button class="to-button" data-variant="primary">Нажми меня</button>
-    
-    <!-- Аккордеон -->
-    <div class="to-accordion" data-open="true">
-        <div class="to-accordion-header">
-            <button class="to-accordion-trigger">
-                <span>Заголовок</span>
-                <span class="to-accordion-icon">▼</span>
-            </button>
-        </div>
-        <div class="to-accordion-content">
-            <div class="to-accordion-content-inner">
-                Содержимое аккордеона
-            </div>
-        </div>
-    </div>
-    
-    <!-- Бейдж -->
-    <span class="to-badge" data-variant="success">Успех</span>
-    
-    <script src="https://raw.githubusercontent.com/ll1ness/TechOne-UI/refs/heads/com.techone.build/techon-ui.min.js"></script>
+  <!-- Ваш контент -->
+  
+  <script src="build/techon-ui.min.js"></script>
 </body>
 </html>
 ```
-### 🎯 Использование
 
-#### Автоматическая загрузка
-```javascript
-// Просто подключите скрипт - он сам найдет и инициализирует компоненты
-// Технология MutationObserver автоматически обработает динамически 
-```
+### Подключение отдельных компонентов
 
-#### Ручная загрузка
-```javascript
-// Загрузить конкретный компонент
-TechOnUI.load('button').then(() => {
-    console.log('Кнопки загружены');
-});
-
-// Загрузить все компоненты
-TechOnUI.loadAll();
-
-// Просканировать и загрузить только нужные
-TechOnUI.scan();
-```
-#### Настройка путей
-```javascript
-// Если файлы компонентов лежат в другой папке
-TechOnUI.setBasePath('/assets/techon/');
-
-// Включить отладку
-TechOnUI.enableDebug();
-```
-
-### 🎨 Темизация
-##### Светлая тема (по умолчанию)
 ```html
-<body data-theme="light">
-    <!-- компоненты будут в светлой теме -->
-</body>
-```
-##### Тёмная тема
-```html
-<body data-theme="dark">
-    <!-- компоненты будут в тёмной теме -->
-</body>
-```
-##### Переключение темы
-```javascript
-// Программно
-document.body.setAttribute('data-theme', 'dark');
+<!-- Кнопка -->
+<button class="btn btn--primary">Основная кнопка</button>
 
-// Использовать компонент ThemeSwitcher
-<div class="to-theme-switcher" data-type="buttons"></div>
-// или
-<div class="to-theme-switcher" data-type="dropdown"></div>
-```
-#### ⚙️ API
-##### Глобальный объект
-```javascript
+<!-- Карточка -->
+<div class="card">
+  <div class="card__header">Заголовок карточки</div>
+  <div class="card__body">
+    Содержимое карточки
+  </div>
+</div>
 
-// Доступ через TechOnUI или to
-TechOnUI.load('button');
-to.load('button');
-
-// Версия
-console.log(TechOnUI.version); // "1.01.2"
-```
-#### Методы API
-
-| Метод | Описание | Пример |
-|-------|----------|--------|
-| `load(componentName)` | Загрузить компонент | `TechOnUI.load('accordion')` |
-| `loadAll()` | Загрузить все компоненты | `TechOnUI.loadAll()` |
-| `scan()` | Найти и загрузить используемые компоненты | `TechOnUI.scan()` |
-| `setBasePath(path)` | Установить базовый путь для файлов | `TechOnUI.setBasePath('/ui/')` |
-| `enableDebug()` | Включить режим отладки | `TechOnUI.enableDebug()` |
-
-##### События
-```javascript
-// Слушать загрузку компонента
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('TechOn UI готов');
-});
-
-// Кастомные события компонентов
-document.querySelector('.to-dropdown').addEventListener('dropdown-select', (e) => {
-    console.log('Выбрано:', e.detail.value);
-});
-```
-
-#### 🌟 Примеры
-##### Форма входа с темной темой
-```html
-<div data-theme="dark" style="padding: 40px;">
-    <div class="to-card" style="max-width: 400px; margin: 0 auto;">
-        <div class="to-card-header">
-            <h2 class="to-card-title">Вход</h2>
-        </div>
-        <div class="to-card-content">
-            <input type="email" placeholder="Email" style="width: 100%; padding: 10px; margin-bottom: 16px; border: 1px solid var(--to-border); border-radius: var(--to-radius);">
-            <input type="password" placeholder="Пароль" style="width: 100%; padding: 10px; margin-bottom: 24px; border: 1px solid var(--to-border); border-radius: var(--to-radius);">
-            <button class="to-button" data-variant="primary" data-fill-width="true">Войти</button>
-        </div>
-    </div>
+<!-- Сетка -->
+<div class="grid grid--3">
+  <div class="grid__item">Элемент 1</div>
+  <div class="grid__item">Элемент 2</div>
+  <div class="grid__item">Элемент 3</div>
 </div>
 ```
-##### Дашборд с карточками
+
+## 🧩 Доступные компоненты
+
+| Компонент | Описание | Состояние |
+|-----------|----------|-----------|
+| [Accordion](src/components/accordion/) | Сворачиваемые панели | ✅ Готов |
+| [Avatar](src/components/avatar/) | Аватар пользователя | ✅ Готов |
+| [Badge](src/components/badge/) | Бейджи и метки | ✅ Готов |
+| [Banner](src/components/banner/) | Информационные баннеры | ✅ Готов |
+| [Breadcrumbs](src/components/breadcrumbs/) | Навигационная хлебная крошка | ✅ Готов |
+| [Button](src/components/button/) | Кнопки различных стилей | ✅ Готов |
+| [Card](src/components/card/) | Карточки для контента | ✅ Готов |
+| [Dialog](src/components/dialog/) | Модальные окна | ✅ Готов |
+| [Dropdown](src/components/dropdown/) | Выпадающие списки | ✅ Готов |
+| [Flex](src/components/flex/) | Flexbox контейнеры | ✅ Готов |
+| [Grid](src/components/grid/) | CSS Grid сетки | ✅ Готов |
+| [Icon](src/components/icon/) | Иконки (встроенные SVG) | ✅ Готов |
+| [Icon Button](src/components/icon-button/) | Кнопки-иконки | ✅ Готов |
+| [Progress](src/components/progress/) | Индикаторы прогресса | ✅ Готов |
+| [Pulse](src/components/pulse/) | Анимация пульсации | ✅ Готов |
+| [Scroll Top](src/components/scroll-top/) | Кнопка прокрутки вверх | ✅ Готов |
+| [Skeleton](src/components/skeleton/) | Skeleton‑загрузчики | ✅ Готов |
+| [Spinner](src/components/spinner/) | Спиннеры загрузки | ✅ Готов |
+| [Status Indicator](src/components/status-indicator/) | Индикаторы статуса | ✅ Готов |
+| [Table](src/components/table/) | Таблицы данных | ✅ Готов |
+| [Tag](src/components/tag/) | Теги и метки | ✅ Готов |
+| [Theme](src/components/theme/) | Переключатель темы | ✅ Готов |
+| [Timeline](src/components/timeline/) | Линейки времени | ✅ Готов |
+| [Toggle Button](src/components/toggle-button/) | Переключатели | ✅ Готов |
+| [Tooltip](src/components/tooltip/) | Всплывающие подсказки | ✅ Готов |
+
+## 📁 Структура проекта
+
+```
+techone-ui/
+├── index.html              # Главная страница с демо всех компонентов
+├── main.js                 # Основной JavaScript (навигация, скролл)
+├── styles.css              # Основной CSS (переменные, сброс, базовые стили)
+├── favicon.ico             # Иконка сайта
+├── build/
+│   └── techon-ui.min.js    # Минифицированный JS (библиотека компонентов)
+├── src/
+│   └── components/         # Исходные компоненты
+│       ├── accordion/
+│       ├── avatar/
+│       ├── badge/
+│       ├── banner/
+│       ├── breadcrumbs/
+│       ├── button/
+│       ├── card/
+│       ├── dialog/
+│       ├── dropdown/
+│       ├── flex/
+│       ├── grid/
+│       ├── icon/
+│       ├── icon-button/
+│       ├── progress/
+│       ├── pulse/
+│       ├── scroll-top/
+│       ├── skeleton/
+│       ├── spinner/
+│       ├── status-indicator/
+│       ├── table/
+│       ├── tag/
+│       ├── theme/
+│       ├── timeline/
+│       ├── toggle-button/
+│       └── tooltip/
+├── examples/               # Примеры использования
+├── vault/
+│   └── RESPONSIVE_TESTING.md  # Документация по тестированию
+└── README.md               # Этот файл
+```
+
+## 🎨 Кастомизация
+
+### CSS переменные
+
+TechOn UI использует CSS‑переменные для кастомизации темы:
+
+```css
+:root {
+  /* Цвета */
+  --color-primary: #6366f1;
+  --color-secondary: #8b5cf6;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  
+  /* Фон */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-tertiary: #1a1a24;
+  
+  /* Текст */
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  
+  /* Градиенты */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  
+  /* Отступы */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Радиусы */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+  
+  /* Тени */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  
+  /* Анимации */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+```
+
+### Смена темы
+
+Используйте атрибут `data-theme` на элементе `<html>`:
+
 ```html
-<div class="to-grid" data-columns="3" data-gap="m">
-    <div class="to-card" data-variant="elevated">
-        <div class="to-card-header">
-            <h3 class="to-card-title">Пользователи</h3>
-            <span class="to-badge" data-variant="info">+12%</span>
-        </div>
-        <div class="to-card-content">
-            <div style="font-size: 32px; font-weight: bold;">1,234</div>
-        </div>
-    </div>
-    
-    <div class="to-card" data-variant="elevated">
-        <div class="to-card-header">
-            <h3 class="to-card-title">Заказы</h3>
-            <span class="to-badge" data-variant="success">+5%</span>
-        </div>
-        <div class="to-card-content">
-            <div style="font-size: 32px; font-weight: bold;">567</div>
-        </div>
-    </div>
-    
-    <div class="to-card" data-variant="elevated">
-        <div class="to-card-header">
-            <h3 class="to-card-title">Доход</h3>
-            <span class="to-badge" data-variant="warning">-2%</span>
-        </div>
-        <div class="to-card-content">
-            <div style="font-size: 32px; font-weight: bold;">$12.3K</div>
-        </div>
-    </div>
+<html data-theme="dark">  <!-- тёмная тема (по умолчанию) -->
+<html data-theme="light"> <!-- светлая тема -->
+```
+
+## 📱 Адаптивность
+
+Все компоненты спроектированы с mobile‑first подходом:
+
+- **Mobile (< 768px)** — оптимизировано для смартфонов
+- **Tablet (768px – 1024px)** — планшеты
+- **Desktop (> 1024px)** — десктопы
+
+Используйте utility‑классы для управления отображением:
+
+```html
+<!-- Скрыть на мобильных -->
+<div class="hidden-mobile">Только для десктопа</div>
+
+<!-- Скрыть на десктопе -->
+<div class="hidden-desktop">Только для мобильных</div>
+
+<!-- Гибкая сетка -->
+<div class="grid grid--2-mobile grid--3-tablet grid--4-desktop">
+  ...
 </div>
 ```
-#### 🛠 Разработка
-```bash
-# Клонировать репозиторий
-git clone https://github.com/techon-ui/techon-ui.git
 
-# Установить зависимости (для сборки)
-npm install
+## 📖 Документация
 
-# Собрать проект
-npm run build
+### Основная документация
 
-# Запустить dev сервер
-npm run dev
-```
-#### 🤝 Участие в разработке
+- **[Responsive Testing](vault/RESPONSIVE_TESTING.md)** — руководство по тестированию адаптивности
+- **[Component Examples](examples/)** — практические примеры использования
 
-Мы приветствуем любой вклад в проект!
+### Онлайн‑демо
 
-    Форкните репозиторий
-    Создайте ветку для фичи (git checkout -b feature/amazing-feature)
-    Закоммитьте изменения (git commit -m 'Add amazing feature')
-    Запушьте в ветку (git push origin feature/amazing-feature)
-    Откройте Pull Request
+Откройте `index.html` в браузере после запуска локального сервера, чтобы увидеть все компоненты в действии.
 
-👥 Contributors
+## 🤝 Вклад в проект
 
-Благодарим всех, кто сделал вклад в проект:
+Мы открыты для contributions! Вот как можно помочь:
 
-    DeepSeek - deepseek.com - Архитектура компонентов, оптимизация кода
-    ll1ness - github.com/ll1ness - Дизайн система, темизация
-    Lorant One - lorant.one - Документация, примеры использования
+1. **Fork репозитория**
+2. **Создайте ветку** для новой фичи: `git checkout -b feature/amazing-feature`
+3. **Зафиксируйте изменения**: `git commit -m 'Add amazing feature'`
+4. **Отправьте в ветку**: `git push origin feature/amazing-feature`
+5. **Откройте Pull Request**
 
-📄 Лицензия
+### Стандарты кода
 
-MIT © TechOn UI. Полный текст лицензии доступен в файле LICENSE.
-🌟 Поддержка
+- Используйте 2 пробела для отступов
+- Следуйте BEM‑методологии для CSS
+- Пишите семантический HTML
+- Добавляйте ARIA‑атрибуты для доступности
+- Комментируйте сложные участки кода
 
-    Поставьте звезду на GitHub ⭐
-    Расскажите о проекте друзьям
-    Используйте в своих проектах
-    Создавайте issue с багами и идеями
+## 📄 Лицензия
 
-📞 Контакты
+Этот проект распространяется под лицензией MIT. Подробности смотрите в файле [LICENSE](LICENSE).
 
-    GitHub: github.com/ll1ness
-    Email: majezxctoy6799@outlook.com
+---
 
-###### Сделано с ❤️
-- ll1ness
+<div align="center">
+  <strong>TechOne UI</strong> — создано с ❤️ для разработчиков<br>
+  <a href="https://github.com/ll1ness/techone-ui">GitHub</a> • 
+  <a href="https://ll1ness.github.io/TechOne-UI/">Демо</a>
+</div>
