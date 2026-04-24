@@ -1,7 +1,7 @@
 
 
 <div align="center">
-  <img src="techone-logo.png" width="200" alt="TechOne UI Logo" />
+  <img src="techone-logo-no-bg-preview (carve.photos).png" width="200" alt="TechOne UI Logo" />
   
   <strong>TechOne UI</strong><br>
   Чистый HTML • CSS • JavaScript • Без зависимостей
