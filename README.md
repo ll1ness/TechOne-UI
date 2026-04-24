@@ -1,9 +1,11 @@
-# <img src="https://raw.githubusercontent.com/ll1ness/techone-ui/main/techone-logo.png" width="48" alt="TechOne UI Logo" /> TechOne UI
 
-<p align="center">
-  <strong>матричная библиотека UI‑компонентов</strong><br>
+
+<div align="center">
+  <img src="techone-logo.png" width="200" alt="TechOne UI Logo" />
+  
+  <strong>TechOne UI</strong><br>
   Чистый HTML • CSS • JavaScript • Без зависимостей
-</p>
+</div>
 
 <p align="center">
   <a href="https://github.com/ll1ness/techone-ui">
