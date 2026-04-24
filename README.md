@@ -15,7 +15,6 @@
     <img src="https://img.shields.io/badge/License-MIT-6366f1?style=flat-square" alt="MIT">
   </a>
   <img src="https://img.shields.io/badge/Status-Beta-f59e0b?style=flat-square" alt="Beta">
-  <img src="https://img.shields.io/badge/Components-24-10b981?style=flat-square" alt="24 Components">
 </p>
 
 ---
