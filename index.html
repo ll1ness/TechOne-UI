@@ -1,259 +1,136 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#0a0a0f" />
-    <title>TechOn UI — матричная библиотека компонентов</title>
-    <meta
-      name="description"
-      content="TechOn UI — матричная библиотека UI‑компонентов на чистом HTML, CSS и JS: тёмная тема по умолчанию, AI‑фон, готовые кнопки, карточки, сетки, таймлайны и многое другое."
-    />
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preload" href="./styles.css" as="style" />
-    <link rel="preload" href="./build/techon-ui.min.js" as="script" />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechOn UI - Component Preview</title>
+    <script src="main.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Courier New', monospace;
+            background: #030303;
+            color: #f0f0f0;
+            padding: 40px;
+            min-height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .component-preview {
+            border: 2px solid #1a1a1a;
+            padding: 30px;
+            background: #0a0a0a;
+        }
+        .component-title {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .component-content {
+            min-height: 80px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+        }
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: #666;
+        }
+        .error {
+            color: #ff3333;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>TechOn UI Component Preview</h1>
+    <div class="components-grid" id="components-container">
+        <div class="loading">Loading components...</div>
+    </div>
 
-    <header class="site-header" role="banner">
-      <div class="site-header__brand">
-        <span class="site-header__logo to-avatar" data-size="m" aria-hidden="true">
-          TO
-        </span>
-        <div class="site-header__text">
-          <span class="site-header__title">TechOne UI</span>
-          <span class="site-header__subtitle">Матричная библиотека UI‑компонентов</span>
-        </div>
-      </div>
-
-      <button class="site-nav__toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav-menu">
-        <span class="site-nav__toggle-icon" aria-hidden="true"></span>
-      </button>
-
-      <nav class="site-nav" aria-label="Основная навигация" id="site-nav-menu">
-        <ul class="site-nav__list">
-          <li><a href="#hero">Главная</a></li>
-          <li><a href="#about">О библиотеке</a></li>
-          <li><a href="#features">Компоненты</a></li>
-          <li><a href="#stack">Стек</a></li>
-          <li><a href="#timeline">Этапы</a></li>
-          <li><a href="https://github.com/ll1ness/techone-ui">GitHub</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main id="main-content">
-      <section id="hero" class="section hero" aria-labelledby="hero-title">
-        <div class="hero__layout">
-          <div class="hero__content to-flex" data-direction="column" data-gap="m">
-            <span class="hero__tag to-tag" data-variant="primary">
-              UI библиотека / Open Source
-            </span>
-            <h1 id="hero-title" class="hero__title">
-              TechOne UI — матричная библиотека компонентов
-            </h1>
-            <p class="hero__subtitle">
-              Набор готовых компонентов интерфейса с тёмной темой по умолчанию, AI‑фоном и
-              чистым ванильным JavaScript — без внешних зависимостей.
-            </p>
-            <div class="hero__actions">
-              <a
-                href="https://github.com/ll1ness/techone-ui"
-                class="hero__primary-action to-button"
-                data-variant="primary"
-              >
-                Открыть на GitHub
-              </a>
-              <a href="#features" class="to-button" data-variant="secondary">
-                Смотреть компоненты
-              </a>
-            </div>
-            <div class="hero__meta">
-              <span class="to-status-indicator" data-color="warning">
-                Бета-тестирование v1.01.2b • MIT
-              </span>
-              <span class="hero__pulse-label">
-                <span class="to-pulse" data-color="primary" aria-hidden="true"></span>
-                без фреймворков и сборщиков
-              </span>
-            </div>
-          </div>
-
-          <aside class="hero__aside to-card" aria-label="Краткая сводка проекта">
-            <div class="hero__aside-header">
-              <span class="to-badge" data-variant="info">TechOn UI</span>
-            </div>
-            <p class="hero__aside-text">
-              Библиотека компонентов с тёмной темой по умолчанию, анимированным AI-фоном
-              и готовыми элементами интерфейса.
-            </p>
-            <ul class="hero__aside-list">
-              <li>Адаптивная сетка и карточки</li>
-              <li>Встроенный переключатель темы</li>
-              <li>Матрица-анимации и фон</li>
-            </ul>
-            <div class="hero__aside-footer">
-              <div class="to-progress" data-value="90" data-max="100">
-                <div class="to-progress-label">
-                  <span>Готовность концепции</span>
-                  <span class="to-progress-value">90%</span>
-                </div>
-                <div class="to-progress-track">
-                  <div class="to-progress-fill"></div>
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section id="about" class="section" aria-labelledby="about-title">
-        <header class="section__header">
-          <h2 id="about-title">О библиотеке</h2>
-          <p class="section__subtitle">
-            TechOne UI — это матричная версия набора UI‑компонентов: кнопки, карточки, баннеры,
-            таблицы, таймлайны, тултипы и многое другое на чистом HTML, CSS и JS.
-          </p>
-        </header>
-
-        <article class="section__content to-card">
-          <p>
-            Библиотека создавалась как лёгкий способ добавить «матрицу» и продуманный интерфейс
-            в проекты: админ‑панели, дашборды, AI‑инструменты, лендинги и внутренние сервисы.
-          </p>
-          <p>
-            Все компоненты работают из коробки: подключаете один файл `techon-ui.min.js`, пишете
-            семантическую вёрстку и добавляете классы `to-*`. Темing, анимации и интерактивность
-            библиотека берёт на себя.
-          </p>
-        </article>
-      </section>
-
-      <section id="features" class="section" aria-labelledby="features-title">
-        <header class="section__header">
-          <h2 id="features-title">Ключевые компоненты</h2>
-          <p class="section__subtitle">
-            Набор базовых и продвинутых элементов интерфейса, закрывающий типовые сценарии
-            современных веб‑приложений.
-          </p>
-        </header>
-
-        <div class="section__grid to-grid" data-columns="3" data-gap="m">
-          <article class="feature-card to-card">
-            <h3>Базовые элементы</h3>
-            <p>
-              Кнопки, бейджи, теги, карточки, баннеры, иконки и кнопки‑иконки — всё в едином
-              матричном стиле.
-            </p>
-          </article>
-
-          <article class="feature-card to-card">
-            <h3>Структура и навигация</h3>
-            <p>
-              Flex и grid‑контейнеры, хлебные крошки, таймлайн, таблицы, аккордеоны, дропдауны —
-              для сложных интерфейсов.
-            </p>
-          </article>
-
-          <article class="feature-card to-card">
-            <h3>Состояния и микровзаимодействия</h3>
-            <p>
-              Спиннеры, скелетоны, индикаторы статуса, пульсации, тултипы, кнопка наверх,
-              модальные диалоги и AI‑фон.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section id="stack" class="section" aria-labelledby="stack-title">
-        <header class="section__header">
-          <h2 id="stack-title">Технологический стек библиотеки</h2>
-          <p class="section__subtitle">
-            Никаких тяжёлых фреймворков — только устойчивые стандарты и один подключаемый файл.
-          </p>
-        </header>
-
-        <div class="section__grid to-grid" data-columns="3" data-gap="m">
-          <article class="stack-card to-card">
-            <h3>TechOn UI</h3>
-            <p>Библиотека UI‑компонентов с матричным визуалом, тёмной темой по умолчанию и
-            переключателем светлой темы.</p>
-            <div class="stack-card__tags">
-              <span class="to-badge" data-variant="info">Кнопки</span>
-              <span class="to-badge" data-variant="info">Карточки</span>
-            </div>
-          </article>
-
-          <article class="stack-card to-card">
-            <h3>Чистый HTML + CSS + JS</h3>
-            <p>
-              Библиотека написана на ванильном JavaScript: легко подключается в любые стек‑проекты
-              и статику.
-          </article>
-
-          <article class="stack-card to-card">
-            <h3>Кроссбраузерность</h3>
-            <p>
-              Используются только устойчивые стандарты: flexbox, grid, медиазапросы, MutationObserver
-              и нативные браузерные API.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section id="timeline" class="section" aria-labelledby="timeline-title">
-        <header class="section__header">
-          <h2 id="timeline-title">Этапы развития TechOn UI</h2>
-          <p class="section__subtitle">
-            Условная дорожная карта библиотеки — от первых прототипов до матричной версии.
-          </p>
-        </header>
-
-        <div class="to-timeline">
-          <article class="to-timeline-item" data-state="completed">
-            <h3>Первые компоненты</h3>
-            <p>Базовые кнопки, карточки и сетки для личных pet‑проектов.</p>
-          </article>
-          <article class="to-timeline-item" data-state="active">
-            <h3>Матричная версия</h3>
-            <p>AI‑фон, тёмная тема по умолчанию, анимации и расширенный набор компонентов.</p>
-          </article>
-          <article class="to-timeline-item" data-state="planned">
-            <h3>Документация и экосистема</h3>
-            <p>Больше примеров, шаблоны интерфейсов и рекомендации по интеграции в проекты.</p>
-          </article>
-        </div>
-      </section>
-
-    </main>
-
-    <footer class="site-footer" role="contentinfo">
-      <div class="site-footer__inner">
-        <p class="site-footer__copy">
-          © <span id="footer-year"></span> TechOne UI. MIT License. By ll1ness <3
-        </p>
-        <nav class="site-footer__nav" aria-label="Навигация в подвале">
-          <a href="#hero">Вверх</a>
-          <a href="#about">О проекте</a>
-          <a href="https://github.com/ll1ness/techone-ui">GitHub</a>
-        </nav>
-      </div>
-    </footer>
-
-    <button
-      class="to-scroll-top"
-      data-threshold="400"
-      type="button"
-      aria-label="Прокрутить страницу наверх"
-    >
-      ↑
-    </button>
-
-    <script src="./build/techon-ui.min.js" defer></script>
-    <script src="./main.js" defer></script>
-  </body>
+    <script>
+    (async function() {
+        const container = document.getElementById('components-container');
+        
+        async function loadComponents() {
+            try {
+                const response = await fetch('src/components');
+                const text = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                const links = doc.querySelectorAll('a[href$="/"]');
+                
+                const components = [];
+                for (const link of links) {
+                    const name = link.textContent.replace('/', '');
+                    if (name && !name.startsWith('.')) {
+                        components.push({
+                            name: name,
+                            url: `src/components/${name}/index.html`
+                        });
+                    }
+                }
+                
+                container.innerHTML = '';
+                
+                for (const comp of components) {
+                    const preview = document.createElement('div');
+                    preview.className = 'component-preview';
+                    preview.innerHTML = `
+                        <div class="component-title">${comp.name}</div>
+                        <div class="component-content" data-component="${comp.name}">
+                            <span style="color:#666;">Loading...</span>
+                        </div>
+                    `;
+                    container.appendChild(preview);
+                    
+                    try {
+                        const compResponse = await fetch(comp.url);
+                        const compHtml = await compResponse.text();
+                        const compDoc = parser.parseFromString(compHtml, 'text/html');
+                        const body = compDoc.querySelector('body');
+                        
+                        if (body) {
+                            const content = body.innerHTML;
+                            const contentEl = preview.querySelector('.component-content');
+                            contentEl.innerHTML = content;
+                            
+                            const scripts = contentEl.querySelectorAll('script');
+                            scripts.forEach(s => s.remove());
+                        }
+                    } catch (e) {
+                        preview.querySelector('.component-content').innerHTML = 
+                            `<span class="error">Failed to load</span>`;
+                    }
+                }
+                
+                if (container.children.length === 0) {
+                    container.innerHTML = '<div class="error">No components found</div>';
+                }
+            } catch (e) {
+                container.innerHTML = `<div class="error">Error: ${e.message}</div>`;
+            }
+        }
+        
+        loadComponents();
+    })();
+    </script>
+</body>
 </html>
-

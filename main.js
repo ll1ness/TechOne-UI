@@ -3,6 +3,110 @@
 // Mobile Navigation, Smooth Scroll, Scroll to Top
 // ============================================
 
+// ============================================
+// Build Check - Verify build exists before loading
+// ============================================
+function checkBuildExists() {
+  const script = document.createElement('script');
+  script.src = './build/techon-ui.min.js';
+  script.async = false;
+
+  script.onload = function() {
+    console.log('TechOne UI build found ✓');
+  };
+
+  script.onerror = function() {
+    showBuildMissingOverlay();
+  };
+
+  document.head.appendChild(script);
+}
+
+function showBuildMissingOverlay() {
+  const overlay = document.createElement('div');
+  overlay.id = 'build-missing-overlay';
+  overlay.innerHTML = `
+    <style>
+      #build-missing-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #0a0a0f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        font-family: 'Courier New', monospace;
+      }
+      .build-missing-card {
+        background: #12121a;
+        border: 1px solid #27272a;
+        border-radius: 8px;
+        padding: 32px;
+        max-width: 480px;
+        text-align: center;
+      }
+      .build-missing-icon {
+        font-size: 48px;
+        margin-bottom: 16px;
+      }
+      .build-missing-title {
+        color: #ef4444;
+        font-size: 20px;
+        margin: 0 0 8px;
+        letter-spacing: 0.05em;
+      }
+      .build-missing-desc {
+        color: #a1a1aa;
+        font-size: 14px;
+        margin: 0 0 24px;
+        line-height: 1.6;
+      }
+      .build-missing-code {
+        background: #0a0a0f;
+        border: 1px solid #27272a;
+        border-radius: 4px;
+        padding: 12px 16px;
+        margin: 0 0 24px;
+        text-align: left;
+      }
+      .build-missing-code code {
+        color: #10b981;
+        font-size: 13px;
+      }
+      .build-missing-note {
+        color: #71717a;
+        font-size: 12px;
+        margin: 0;
+      }
+    </style>
+    <div class="build-missing-card">
+      <div class="build-missing-icon">⚠</div>
+      <h1 class="build-missing-title">СБОРКА НЕ НАЙДЕНА</h1>
+      <p class="build-missing-desc">
+        Файл <code style="color:#f59e0b">build/techon-ui.min.js</code> отсутствует.
+        Перед запуском сайта необходимо собрать проект.
+      </p>
+      <div class="build-missing-code">
+        <code>bash build.sh</code>
+      </div>
+      <p class="build-missing-note">
+        После сборки обновите страницу (Ctrl+R / Cmd+R)
+      </p>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  document.body.style.overflow = 'hidden';
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', checkBuildExists);
+} else {
+  checkBuildExists();
+}
+
 // Mobile Navigation Toggle (Hamburger Menu)
 function setupMobileNav() {
   const toggle = document.querySelector('.site-nav__toggle');
