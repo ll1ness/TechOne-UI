@@ -1,83 +1,82 @@
-import './styles.css';
-import { initAll } from './systems/init.js';
+// TechOn UI - Main JavaScript
 
-(async function() {
-  const container = document.getElementById('components-container');
-  
-  async function loadComponents() {
-    try {
-      const response = await fetch('/src/components');
-      const text = await response.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(text, 'text/html');
-      const links = doc.querySelectorAll('a[href$="/"]');
-      
-      const components = [];
-      for (const link of links) {
-        const name = link.textContent.replace('/', '');
-        if (name && !name.startsWith('.')) {
-          components.push({
-            name: name,
-            url: `/src/components/${name}/index.html`
-          });
-        }
-      }
-      
-      container.innerHTML = '';
-      
-      for (const comp of components) {
-        const preview = document.createElement('div');
-        preview.className = 'component-preview';
-        preview.innerHTML = `
-          <div class="component-title">${comp.name}</div>
-          <div class="component-content" data-component="${comp.name}">
-            <span style="color:#666;">Loading...</span>
-          </div>
-        `;
-        container.appendChild(preview);
+(function() {
+  'use strict';
+
+  function loadComponents() {
+    const container = document.getElementById('components-container');
+    if (!container) return;
+
+    fetch('components/')
+      .then(r => r.text())
+      .then(text => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        const links = doc.querySelectorAll('a[href$="/"]');
         
-        try {
-          const compResponse = await fetch(comp.url);
-          const compHtml = await compResponse.text();
-          const compDoc = parser.parseFromString(compHtml, 'text/html');
-          const body = compDoc.querySelector('body');
-          
-          if (body) {
-            const content = body.innerHTML;
-            const contentEl = preview.querySelector('.component-content');
-            contentEl.innerHTML = content;
-            
-            const scripts = contentEl.querySelectorAll('script');
-            const scriptContents = [];
-            scripts.forEach(s => {
-              scriptContents.push(s.textContent);
-              s.remove();
-            });
-            
-            requestAnimationFrame(() => {
-              scripts.forEach((s, i) => {
-                const newScript = document.createElement('script');
-                newScript.textContent = scriptContents[i];
-                contentEl.appendChild(newScript);
-              });
-              initAll();
+        const components = [];
+        for (const link of links) {
+          const name = link.textContent.replace('/', '');
+          if (name && !name.startsWith('.')) {
+            components.push({
+              name: name,
+              url: `components/${name}/index.html`
             });
           }
-        } catch (e) {
-          preview.querySelector('.component-content').innerHTML = 
-            `<span class="error">Failed to load</span>`;
         }
-      }
-      
-      if (container.children.length === 0) {
-        container.innerHTML = '<div class="error">No components found</div>';
-      }
-    } catch (e) {
-      container.innerHTML = `<div class="error">Error: ${e.message}</div>`;
-    }
+        
+        container.innerHTML = '';
+        
+        components.forEach(comp => {
+          const preview = document.createElement('div');
+          preview.className = 'component-preview';
+          preview.innerHTML = `
+            <div class="component-title">${comp.name}</div>
+            <div class="component-content" data-component="${comp.name}">
+              <span style="color:#666;">Loading...</span>
+            </div>
+          `;
+          container.appendChild(preview);
+          
+          fetch(comp.url)
+            .then(r => r.text())
+            .then(html => {
+              const compDoc = parser.parseFromString(html, 'text/html');
+              const body = compDoc.querySelector('body');
+              if (body) {
+                const content = body.innerHTML;
+                const contentEl = preview.querySelector('.component-content');
+                contentEl.innerHTML = content;
+                
+                const scripts = contentEl.querySelectorAll('script');
+                scripts.forEach(s => s.remove());
+                
+                requestAnimationFrame(() => {
+                  scripts.forEach(s => {
+                    const newScript = document.createElement('script');
+                    newScript.textContent = s.textContent;
+                    contentEl.appendChild(newScript);
+                  });
+                  if (window.TechOnUI && window.TechOnUI.init) {
+                    window.TechOnUI.init();
+                  }
+                });
+              }
+            })
+            .catch(() => {
+              preview.querySelector('.component-content').innerHTML = 
+                '<span class="error">Failed to load</span>';
+            });
+        });
+      })
+      .catch(e => {
+        container.innerHTML = `<div class="error">Error: ${e.message}</div>`;
+      });
   }
-  
-  loadComponents();
-})();
 
-initAll();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadComponents);
+  } else {
+    loadComponents();
+  }
+})();

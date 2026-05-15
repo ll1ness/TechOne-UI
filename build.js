@@ -14,10 +14,10 @@ mkdirSync(DIST_DIR, { recursive: true });
 
 copyDir('src/components', join(DIST_DIR, 'components'));
 copyDir('ttf', join(DIST_DIR, 'ttf'));
-copyFileSync('styles.css', join(DIST_DIR, 'styles.css'));
-copyFileSync('main.js', join(DIST_DIR, 'main.js'));
+copyFileSync('src/styles.css', join(DIST_DIR, 'styles.css'));
+copyFileSync('src/main.js', join(DIST_DIR, 'main.js'));
 
-const cssFiles = getFiles('.', 'css').filter(f => !f.includes('.min.css') && !f.includes('/dist/') && !f.startsWith('dist/'));
+const cssFiles = getFiles('src', 'css').filter(f => !f.includes('.min.css') && !f.includes('/dist/'));
 const jsComponents = getFiles('src/components', 'js');
 const jsSystems = getFiles('src/systems', 'js').filter(f => !f.includes('dist'));
 
@@ -36,7 +36,7 @@ let jsContent = `
 })();
 `;
 
-jsContent += '\n' + readFileSync('main.js', 'utf8');
+jsContent += '\n' + readFileSync('src/main.js', 'utf8');
 
 for (const f of jsSystems) {
   jsContent += '\n' + readFileSync(f, 'utf8');
