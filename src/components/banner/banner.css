@@ -45,6 +45,14 @@
   border-left: 4px solid #cccc00;
 }
 
-.to-banner[data-variant="danger"] {
-  border-left: 4px solid #ff3333;
+.to-banner-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
+
+.to-banner-icon-default { background: #f0f0f0; }
+.to-banner-icon-success { background: #00cc00; }
+.to-banner-icon-warning { background: #cccc00; }
+.to-banner-icon-danger { background: #ff3333; }

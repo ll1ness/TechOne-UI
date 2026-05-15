@@ -13,12 +13,18 @@
         }
         .to-table {
             width: 100%;
+            max-width: 100%;
             border-collapse: collapse;
             font-family: 'Courier New', monospace;
             background: #0c0c0c;
             border: 1px solid #1a1a1a;
             border-radius: 12px;
             overflow: hidden;
+        }
+        .to-table-container {
+            overflow-x: auto;
+            max-width: 100%;
+            border-radius: 12px;
         }
         .to-table th {
             background: #0a0a0a;
@@ -49,6 +55,7 @@
 </head>
 <body>
     <h1>TechOn Table Component</h1>
+    <div class="to-table-container">
     <table class="to-table">
         <thead>
             <tr>
@@ -85,5 +92,6 @@
             </tr>
         </tbody>
     </table>
+    </div>
 </body>
 </html>

@@ -3,9 +3,11 @@ class TechOnSpinner {
   constructor(element) {
     this.element = element;
     this.size = element.dataset.size || 'm';
-    this.color = element.dataset.color || 'primary';
-    this.element.setAttribute('data-size', this.size);
-    this.element.setAttribute('data-color', this.color);
+    this.color = element.dataset.color;
+    
+    if (!element.dataset.size) {
+      this.element.setAttribute('data-size', this.size);
+    }
   }
 }
 
