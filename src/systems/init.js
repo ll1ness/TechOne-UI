@@ -50,7 +50,7 @@ function initDialog() {
     const closeBtns = el.querySelectorAll('.to-dialog-close');
     const id = el.id;
 
-    document.querySelectorAll(`[data-dialog="${id}"]`).forEach(btn => {
+    document.querySelectorAll('[data-dialog="' + id + '"]').forEach(btn => {
       btn.addEventListener('click', () => {
         el.style.display = 'block';
         document.body.style.overflow = 'hidden';
@@ -141,7 +141,7 @@ function initTooltip() {
   });
 }
 
-export function initAll() {
+function initAll() {
   initAccordion();
   initDropdown();
   initDialog();
@@ -149,3 +149,11 @@ export function initAll() {
   initToggleButton();
   initTooltip();
 }
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAll);
+} else {
+  initAll();
+}
+
+window.TechOnUI = { init: initAll };

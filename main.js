@@ -7,7 +7,7 @@
     const container = document.getElementById('components-container');
     if (!container) return;
 
-    fetch('src/components')
+    fetch('components/')
       .then(r => r.text())
       .then(text => {
         const parser = new DOMParser();
@@ -20,7 +20,7 @@
           if (name && !name.startsWith('.')) {
             components.push({
               name: name,
-              url: `src/components/${name}/index.html`
+              url: `components/${name}/index.html`
             });
           }
         }
