@@ -20,3 +20,24 @@
   color: #030303;
   border-color: #f0f0f0;
 }
+
+.to-toggle-group {
+  display: flex;
+  gap: 0;
+}
+
+.to-toggle-group .to-toggle-button {
+  border-radius: 0;
+}
+
+.to-toggle-group .to-toggle-button:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.to-toggle-group .to-toggle-button:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+.to-toggle-group .to-toggle-button:not(:last-child) {
+  border-right: none;
+}

@@ -3,9 +3,17 @@ class TechOnToggleButton {
   constructor(element) {
     this.element = element;
     this.selected = element.getAttribute('data-selected') === 'true';
+    this.group = element.closest('.to-toggle-group');
 
     this.element.addEventListener('click', (e) => {
       e.preventDefault();
+      if (this.group) {
+        this.group.querySelectorAll('.to-toggle-button').forEach(btn => {
+          if (btn !== this.element) {
+            btn.setAttribute('data-selected', 'false');
+          }
+        });
+      }
       this.toggle();
     });
   }

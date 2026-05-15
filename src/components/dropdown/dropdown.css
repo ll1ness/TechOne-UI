@@ -59,3 +59,13 @@
 .to-dropdown-item:hover {
   background: #0a0a0a;
 }
+
+.to-dropdown-arrow {
+  margin-left: 8px;
+  font-size: 10px;
+  transition: transform 0.3s ease;
+}
+
+.to-dropdown[data-open="true"] .to-dropdown-arrow {
+  transform: rotate(180deg);
+}

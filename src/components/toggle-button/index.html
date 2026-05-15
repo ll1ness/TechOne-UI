@@ -31,16 +31,46 @@
             color: #030303;
             border-color: #f0f0f0;
         }
+        .to-toggle-group {
+            display: flex;
+            gap: 0;
+        }
+        .to-toggle-group .to-toggle-button {
+            border-radius: 0;
+        }
+        .to-toggle-group .to-toggle-button:first-child {
+            border-radius: 4px 0 0 4px;
+        }
+        .to-toggle-group .to-toggle-button:last-child {
+            border-radius: 0 4px 4px 0;
+        }
+        .to-toggle-group .to-toggle-button:not(:last-child) {
+            border-right: none;
+        }
     </style>
 </head>
 <body>
     <h1>TechOn Toggle Button Component</h1>
-    <h2>Toggle Buttons</h2>
-    <button class="to-toggle-button" data-selected="false">Option 1</button>
-    <button class="to-toggle-button" data-selected="true">Option 2</button>
-    <button class="to-toggle-button" data-selected="false">Option 3</button>
     
-    <h2>Hover Effect</h2>
-    <button class="to-toggle-button">Hover me</button>
+    <h2>Single Toggle Buttons</h2>
+    <button class="to-toggle-button" data-selected="false">Off</button>
+    <button class="to-toggle-button" data-selected="true">On</button>
+    
+    <h2>Toggle Group (3 buttons)</h2>
+    <div class="to-toggle-group">
+        <button class="to-toggle-button" data-selected="true">Option A</button>
+        <button class="to-toggle-button" data-selected="false">Option B</button>
+        <button class="to-toggle-button" data-selected="false">Option C</button>
+    </div>
+    
+    <h2>Toggle Group (5 buttons)</h2>
+    <div class="to-toggle-group">
+        <button class="to-toggle-button" data-selected="true">One</button>
+        <button class="to-toggle-button" data-selected="false">Two</button>
+        <button class="to-toggle-button" data-selected="false">Three</button>
+        <button class="to-toggle-button" data-selected="false">Four</button>
+        <button class="to-toggle-button" data-selected="false">Five</button>
+    </div>
 </body>
+<script src="toggle-button.js"></script>
 </html>
