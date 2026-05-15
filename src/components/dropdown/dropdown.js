@@ -32,11 +32,3 @@ class TechOnDropdown {
     this.element.setAttribute('data-open', 'false');
   }
 }
-
-// Initialize all dropdown components
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.to-dropdown:not([data-initialized])').forEach(el => {
-    new TechOnDropdown(el);
-    el.setAttribute('data-initialized', 'true');
-  });
-});

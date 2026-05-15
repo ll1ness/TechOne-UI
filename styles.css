@@ -1,3 +1,25 @@
+/* ============================================
+   TechOn UI - Custom Fonts
+   ============================================ */
+@font-face {
+  font-family: 'TechOnCartoon';
+  src: url('ttf/cartoon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TechOnNotes';
+  src: url('ttf/notes.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
 *,
 *::before,
 *::after {
@@ -11,9 +33,13 @@ body {
 }
 
 body {
-  font-family: 'Courier New', monospace;
+  font-family: 'TechOnCartoon', 'Courier New', monospace;
   color: var(--to-text);
   background-color: var(--to-bg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'TechOnNotes', 'Courier New', monospace;
 }
 
 img {

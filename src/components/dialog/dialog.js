@@ -32,11 +32,3 @@ class TechOnDialog {
     document.body.style.overflow = '';
   }
 }
-
-// Initialize all dialog components
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.to-dialog-wrapper:not([data-initialized])').forEach(el => {
-    new TechOnDialog(el);
-    el.setAttribute('data-initialized', 'true');
-  });
-});

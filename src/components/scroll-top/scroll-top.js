@@ -20,11 +20,3 @@ class TechOnScrollTop {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
-
-// Initialize all scroll top components
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.to-scroll-top:not([data-initialized])').forEach(el => {
-    new TechOnScrollTop(el);
-    el.setAttribute('data-initialized', 'true');
-  });
-});

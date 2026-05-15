@@ -19,11 +19,3 @@ class TechOnAccordion {
     this.element.setAttribute('data-open', this.isOpen ? 'true' : 'false');
   }
 }
-
-// Initialize all accordion components
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.to-accordion:not([data-initialized])').forEach(el => {
-    new TechOnAccordion(el);
-    el.setAttribute('data-initialized', 'true');
-  });
-});

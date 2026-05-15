@@ -28,11 +28,3 @@ class TechOnToggleButton {
     this.element.setAttribute('data-selected', selected ? 'true' : 'false');
   }
 }
-
-// Initialize all toggle button components
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.to-toggle-button:not([data-initialized])').forEach(el => {
-    new TechOnToggleButton(el);
-    el.setAttribute('data-initialized', 'true');
-  });
-});

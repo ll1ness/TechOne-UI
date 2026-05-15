@@ -132,12 +132,26 @@
     });
   }
 
+  function initTooltip() {
+    document.querySelectorAll('.to-tooltip:not([data-initialized])').forEach(el => {
+      const content = el.querySelector('.to-tooltip-content');
+      const position = el.dataset.position || 'top';
+
+      if (content) {
+        content.setAttribute('data-position', position);
+      }
+
+      el.setAttribute('data-initialized', 'true');
+    });
+  }
+
   function initAll() {
     initAccordion();
     initDropdown();
     initDialog();
     initScrollTop();
     initToggleButton();
+    initTooltip();
   }
 
   if (document.readyState === 'loading') {
