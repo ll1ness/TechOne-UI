@@ -15,6 +15,7 @@ mkdirSync(DIST_DIR, { recursive: true });
 copyDir('src/components', join(DIST_DIR, 'components'));
 copyDir('ttf', join(DIST_DIR, 'ttf'));
 copyFileSync('styles.css', join(DIST_DIR, 'styles.css'));
+copyFileSync('main.js', join(DIST_DIR, 'main.js'));
 
 const cssFiles = getFiles('.', 'css').filter(f => !f.includes('.min.css') && !f.includes('/dist/') && !f.startsWith('dist/'));
 const jsComponents = getFiles('src/components', 'js');
