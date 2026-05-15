@@ -35,6 +35,8 @@
       max-width: 1120px;
       margin: 0 auto;
       padding: 0 24px;
+      position: relative;
+      z-index: 1;
     }
 
     /* --- nav --- */
@@ -559,24 +561,24 @@
         <div class="comp-card">
           <h3>Accordion</h3>
           <div class="comp-body" style="flex-direction:column;align-items:stretch;">
-            <div class="to-accordion" data-open="false">
-              <button class="to-accordion-trigger" style="width:100%;display:flex;align-items:center;justify-content:space-between;background:transparent;border:none;padding:12px 0;color:#f0f0f0;cursor:pointer;font-family:inherit;font-size:13px;">
+            <div class="to-accordion" data-open="true">
+              <button class="to-accordion-trigger">
                 Что такое TechOne UI?
-                <span class="to-accordion-icon" style="font-size:10px;">▼</span>
+                <span class="to-accordion-icon">▼</span>
               </button>
               <div class="to-accordion-content">
-                <div class="to-accordion-content-inner" style="padding:12px 16px;color:#888;font-size:13px;border-top:1px solid #222;line-height:1.6;">
+                <div class="to-accordion-content-inner">
                   Фреймворк UI-компонентов. Zero deps. Просто подключи один .js файл.
                 </div>
               </div>
             </div>
             <div class="to-accordion" data-open="false">
-              <button class="to-accordion-trigger" style="width:100%;display:flex;align-items:center;justify-content:space-between;background:transparent;border:none;padding:12px 0;color:#f0f0f0;cursor:pointer;font-family:inherit;font-size:13px;">
+              <button class="to-accordion-trigger">
                 Сколько компонентов?
-                <span class="to-accordion-icon" style="font-size:10px;">▼</span>
+                <span class="to-accordion-icon">▼</span>
               </button>
               <div class="to-accordion-content">
-                <div class="to-accordion-content-inner" style="padding:12px 0;color:#888;font-size:13px;border-top:1px solid #222;">
+                <div class="to-accordion-content-inner">
                   24. И каждый работает.
                 </div>
               </div>
@@ -678,6 +680,8 @@ python3 -m http.server 8080</code></pre>
     </section>
 
     <!-- === FOOTER === -->
+    <button class="to-scroll-top" data-threshold="400" aria-label="Наверх">↑</button>
+
     <footer class="footer">
       <span>© 2026 <a href="https://github.com/ll1ness" target="_blank">ll1ness</a> · MIT</span>
       <div class="footer-links">
