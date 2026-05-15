@@ -8,7 +8,21 @@
     <script src="systems/init.js"></script>
     <script src="main.js"></script>
     <style>
+        @font-face {
+            font-family: 'TechOnCartoon';
+            src: url('ttf/cartoon.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'TechOnNotes';
+            src: url('ttf/notes.ttf') format('truetype');
+        }
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        body, h3, h4, h5, h6, p, span, div, button, input, textarea, select, label, a, li, td, th {
+            font-family: 'TechOnCartoon', 'Courier New', monospace;
+        }
+        h1, h2 {
+            font-family: 'TechOnNotes', 'Courier New', monospace;
+        }
         body {
             font-family: 'Courier New', monospace;
             background: #030303;

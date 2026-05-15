@@ -32,15 +32,22 @@ body {
   padding: 0;
 }
 
-body {
+body, h3, h4, h5, h6, p, span, div, button, input, textarea, select, label, a, li, td, th {
   font-family: 'TechOnCartoon', 'Courier New', monospace;
+}
+
+body {
   color: var(--to-text);
   background-color: var(--to-bg);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
   font-family: 'TechOnNotes', 'Courier New', monospace;
 }
+
+/* ============================================
+   Variables
+   ============================================ */
 
 img {
   max-width: 100%;
