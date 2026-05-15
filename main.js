@@ -67,8 +67,8 @@
         });
         
         Promise.all(loadPromises).then(() => {
-          if (window.TechOnUI && window.TechOnUI.init) {
-            window.TechOnUI.init();
+          if (window.toui && window.toui.init) {
+            window.toui.init();
           }
         });
       })

@@ -11,4 +11,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnBreadcrumbs(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.breadcrumbs = TechOnBreadcrumbs;

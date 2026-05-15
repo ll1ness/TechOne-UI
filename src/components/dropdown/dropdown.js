@@ -38,4 +38,4 @@ class TechOnDropdown {
     if (valueEl) valueEl.textContent = value;
     this.close();
   }
-}
+}window.toui.dropdown = TechOnDropdown;

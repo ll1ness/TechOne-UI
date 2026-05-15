@@ -13,4 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnCard(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.card = TechOnCard;

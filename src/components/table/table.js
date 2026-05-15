@@ -11,4 +11,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnTable(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.table = TechOnTable;

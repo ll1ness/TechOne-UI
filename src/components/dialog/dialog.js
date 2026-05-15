@@ -31,4 +31,4 @@ class TechOnDialog {
     this.element.style.display = 'none';
     document.body.style.overflow = '';
   }
-}
+}window.toui.dialog = TechOnDialog;

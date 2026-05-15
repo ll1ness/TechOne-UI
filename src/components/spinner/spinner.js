@@ -17,4 +17,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnSpinner(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.spinner = TechOnSpinner;

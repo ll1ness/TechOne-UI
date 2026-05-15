@@ -13,4 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnBanner(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.banner = TechOnBanner;

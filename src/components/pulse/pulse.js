@@ -13,4 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnPulse(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.pulse = TechOnPulse;

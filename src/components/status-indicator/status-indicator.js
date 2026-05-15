@@ -13,4 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnStatusIndicator(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.statusIndicator = TechOnStatusIndicator;

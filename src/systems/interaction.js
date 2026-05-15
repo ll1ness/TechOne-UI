@@ -213,6 +213,6 @@
     }
   };
 
-  window.TechOnUI = window.TechOnUI || {};
-  window.TechOnUI.Interaction = InteractionSystem;
+  window.toui = window.toui || {};
+  window.toui.Interaction = InteractionSystem;
 })();

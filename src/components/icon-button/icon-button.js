@@ -13,4 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnIconButton(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.iconButton = TechOnIconButton;

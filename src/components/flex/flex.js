@@ -16,4 +16,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnFlex(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.flex = TechOnFlex;

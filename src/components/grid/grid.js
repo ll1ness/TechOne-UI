@@ -16,4 +16,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnGrid(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.grid = TechOnGrid;

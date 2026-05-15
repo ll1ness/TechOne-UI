@@ -1,229 +1,93 @@
-
-
 <div align="center">
-  <img src="techone-logo-no-bg-preview (carve.photos).png" width="200" alt="TechOne UI Logo" />
-  
-  <strong>TechOne UI</strong><br>
-  Чистый HTML • CSS • JavaScript • Без зависимостей
+
+# TechOne UI
+
+_Open-source UI framework. Zero deps._
+
+[![GitHub](https://img.shields.io/badge/GitHub-ll1ness-333?style=flat-square&logo=github)](https://github.com/ll1ness/techone-ui)
+[![License](https://img.shields.io/badge/License-MIT-6366f1?style=flat-square)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Beta-f59e0b?style=flat-square)]()
+[![Size](https://img.shields.io/badge/Size-70KB-0f0?style=flat-square)]()
+[![Components](https://img.shields.io/badge/Components-24-f0f0f0?style=flat-square)]()
+[![CDN](https://img.shields.io/badge/CDN-gitHub-333?style=flat-square)](https://github.com/ll1ness/techone-ui)
+
+---
+
+[Install](#quick-start) · [Docs](vault/overview.md) · [Components](#components) · [GitHub](https://github.com/ll1ness/techone-ui)
+
+---
+
 </div>
 
-<p align="center">
-  <a href="https://github.com/ll1ness/techone-ui">
-    <img src="https://img.shields.io/badge/GitHub-ll1ness-333?style=flat-square&logo=github" alt="GitHub">
-  </a>
-  <a href="https://github.com/ll1ness/techone-ui/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-6366f1?style=flat-square" alt="MIT">
-  </a>
-  <img src="https://img.shields.io/badge/Status-Beta-f59e0b?style=flat-square" alt="Beta">
-</p>
+24 UI components. One `.js` file. No build step. No npm install.
 
----
-
-## ⚡ Что это?
-
-TechOne UI — это **матричная** библиотека UI‑компонентов для тех, кто ценит:
-
-- ✅ **Простоту** — один `.js` файл, и всё работает
-- ✅ **Скорость** — без фреймворков, сборщиков и зависимостей
-- ✅ **Стиль** — тёмная тема по умолчанию с AI‑анимациями
-- ✅ **Качество** — 24 готовых компонента для production
-
-> Подумайте: Tailwind для базовых задач? Не теперь. TechOne UI — это ваш путь к быстрому прототипированию без боли.
-
----
-
-## ✨ Возможности
-
-| | | |
-|--------------------------|--------------------------|--------------------------|
-| 🌑 **Тёмная тема** | 🎨 **AI‑фон** | 📱 **Mobile‑first** |
-| ♿ **Accessibility** | ⚡ **Zero deps** | 🔧 **Кастомизация** |
-| 📦 **24 компонента** | 🎯 **Production ready** | 🌐 **Кроссбраузерность** |
-
----
-
-## 🚀 Быстрый старт
-
-### Установка
+## Quick start
 
 ```bash
 git clone https://github.com/ll1ness/techone-ui.git
 cd techone-ui
-```
-
-### Запуск
-
-```bash
 python3 -m http.server 8080
-# или
-npx serve .
 ```
 
-Откройте → **`http://localhost:8080`**
-
-### Базовый шаблон
+Include in your project:
 
 ```html
-<!DOCTYPE html>
-<html lang="ru" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Мой проект</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  
-  <button class="to-button" data-variant="primary">
-    Нажми меня
-  </button>
-
-  <script src="build/techon-ui.min.js"></script>
-</body>
-</html>
+<link rel="stylesheet" href="styles.css">
+<script src="build/techon-ui.min.js"></script>
 ```
 
----
+Then use any component:
 
-## 🧩 Компоненты
+```html
+<button class="to-button" data-variant="primary">Click me</button>
+```
 
-### Базовые
-| Компонент | Описание |
-|-----------|----------|
-| [Button](src/components/button/) | Кнопки с вариантами |
-| [Icon Button](src/components/icon-button/) | Кнопки‑иконки |
-| [Tag](src/components/tag/) | Теги и метки |
-| [Badge](src/components/badge/) | Бейджи |
-| [Avatar](src/components/avatar/) | Аватары |
+## API
 
-### Структура
-| Компонент | Описание |
-|-----------|----------|
-| [Card](src/components/card/) | Карточки контента |
-| [Grid](src/components/grid/) | CSS Grid сетки |
-| [Flex](src/components/flex/) | Flexbox контейнеры |
-| [Banner](src/components/banner/) | Информационные баннеры |
-| [Breadcrumbs](src/components/breadcrumbs/) | Хлебные крошки |
+All components and systems are accessible via the `toui` namespace:
 
-### Интерактивные
-| Компонент | Описание |
-|-----------|----------|
-| [Accordion](src/components/accordion/) | Сворачиваемые панели |
-| [Dialog](src/components/dialog/) | Модальные окна |
-| [Dropdown](src/components/dropdown/) | Выпадающие списки |
-| [Tooltip](src/components/tooltip/) | Всплывающие подсказки |
-| [Toggle Button](src/components/toggle-button/) | Переключатели |
+```js
+toui.init()                        // initialize all components
+toui.button                        // Button class
+toui.accordion                     // Accordion class
+toui.dialog                        // Dialog class
+toui.Animation                     // animation utilities
+toui.Interaction                   // interaction helpers
+toui.Management                    // state management
+```
 
-### Состояния
-| Компонент | Описание |
-|-----------|----------|
-| [Spinner](src/components/spinner/) | Спиннеры загрузки |
-| [Skeleton](src/components/skeleton/) | Skeleton‑загрузчики |
-| [Progress](src/components/progress/) | Индикаторы прогресса |
-| [Status Indicator](src/components/status-indicator/) | Индикаторы статуса |
-| [Pulse](src/components/pulse/) | Пульсация |
+## Components
 
-### Утилиты
-| Компонент | Описание |
-|-----------|----------|
-| [Timeline](src/components/timeline/) | Временная линейка |
-| [Table](src/components/table/) | Таблицы данных |
-| [Scroll Top](src/components/scroll-top/) | Кнопка наверх |
-| [Icon](src/components/icon/) | Встроенные SVG |
+| Category | Components |
+|---|---|
+| Basic | `button`, `icon-button`, `tag`, `badge`, `avatar` |
+| Layout | `card`, `grid`, `flex`, `banner`, `breadcrumbs` |
+| Interactive | `accordion`, `dialog`, `dropdown`, `tooltip`, `toggle-button` |
+| Status | `spinner`, `skeleton`, `progress`, `status-indicator`, `pulse` |
+| Utility | `timeline`, `table`, `scroll-top`, `icon` |
 
----
+All 24 components are documented in [vault/components.md](vault/components.md).
 
-## 🎨 Кастомизация
+## Customization
 
-### CSS переменные
+Override CSS variables:
 
 ```css
 :root {
   --to-primary: #6366f1;
   --to-bg: #0a0a0f;
   --to-text: #ffffff;
-  --to-border: #27272a;
 }
 ```
 
-### Переключение темы
+## License
 
-```html
-<html data-theme="dark">   <!-- тёмная (по умолчанию) -->
-<html data-theme="light">  <!-- светлая -->
-```
+MIT © 2026 [ll1ness](https://github.com/ll1ness)
 
 ---
 
-## 📁 Структура проекта
-
-```
-techone-ui/
-├── index.html              # Демо всех компонентов
-├── main.js                # Навигация, скролл, утилиты
-├── styles.css             # Базовые стили
-├── build/
-│   └── techon-ui.min.js   # Минифицированная библиотека
-├── src/
-│   └── components/       # 24 компонента
-│       ├── accordion/
-│       ├── avatar/
-│       ├── badge/
-│       ├── banner/
-│       ├── breadcrumbs/
-│       ├── button/
-│       ├── card/
-│       ├── dialog/
-│       ├── dropdown/
-│       ├── flex/
-│       ├── grid/
-│       ├── icon/
-│       ├── icon-button/
-│       ├── progress/
-│       ├── pulse/
-│       ├── scroll-top/
-│       ├── skeleton/
-│       ├── spinner/
-│       ├── status-indicator/
-│       ├── table/
-│       ├── tag/
-│       ├── theme/
-│       ├── timeline/
-│       ├── toggle-button/
-│       └── tooltip/
-└── vault/                 # Документация
-```
-
----
-
-## 🤝 Contributing
-
-```bash
-# 1. Fork → 2. Clone → 3. Branch → 4. Code → 5. PR
-git checkout -b feature/amazing-component
-git commit -m 'Add amazing component'
-git push origin feature/amazing-component
-```
-
-### Стандарты
-- 2 пробела для отступов
-- BEM для CSS классов
-- Семантический HTML
-- ARIA для accessibility
-
----
-
-## 📄 Лицензия
-
-[MIT](LICENSE) © 2026 ll1ness
-
----
-
-<p align="center">
-  <strong>TechOne UI</strong> — кодь с стилем 🔥
-</p>
-
-<p align="center">
-  <a href="https://github.com/ll1ness/techone-ui">GitHub</a> •
-  <a href="https://ll1ness.github.io/TechOne-UI/">Live Demo</a>
-</p>
+<div align="center">
+  <a href="https://github.com/ll1ness/techone-ui">GitHub</a>
+  · <a href="https://ll1ness.github.io/techone-ui/">Live Demo</a>
+  · <a href="vault/overview.md">Docs</a>
+</div>

@@ -11,4 +11,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnTimeline(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.timeline = TechOnTimeline;

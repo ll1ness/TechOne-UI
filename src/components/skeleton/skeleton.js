@@ -11,4 +11,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnSkeleton(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.skeleton = TechOnSkeleton;

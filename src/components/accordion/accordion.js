@@ -18,4 +18,4 @@ class TechOnAccordion {
     this.isOpen = !this.isOpen;
     this.element.setAttribute('data-open', this.isOpen ? 'true' : 'false');
   }
-}
+}window.toui.accordion = TechOnAccordion;

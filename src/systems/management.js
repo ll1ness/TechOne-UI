@@ -226,6 +226,6 @@
     }
   };
 
-  window.TechOnUI = window.TechOnUI || {};
-  window.TechOnUI.Management = ManagementSystem;
+  window.toui = window.toui || {};
+  window.toui.Management = ManagementSystem;
 })();

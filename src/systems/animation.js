@@ -287,6 +287,6 @@
     }
   };
 
-  window.TechOnUI = window.TechOnUI || {};
-  window.TechOnUI.Animation = AnimationSystem;
+  window.toui = window.toui || {};
+  window.toui.Animation = AnimationSystem;
 })();

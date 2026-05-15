@@ -32,4 +32,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnProgress(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.progress = TechOnProgress;

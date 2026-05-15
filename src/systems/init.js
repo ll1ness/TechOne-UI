@@ -159,5 +159,5 @@ if (document.readyState === 'loading') {
   initAll();
 }
 
-window.TechOnUI = window.TechOnUI || {};
-window.TechOnUI.init = initAll;
+window.toui = window.toui || {};
+window.toui.init = initAll;

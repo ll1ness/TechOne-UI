@@ -19,4 +19,4 @@ class TechOnScrollTop {
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-}
+}window.toui.scrollTop = TechOnScrollTop;

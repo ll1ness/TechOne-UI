@@ -13,4 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnAvatar(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.avatar = TechOnAvatar;

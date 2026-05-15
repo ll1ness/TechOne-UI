@@ -13,4 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnBadge(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.badge = TechOnBadge;

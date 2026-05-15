@@ -83,10 +83,16 @@
   `;
   document.head.appendChild(style);
 
-  const shapes = document.createElement('div');
-  shapes.innerHTML = '<div class="bg-shape"></div><div class="bg-shape"></div><div class="bg-shape"></div><div class="bg-shape"></div><div class="bg-shape"></div>';
-  document.body.prepend(shapes);
-
-  window.TechOnUI = window.TechOnUI || {};
-  window.TechOnUI.Background = true;
+  function initBg() {
+    const shapes = document.createElement('div');
+    shapes.innerHTML = '<div class="bg-shape"></div><div class="bg-shape"></div><div class="bg-shape"></div><div class="bg-shape"></div><div class="bg-shape"></div>';
+    document.body.prepend(shapes);
+    window.toui = window.toui || {};
+    window.toui.Background = true;
+  }
+  if (document.body) {
+    initBg();
+  } else {
+    document.addEventListener('DOMContentLoaded', initBg);
+  }
 })();

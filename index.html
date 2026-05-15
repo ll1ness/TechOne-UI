@@ -713,7 +713,7 @@ python3 -m http.server 8080</code></pre>
           body.innerHTML = content.innerHTML;
           body.querySelectorAll('script').forEach(s => s.remove());
           body.querySelectorAll('h1').forEach(h => h.remove());
-          if (window.TechOnUI && window.TechOnUI.init) window.TechOnUI.init();
+          if (window.toui && window.toui.init) window.toui.init();
         }
       }).catch(() => { body.innerHTML = '<div style="text-align:center;padding:40px;color:#f33;">Failed to load</div>'; });
     }

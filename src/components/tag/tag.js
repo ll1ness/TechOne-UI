@@ -13,4 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new TechOnTag(el);
     el.setAttribute('data-initialized', 'true');
   });
-});
+});window.toui.tag = TechOnTag;

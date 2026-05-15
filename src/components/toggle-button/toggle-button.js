@@ -30,4 +30,4 @@ class TechOnToggleButton {
     this.selected = selected;
     this.element.setAttribute('data-selected', selected ? 'true' : 'false');
   }
-}
+}window.toui.toggleButton = TechOnToggleButton;
