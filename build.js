@@ -37,68 +37,6 @@ let jsContent = `
 
 jsContent += '\n' + readFileSync('main.js', 'utf8');
 
-const inlineScript = `
-(function() {
-    var container = document.getElementById('components-container');
-    if (!container) return;
-    function loadComponents() {
-        fetch('components/')
-            .then(function(r) { return r.text(); })
-            .then(function(text) {
-                var parser = new DOMParser();
-                var doc = parser.parseFromString(text, 'text/html');
-                var links = doc.querySelectorAll('a[href$="/"]');
-                var components = [];
-                for (var i = 0; i < links.length; i++) {
-                    var name = links[i].textContent.replace('/', '');
-                    if (name && !name.startsWith('.')) {
-                        components.push({ name: name, url: 'components/' + name + '/index.html' });
-                    }
-                }
-                container.innerHTML = '';
-                components.forEach(function(comp) {
-                    var preview = document.createElement('div');
-                    preview.className = 'component-preview';
-                    preview.innerHTML = '<div class="component-title">' + comp.name + '</div><div class="component-content" data-component="' + comp.name + '"><span style="color:#666;">Loading...</span></div>';
-                    container.appendChild(preview);
-                    fetch(comp.url)
-                        .then(function(r) { return r.text(); })
-                        .then(function(html) {
-                            var compDoc = parser.parseFromString(html, 'text/html');
-                            var body = compDoc.querySelector('body');
-                            if (body) {
-                                var contentEl = preview.querySelector('.component-content');
-                                contentEl.innerHTML = body.innerHTML;
-                                var scripts = contentEl.querySelectorAll('script');
-                                scripts.forEach(function(s) { s.remove(); });
-                                requestAnimationFrame(function() {
-                                    scripts.forEach(function(s) {
-                                        var newScript = document.createElement('script');
-                                        newScript.textContent = s.textContent;
-                                        contentEl.appendChild(newScript);
-                                    });
-                                    if (window.TechOnUI && window.TechOnUI.init) window.TechOnUI.init();
-                                });
-                            }
-                        })
-                        .catch(function() {
-                            preview.querySelector('.component-content').innerHTML = '<span class="error">Failed to load</span>';
-                        });
-                });
-            })
-            .catch(function(e) {
-                container.innerHTML = '<div class="error">Error: ' + e.message + '</div>';
-            });
-    }
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', loadComponents);
-    } else {
-        loadComponents();
-    }
-})();
-`;
-jsContent += '\n' + inlineScript;
-
 for (const f of jsSystems) {
   jsContent += '\n' + readFileSync(f, 'utf8');
 }
