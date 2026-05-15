@@ -3,7 +3,7 @@
    ============================================ */
 @font-face {
   font-family: 'TechOnCartoon';
-  src: url('/ttf/cartoon.ttf') format('truetype');
+  src: url('ttf/cartoon.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: 'TechOnNotes';
-  src: url('/ttf/notes.ttf') format('truetype');
+  src: url('ttf/notes.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
