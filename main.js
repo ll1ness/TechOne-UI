@@ -7,12 +7,16 @@
 // Build Check - Verify build exists before loading
 // ============================================
 function checkBuildExists() {
+  if (document.getElementById('techon-ui-styles') || document.querySelector('script[src*="techon-ui.min.js"]')) {
+    console.log('TechOne UI build found ✓');
+    return;
+  }
+
   const script = document.createElement('script');
   script.src = './build/techon-ui.min.js';
-  script.async = false;
 
   script.onload = function() {
-    console.log('TechOne UI build found ✓');
+    console.log('TechOne UI build loaded ✓');
   };
 
   script.onerror = function() {
@@ -101,7 +105,9 @@ function showBuildMissingOverlay() {
   document.body.style.overflow = 'hidden';
 }
 
-if (document.readyState === 'loading') {
+if (document.getElementById('techon-ui-styles')) {
+  console.log('TechOne UI build found ✓');
+} else if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', checkBuildExists);
 } else {
   checkBuildExists();

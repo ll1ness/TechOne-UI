@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechOn UI - Component Preview</title>
+    <script src="build/techon-ui.min.js"></script>
+    <script src="systems/init.js"></script>
     <script src="main.js"></script>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -113,7 +115,22 @@
                             contentEl.innerHTML = content;
                             
                             const scripts = contentEl.querySelectorAll('script');
-                            scripts.forEach(s => s.remove());
+                            const scriptContents = [];
+                            scripts.forEach(s => {
+                                scriptContents.push(s.textContent);
+                                s.remove();
+                            });
+                            
+                            requestAnimationFrame(() => {
+                                scripts.forEach((s, i) => {
+                                    const newScript = document.createElement('script');
+                                    newScript.textContent = scriptContents[i];
+                                    contentEl.appendChild(newScript);
+                                });
+                                if (window.TechOnUI && window.TechOnUI.init) {
+                                    window.TechOnUI.init();
+                                }
+                            });
                         }
                     } catch (e) {
                         preview.querySelector('.component-content').innerHTML = 

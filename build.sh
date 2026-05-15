@@ -1,62 +1,71 @@
 #!/bin/bash
 
 # TechOn UI Build Script
-# Auto-discovers and bundles all JS and CSS into a single techon-ui.min.js
+# Bundles all JS and CSS into a single techon-ui.min.js
 
 set -e
 
 PROJECT_ROOT="/home/maksimian/projects/techone-ui"
 BUILD_DIR="${PROJECT_ROOT}/build"
 DIST_FILE="${BUILD_DIR}/techon-ui.min.js"
-TMP_DIR="${BUILD_DIR}/_tmp"
+TMP_FILE="${BUILD_DIR}/_bundle.js"
 
 echo "Building TechOn UI..."
 echo "====================="
 
-rm -rf "${TMP_DIR}"
-mkdir -p "${TMP_DIR}"
-
+mkdir -p "${BUILD_DIR}"
 cd "${PROJECT_ROOT}"
 
-echo "Discovering components..."
-ROOT_CSS=$(find . -maxdepth 1 -name "*.css" -type f ! -name "*.min.css" 2>/dev/null | sort)
-COMP_JS=$(find src -name "*.js" -type f 2>/dev/null | sort)
-COMP_CSS=$(find src -name "*.css" -type f 2>/dev/null | sort)
+echo "Discovering files..."
 
-echo "Combining CSS..."
-{
-  echo "/* TechOn UI Styles */"
-  for f in $ROOT_CSS; do echo ""; cat "$f"; done
-  for f in $COMP_CSS; do echo ""; cat "$f"; done
-} > "${TMP_DIR}/all.css"
+CSS_FILES=$(find . -name "*.css" -not -name "*.min.css" -type f 2>/dev/null | sort)
+JS_COMPONENTS=$(find src -name "*.js" -type f 2>/dev/null | sort)
+JS_SYSTEMS=$(find systems -name "*.js" -type f 2>/dev/null | sort)
 
-echo "Bundling JS..."
+echo "Bundling CSS and JS..."
+
 {
-  echo "// TechOn UI"
+  echo "// TechOn UI - Bundled"
+  echo ""
+  
+  echo "// CSS Injection"
+  printf "var __css__="
+  for f in $CSS_FILES; do
+    cat "$f"
+  done | python3 -c 'import sys,json; print(json.dumps(sys.stdin.read()))'
+  echo ";"
+  echo "!function(){var s=document.createElement('style');s.id='techon-ui-styles';s.textContent=__css__;if(!document.getElementById('techon-ui-styles'))document.head.appendChild(s);}();"
+  echo ""
+  
+  echo "// Main JS"
   cat main.js
   echo ""
-  for f in $COMP_JS; do
+  
+  echo "// Systems JS"
+  for f in $JS_SYSTEMS; do
     echo ""
     cat "$f"
   done
-} > "${TMP_DIR}/bundle.js"
+  
+  echo ""
+  
+  echo "// Component JS"
+  for f in $JS_COMPONENTS; do
+    echo ""
+    cat "$f"
+  done
+  
+} > "${TMP_FILE}"
 
-echo "Adding CSS injection..."
-CSS_STRING=$(cat "${TMP_DIR}/all.css" | python3 -c 'import sys,json; print(json.dumps(sys.stdin.read()))')
-
-cat >> "${TMP_DIR}/bundle.js" << INJEOF
-;var __css__=${CSS_STRING};(function(){var s=document.createElement('style');s.id='techon-ui-styles';s.textContent=__css__;if(!document.getElementById('techon-ui-styles'))document.head.appendChild(s);})();
-INJEOF
-
-echo "Minifying..."
-esbuild "${TMP_DIR}/bundle.js" \
+echo "Minifying with esbuild..."
+esbuild "${TMP_FILE}" \
   --minify \
   --outfile="${DIST_FILE}" \
   --format=iife \
   --global-name=TechOnUI \
-  2>&1 | grep -E "^(✘|⚡)" || true
+  2>&1 || true
 
-rm -rf "${TMP_DIR}"
+rm -f "${TMP_FILE}"
 
 if [ -f "${DIST_FILE}" ]; then
   SIZE=$(wc -c < "${DIST_FILE}")
@@ -64,4 +73,7 @@ if [ -f "${DIST_FILE}" ]; then
   echo "Build complete!"
   echo "Output: ${DIST_FILE}"
   echo "Size: $((SIZE / 1024)) KB"
+else
+  echo "Build failed!"
+  exit 1
 fi
