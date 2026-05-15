@@ -3,7 +3,7 @@
    ============================================ */
 @font-face {
   font-family: 'TechOnCartoon';
-  src: url('ttf/cartoon.ttf') format('truetype');
+  src: url('/ttf/cartoon.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: 'TechOnNotes';
-  src: url('ttf/notes.ttf') format('truetype');
+  src: url('/ttf/notes.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -48,6 +48,17 @@ h1, h2 {
 /* ============================================
    Variables
    ============================================ */
+:root {
+  --to-bg: #030303;
+  --to-bg-card: #0c0c0c;
+  --to-bg-secondary: #0a0a0a;
+  --to-bg-tertiary: #1a1a1a;
+  --to-text: #f0f0f0;
+  --to-text-muted: #a0a0a0;
+  --to-border: #1a1a1a;
+  --to-border-light: #2a2a2a;
+  --to-primary: #f0f0f0;
+}
 
 img {
   max-width: 100%;
@@ -1342,3 +1353,50 @@ img[loading="lazy"].loaded {
   }
 }
 
+
+/* ============================================
+   Demo Page Styles
+   ============================================ */
+.components-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 40px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.component-preview {
+    border: 2px solid var(--to-border);
+    padding: 30px;
+    background: var(--to-bg-secondary);
+}
+
+.component-title {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--to-border);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.component-content {
+    min-height: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.loading {
+    text-align: center;
+    padding: 60px;
+    color: #666;
+}
+
+.error {
+    color: #ff3333;
+    padding: 20px;
+    text-align: center;
+}

@@ -4,12 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechOn UI - Component Preview</title>
+    <script src="build/techon-ui.min.js"></script>
+    <script src="main.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Courier New', monospace;
+            background: #030303;
+            color: #f0f0f0;
+            padding: 40px;
+            min-height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .component-preview {
+            border: 2px solid #1a1a1a;
+            padding: 30px;
+            background: #0a0a0a;
+        }
+        .component-title {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .component-content {
+            min-height: 80px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+        }
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: #666;
+        }
+        .error {
+            color: #ff3333;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <h1>TechOn UI Component Preview</h1>
     <div class="components-grid" id="components-container">
         <div class="loading">Loading components...</div>
     </div>
-    <script type="module" src="/src/main.js"></script>
+
+    <script>
+    (async function() {
+        const container = document.getElementById('components-container');
+        
+        async function loadComponents() {
+            try {
+                const response = await fetch('src/components');
+                const text = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                const links = doc.querySelectorAll('a[href$="/"]');
+                
+                const components = [];
+                for (const link of links) {
+                    const name = link.textContent.replace('/', '');
+                    if (name && !name.startsWith('.')) {
+                        components.push({
+                            name: name,
+                            url: `src/components/${name}/index.html`
+                        });
+                    }
+                }
+                
+                container.innerHTML = '';
+                
+                for (const comp of components) {
+                    const preview = document.createElement('div');
+                    preview.className = 'component-preview';
+                    preview.innerHTML = `
+                        <div class="component-title">${comp.name}</div>
+                        <div class="component-content" data-component="${comp.name}">
+                            <span style="color:#666;">Loading...</span>
+                        </div>
+                    `;
+                    container.appendChild(preview);
+                    
+                    try {
+                        const compResponse = await fetch(comp.url);
+                        const compHtml = await compResponse.text();
+                        const compDoc = parser.parseFromString(compHtml, 'text/html');
+                        const body = compDoc.querySelector('body');
+                        
+                        if (body) {
+                            const content = body.innerHTML;
+                            const contentEl = preview.querySelector('.component-content');
+                            contentEl.innerHTML = content;
+                            
+                            const scripts = contentEl.querySelectorAll('script');
+                            const scriptContents = [];
+                            scripts.forEach(s => {
+                                scriptContents.push(s.textContent);
+                                s.remove();
+                            });
+                            
+                            requestAnimationFrame(() => {
+                                scripts.forEach((s, i) => {
+                                    const newScript = document.createElement('script');
+                                    newScript.textContent = scriptContents[i];
+                                    contentEl.appendChild(newScript);
+                                });
+                                if (window.TechOnUI && window.TechOnUI.init) {
+                                    window.TechOnUI.init();
+                                }
+                            });
+                        }
+                    } catch (e) {
+                        preview.querySelector('.component-content').innerHTML = 
+                            `<span class="error">Failed to load</span>`;
+                    }
+                }
+                
+                if (container.children.length === 0) {
+                    container.innerHTML = '<div class="error">No components found</div>';
+                }
+            } catch (e) {
+                container.innerHTML = `<div class="error">Error: ${e.message}</div>`;
+            }
+        }
+        
+        loadComponents();
+    })();
+    </script>
 </body>
 </html>

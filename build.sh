@@ -19,8 +19,8 @@ cd "${PROJECT_ROOT}"
 echo "Discovering files..."
 
 CSS_FILES=$(find . -name "*.css" -not -name "*.min.css" -type f 2>/dev/null | sort)
-JS_COMPONENTS=$(find src -name "*.js" -type f 2>/dev/null | sort)
-JS_SYSTEMS=$(find systems -name "*.js" -type f 2>/dev/null | sort)
+JS_COMPONENTS=$(find src/components -name "*.js" -type f 2>/dev/null | sort)
+JS_SYSTEMS=$(find src/systems -name "*.js" -type f 2>/dev/null | sort)
 
 echo "Bundling CSS and JS..."
 
