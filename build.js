@@ -14,6 +14,7 @@ mkdirSync(DIST_DIR, { recursive: true });
 
 copyDir('src/components', join(DIST_DIR, 'components'));
 copyDir('ttf', join(DIST_DIR, 'ttf'));
+copyFileSync('styles.css', join(DIST_DIR, 'styles.css'));
 
 const cssFiles = getFiles('.', 'css').filter(f => !f.includes('.min.css'));
 const jsComponents = getFiles('src/components', 'js');
@@ -129,10 +130,10 @@ const html = `
 
 writeFileSync(join(DIST_DIR, 'index.html'), html);
 
-const size = readFileSync(join(DIST_DIR, 'techon-ui.min.js')).length;
+rmSync(join(DIST_DIR, '_bundle.js'), { force: true });
 console.log('\nBuild complete!');
 console.log('Output: dist/');
-console.log('Size: ' + Math.round(size / 1024) + ' KB');
+console.log('Size: ' + Math.round(readFileSync(join(DIST_DIR, 'techon-ui.min.js')).length / 1024) + ' KB');
 
 function copyDir(src, dest) {
   mkdirSync(dest, { recursive: true });
