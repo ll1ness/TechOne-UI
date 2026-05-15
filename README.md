@@ -1,7 +1,7 @@
 <div align="center">
-
-# TechOne UI
-
+<img src="icon.png" width="64" height="64" alt="techone-logo">
+  
+### TechOne UI
 _Open-source UI framework. Zero deps._
 
 [![GitHub](https://img.shields.io/badge/GitHub-ll1ness-333?style=flat-square&logo=github)](https://github.com/ll1ness/techone-ui)
