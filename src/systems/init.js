@@ -18,25 +18,52 @@ function initAccordion() {
 function initDropdown() {
   document.querySelectorAll('.to-dropdown:not([data-initialized])').forEach(el => {
     const trigger = el.querySelector('.to-dropdown-trigger');
+    const menu = el.querySelector('.to-dropdown-menu');
     let isOpen = false;
+    let portal = null;
+
+    function positionMenu() {
+      if (!trigger || !menu) return;
+      const rect = trigger.getBoundingClientRect();
+      menu.style.position = 'fixed';
+      menu.style.top = (rect.bottom + 8) + 'px';
+      menu.style.left = rect.left + 'px';
+      menu.style.width = Math.max(200, rect.width) + 'px';
+    }
+
+    function open() {
+      isOpen = true;
+      el.setAttribute('data-open', 'true');
+      positionMenu();
+      window.addEventListener('scroll', positionMenu, { passive: true });
+      window.addEventListener('resize', positionMenu, { passive: true });
+    }
+
+    function close() {
+      isOpen = false;
+      el.setAttribute('data-open', 'false');
+      menu.style.position = '';
+      menu.style.top = '';
+      menu.style.left = '';
+      menu.style.width = '';
+      window.removeEventListener('scroll', positionMenu);
+      window.removeEventListener('resize', positionMenu);
+    }
 
     trigger?.addEventListener('click', (e) => {
       e.stopPropagation();
-      isOpen = !isOpen;
-      el.setAttribute('data-open', isOpen ? 'true' : 'false');
+      if (isOpen) close(); else open();
     });
 
     document.addEventListener('click', (e) => {
       if (!el.contains(e.target) && isOpen) {
-        isOpen = false;
-        el.setAttribute('data-open', 'false');
+        close();
       }
     });
 
     el.querySelectorAll('.to-dropdown-item').forEach(item => {
       item.addEventListener('click', () => {
-        isOpen = false;
-        el.setAttribute('data-open', 'false');
+        close();
         const value = item.textContent.trim();
         const valueEl = trigger?.querySelector('.to-dropdown-value');
         if (valueEl) valueEl.textContent = value;

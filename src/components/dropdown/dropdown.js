@@ -11,7 +11,7 @@ class TechOnDropdown {
     if (this.trigger) {
       this.trigger.addEventListener('click', (e) => {
         e.stopPropagation();
-        this.toggle();
+        if (this.open) this.close(); else this.open_();
       });
     }
 
@@ -22,20 +22,36 @@ class TechOnDropdown {
     });
   }
 
-  toggle() {
-    this.open = !this.open;
-    this.element.setAttribute('data-open', this.open ? 'true' : 'false');
+  positionMenu() {
+    if (!this.trigger || !this.menu) return;
+    const rect = this.trigger.getBoundingClientRect();
+    this.menu.style.position = 'fixed';
+    this.menu.style.top = (rect.bottom + 8) + 'px';
+    this.menu.style.left = rect.left + 'px';
+    this.menu.style.width = Math.max(200, rect.width) + 'px';
+  }
+
+  open_() {
+    this.open = true;
+    this.element.setAttribute('data-open', 'true');
+    this.positionMenu();
+    this._onScroll = () => this.positionMenu();
+    this._onResize = () => this.positionMenu();
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onResize, { passive: true });
   }
 
   close() {
     this.open = false;
     this.element.setAttribute('data-open', 'false');
+    if (this.menu) {
+      this.menu.style.position = '';
+      this.menu.style.top = '';
+      this.menu.style.left = '';
+      this.menu.style.width = '';
+    }
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('resize', this._onResize);
   }
-
-  selectItem(item) {
-    const value = item.textContent.trim();
-    const valueEl = this.trigger?.querySelector('.to-dropdown-value');
-    if (valueEl) valueEl.textContent = value;
-    this.close();
-  }
-}window.toui.dropdown = TechOnDropdown;
+}
+window.toui.dropdown = TechOnDropdown;
