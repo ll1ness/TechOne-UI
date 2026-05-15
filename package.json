@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node build.js --dev",
-    "build": "node build.js",
-    "preview": "npx serve dist -l 3000"
+    "dev": "npx serve dist -l 3000",
+    "build": "node build.js"
   },
   "devDependencies": {
     "esbuild": "^0.20.0",
