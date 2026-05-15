@@ -31,4 +31,11 @@ class TechOnDropdown {
     this.open = false;
     this.element.setAttribute('data-open', 'false');
   }
+
+  selectItem(item) {
+    const value = item.textContent.trim();
+    const valueEl = this.trigger?.querySelector('.to-dropdown-value');
+    if (valueEl) valueEl.textContent = value;
+    this.close();
+  }
 }

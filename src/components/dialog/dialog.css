@@ -14,8 +14,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,32 +23,14 @@
 
 .to-dialog {
   background: #0c0c0c;
-  border: 2px solid #1a1a1a;
+  border: 1px solid #333;
   border-radius: 12px;
   max-width: 500px;
   width: 90%;
   padding: 24px;
   position: relative;
-  overflow: hidden;
   animation: to-dialog-appear 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.to-dialog::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(255, 255, 255, 0.02) 10px,
-    rgba(255, 255, 255, 0.02) 20px
-  );
-  animation: matrix-dialog 20s linear infinite;
-  pointer-events: none;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
 }
 
 @keyframes to-dialog-appear {
@@ -90,7 +72,7 @@
   border: 2px solid #1a1a1a;
   background: #0c0c0c;
   color: #f0f0f0;
-  font-family: 'Courier New', monospace;
+  font-family: 'TechOnCartoon', 'Courier New', monospace;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;

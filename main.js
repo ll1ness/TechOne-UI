@@ -7,27 +7,17 @@
     const container = document.getElementById('components-container');
     if (!container) return;
 
-    fetch('components/')
-      .then(r => r.text())
-      .then(text => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(text, 'text/html');
-        const links = doc.querySelectorAll('a[href$="/"]');
-        
-        const components = [];
-        for (const link of links) {
-          const name = link.textContent.replace('/', '');
-          if (name && !name.startsWith('.')) {
-            components.push({
-              name: name,
-              url: `components/${name}/index.html`
-            });
-          }
-        }
+    fetch('components.json')
+      .then(r => r.json())
+      .then(components => {
+        const comps = components.map(name => ({
+          name,
+          url: `components/${name}/index.html`
+        }));
         
         container.innerHTML = '';
         
-        components.forEach(comp => {
+        const loadPromises = comps.map(comp => {
           const preview = document.createElement('div');
           preview.className = 'component-preview';
           preview.innerHTML = `
@@ -38,9 +28,10 @@
           `;
           container.appendChild(preview);
           
-          fetch(comp.url)
+          return fetch(comp.url)
             .then(r => r.text())
             .then(html => {
+              const parser = new DOMParser();
               const compDoc = parser.parseFromString(html, 'text/html');
               const body = compDoc.querySelector('body');
               if (body) {
@@ -51,22 +42,34 @@
                 const scripts = contentEl.querySelectorAll('script');
                 scripts.forEach(s => s.remove());
                 
+                return scripts;
+              }
+              return [];
+            })
+            .then(scripts => {
+              return new Promise(resolve => {
                 requestAnimationFrame(() => {
                   scripts.forEach(s => {
+                    if (s.src) return;
                     const newScript = document.createElement('script');
                     newScript.textContent = s.textContent;
-                    contentEl.appendChild(newScript);
+                    preview.querySelector('.component-content').appendChild(newScript);
                   });
-                  if (window.TechOnUI && window.TechOnUI.init) {
-                    window.TechOnUI.init();
-                  }
+                  resolve();
                 });
-              }
+              });
             })
             .catch(() => {
               preview.querySelector('.component-content').innerHTML = 
                 '<span class="error">Failed to load</span>';
+              return Promise.resolve();
             });
+        });
+        
+        Promise.all(loadPromises).then(() => {
+          if (window.TechOnUI && window.TechOnUI.init) {
+            window.TechOnUI.init();
+          }
         });
       })
       .catch(e => {

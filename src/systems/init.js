@@ -37,6 +37,9 @@ function initDropdown() {
       item.addEventListener('click', () => {
         isOpen = false;
         el.setAttribute('data-open', 'false');
+        const value = item.textContent.trim();
+        const valueEl = trigger?.querySelector('.to-dropdown-value');
+        if (valueEl) valueEl.textContent = value;
       });
     });
 
@@ -112,16 +115,16 @@ function initToggleButton() {
     el.addEventListener('click', (e) => {
       e.preventDefault();
 
-      if (group) {
-        group.querySelectorAll('.to-toggle-button').forEach(btn => {
-          if (btn !== el) {
-            btn.setAttribute('data-selected', 'false');
-          }
-        });
-      }
-
       const isSelected = el.getAttribute('data-selected') === 'true';
-      el.setAttribute('data-selected', isSelected ? 'false' : 'true');
+
+      if (group) {
+        if (isSelected) return;
+        group.querySelectorAll('.to-toggle-button').forEach(btn => {
+          btn.setAttribute('data-selected', btn === el ? 'true' : 'false');
+        });
+      } else {
+        el.setAttribute('data-selected', isSelected ? 'false' : 'true');
+      }
     });
 
     el.setAttribute('data-initialized', 'true');
@@ -156,4 +159,5 @@ if (document.readyState === 'loading') {
   initAll();
 }
 
-window.TechOnUI = { init: initAll };
+window.TechOnUI = window.TechOnUI || {};
+window.TechOnUI.init = initAll;

@@ -14,10 +14,12 @@ mkdirSync(DIST_DIR, { recursive: true });
 
 copyDir('src/components', join(DIST_DIR, 'components'));
 copyDir('ttf', join(DIST_DIR, 'ttf'));
-copyFileSync('src/styles.css', join(DIST_DIR, 'styles.css'));
-copyFileSync('src/main.js', join(DIST_DIR, 'main.js'));
+copyFileSync('styles.css', join(DIST_DIR, 'styles.css'));
+copyFileSync('main.js', join(DIST_DIR, 'main.js'));
+if (existsSync('favicon.ico')) copyFileSync('favicon.ico', join(DIST_DIR, 'favicon.ico'));
+if (existsSync('components.json')) copyFileSync('components.json', join(DIST_DIR, 'components.json'));
 
-const cssFiles = getFiles('src', 'css').filter(f => !f.includes('.min.css') && !f.includes('/dist/'));
+const cssFiles = getFiles('.', 'css').filter(f => !f.includes('.min.css') && !f.includes('dist/'));
 const jsComponents = getFiles('src/components', 'js');
 const jsSystems = getFiles('src/systems', 'js').filter(f => !f.includes('dist'));
 
@@ -36,11 +38,11 @@ let jsContent = `
 })();
 `;
 
-jsContent += '\n' + readFileSync('src/main.js', 'utf8');
-
 for (const f of jsSystems) {
   jsContent += '\n' + readFileSync(f, 'utf8');
 }
+
+jsContent += '\n' + readFileSync('main.js', 'utf8');
 
 for (const f of jsComponents) {
   jsContent += '\n' + readFileSync(f, 'utf8');
@@ -54,29 +56,11 @@ await esbuild.build({
   minify: true,
   outfile: join(DIST_DIR, 'techon-ui.min.js'),
   format: 'iife',
-  globalName: 'TechOnUI',
+  // globalName: 'TechOnUI',
   logLevel: 'silent'
 });
 
-const html = `
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechOn UI - Component Preview</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="techon-ui.min.js" defer></script>
-</head>
-<body>
-    <h1>TechOn UI Component Preview</h1>
-    <div class="components-grid" id="components-container">
-        <div class="loading">Loading components...</div>
-    </div>
-</body>
-</html>`;
-
-writeFileSync(join(DIST_DIR, 'index.html'), html);
+copyFileSync('index.html', join(DIST_DIR, 'index.html'));
 
 rmSync(join(DIST_DIR, '_bundle.js'), { force: true });
 console.log('\nBuild complete!');
