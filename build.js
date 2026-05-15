@@ -17,6 +17,7 @@ copyDir('ttf', join(DIST_DIR, 'ttf'));
 copyFileSync('styles.css', join(DIST_DIR, 'styles.css'));
 copyFileSync('main.js', join(DIST_DIR, 'main.js'));
 if (existsSync('favicon.ico')) copyFileSync('favicon.ico', join(DIST_DIR, 'favicon.ico'));
+if (existsSync('icon.png')) copyFileSync('icon.png', join(DIST_DIR, 'icon.png'));
 if (existsSync('components.json')) copyFileSync('components.json', join(DIST_DIR, 'components.json'));
 
 const cssFiles = getFiles('.', 'css').filter(f => !f.includes('.min.css') && !f.includes('dist/'));
