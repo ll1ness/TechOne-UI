@@ -10,6 +10,7 @@ _Open-source UI framework. Zero deps._
 [![Size](https://img.shields.io/badge/Size-70KB-0f0?style=flat-square)]()
 [![Components](https://img.shields.io/badge/Components-24-f0f0f0?style=flat-square)]()
 [![CDN](https://img.shields.io/badge/CDN-gitHub-333?style=flat-square)](https://github.com/ll1ness/techone-ui)
+[![pages-build-deployment](https://github.com/ll1ness/techone-ui/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ll1ness/techone-ui/actions/workflows/pages/pages-build-deployment)
 <img src="https://github.com/ll1ness/ll1ness/raw/legacy/latte.png" alt="dispatcher" width="550" />
 
 [Install](#quick-start) · [Docs](vault/overview.md) · [Components](#components) · [GitHub](https://github.com/ll1ness/techone-ui)
