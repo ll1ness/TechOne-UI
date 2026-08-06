@@ -52,7 +52,7 @@ function staticAssetsPlugin() {
       }
 
       // Copy root static assets
-      const assets = ['favicon.ico', 'icon.png', 'banner.png', 'components.json'];
+      const assets = ['favicon.ico', 'icon.png', 'banner.png', 'components.json', 'robots.txt', 'sitemap.xml'];
       for (const asset of assets) {
         const src = join(__dirname, asset);
         if (existsSync(src)) {

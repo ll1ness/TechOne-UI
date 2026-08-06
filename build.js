@@ -19,6 +19,8 @@ copyFileSync('main.js', join(DIST_DIR, 'main.js'));
 if (existsSync('favicon.ico')) copyFileSync('favicon.ico', join(DIST_DIR, 'favicon.ico'));
 if (existsSync('icon.png')) copyFileSync('icon.png', join(DIST_DIR, 'icon.png'));
 if (existsSync('components.json')) copyFileSync('components.json', join(DIST_DIR, 'components.json'));
+if (existsSync('robots.txt')) copyFileSync('robots.txt', join(DIST_DIR, 'robots.txt'));
+if (existsSync('sitemap.xml')) copyFileSync('sitemap.xml', join(DIST_DIR, 'sitemap.xml'));
 
 const cssFiles = getFiles('.', 'css').filter(f => !f.includes('.min.css') && !f.includes('dist/'));
 const jsComponents = getFiles('src/components', 'js');
